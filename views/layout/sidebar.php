@@ -50,7 +50,7 @@
 
          <li class="nav-item has-treeview">
            <a href="<?= $base_url; ?>data_klasifikasi_kependudukan" class="nav-link">
-             <i class="nav-icon fas fa-restroom"></i>
+             <i class="nav-icon fas fa-sort-numeric-up"></i>
              <p>
                Klasifikasi Penduduk
              </p>
