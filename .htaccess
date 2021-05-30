@@ -4,19 +4,22 @@ RewriteBase /simkbs/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-RewriteRule ^dashboard$ index.php?views=dashboard
+RewriteRule ^beranda$ index.php?views_user=beranda
 
-RewriteRule ^data_kependudukan$ index.php?views=data_kependudukan
-RewriteRule ^input_data_kependudukan$ index.php?views=input_data_kependudukan
-RewriteRule ^edit_data_kependudukan/([0-9]+)$ index.php?views=edit_data_kependudukan&id=$1 [NC,L]
+RewriteRule ^dashboard$ admin.php?views=dashboard
 
-RewriteRule ^data_kondisi_rumah$ index.php?views=data_kondisi_rumah
-RewriteRule ^input_data_kondisi$ index.php?views=input_data_kondisi
-RewriteRule ^edit_data_kondisi/([0-9]+)$ index.php?views=edit_data_kondisi&id=$1 [NC,L]
+RewriteRule ^data_kependudukan$ admin.php?views=data_kependudukan
+RewriteRule ^input_data_kependudukan$ admin.php?views=input_data_kependudukan
+RewriteRule ^edit_data_kependudukan/([0-9]+)$ admin.php?views=edit_data_kependudukan&id=$1 [NC,L]
 
-RewriteRule ^data_klasifikasi_kependudukan$ index.php?views=data_klasifikasi_kependudukan
-RewriteRule ^data_klasifikasi_bantuan$ index.php?views=data_klasifikasi_bantuan
+RewriteRule ^data_kondisi_rumah$ admin.php?views=data_kondisi_rumah
+RewriteRule ^input_data_kondisi$ admin.php?views=input_data_kondisi
+RewriteRule ^edit_data_kondisi/([0-9]+)$ admin.php?views=edit_data_kondisi&id=$1 [NC,L]
 
-RewriteRule ^([A-Za-z0-9-]+)$ index.php?views=$1
+RewriteRule ^data_klasifikasi_kependudukan$ admin.php?views=data_klasifikasi_kependudukan
+RewriteRule ^data_klasifikasi_bantuan$ admin.php?views=data_klasifikasi_bantuan
+
+RewriteRule ^([A-Za-z0-9-]+)$ admin.php?views=$1
+RewriteRule ^([A-Za-z0-9-]+)$ index.php?views_user=$1
 
 Options All -Indexes
