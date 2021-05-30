@@ -25,7 +25,7 @@ include 'app/post/post_data_kependudukan.php';
                     <div class="card-header">
                         <h3 class="card-title">Rekomendasi Penerima Bantuan</h3>
                         <div class="card-tools">
-                            <a href="#" class="btn btn-success">
+                            <a href="<?= $base_url; ?>app/print/cetak_rekomendasi_bantuan.php" target="_blank" class="btn btn-success">
                                 <i class="fas fa-print"></i> Print
                             </a>
 
@@ -67,7 +67,7 @@ include 'app/post/post_data_kependudukan.php';
 
 
 
-<section class="content">
+<section class="content mt-5">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -75,7 +75,7 @@ include 'app/post/post_data_kependudukan.php';
                     <div class="card-header">
                         <h3 class="card-title">Penerima Bantuan</h3>
                         <div class="card-tools">
-                            <a href="#" class="btn btn-success">
+                            <a href="<?= $base_url ?>app/print/cetak_penerima_bantuan.php" target="_blank" class="btn btn-success">
                                 <i class="fas fa-print"></i> Print
                             </a>
                         </div>
@@ -94,6 +94,7 @@ include 'app/post/post_data_kependudukan.php';
                                         <th>Tgl Lahir</th>
                                         <th>Jenis Kelamin</th>
                                         <th>Dusun</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>

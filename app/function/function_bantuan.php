@@ -71,6 +71,12 @@ function tampil_penerima($mysqli){
         <td><?= tgl_indo($row_peneriama['TGL_LHR']) ?></td>
         <td><?= $row_peneriama['JK'] == '1' ? 'Laki Laki' : 'Perempuan'; ?></td>
         <td><?= $row_peneriama['DSN'] ?></td>
+        <td>
+        <form action="" method="post">
+            <input type="hidden" name="nik" value="<?= $row_peneriama['NIK'] ?>">
+            <button name="hapus_daftar" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i> Hapus Dari Daftar</button>
+        </form>
+        </td>
     </tr>
    <?php
    } 
