@@ -100,3 +100,14 @@ if(isset($_POST['update_bntn'])){
     </script>
     ';
 }
+if(isset($_POST['hapus_daftar'])){
+    $nik = $_POST['nik'];
+    $update = $mysqli->query("UPDATE tabel_Kependudukan SET bantuan = '0', jenis_bantuan = '' WHERE NIK = '$nik'");
+    echo '
+    <script>
+    alert("Berhasil Menghapus Penduduk Dari Daftar");
+    document.location.href="data_klasifikasi_bantuan";
+    </script>
+    ';
+
+}
