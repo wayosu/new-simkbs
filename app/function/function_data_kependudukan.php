@@ -32,6 +32,7 @@ function tampil_data($mysqli)
                         <button class="dropdown-item" type="submit" name="hapus_data" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</button>
                     </form>
                     <a href="edit_data_kependudukan/<?= $row['NIK']; ?>" class="dropdown-item">Edit</a>
+                    <a href="detail_penduduk/<?= $row['NIK']; ?>" class="dropdown-item">Detail</a>
                 </div>
             </td>
         </tr>
