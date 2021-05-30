@@ -338,6 +338,7 @@ if (isset($_POST['edit_data'])) {
                             <select class="form-control select2" name="pekerjaan" style="width: 100%;">
                                 <option hidden>--Pilih Pekerjaan--</option>
                                 <?php if ($row['PEKERJAAN'] == 'Petani') : ?>
+                                    <option value="Tidak Bekerja">Tidak Bekerja</option>
                                     <option value="Petani" selected>Petani</option>
                                     <option value="Buruh Tani">Buruh Tani</option>
                                     <option value="Buruh Bangunan">Buruh Bangunan</option>
@@ -352,6 +353,7 @@ if (isset($_POST['edit_data'])) {
                                     <option value="TKI">TKI</option>
                                     <option value="Lainnya">Lainnya</option>
                                 <?php elseif ($row['PEKERJAAN'] == 'Buruh Tani') : ?>
+                                    <option value="Tidak Bekerja">Tidak Bekerja</option>
                                     <option value="Petani">Petani</option>
                                     <option value="Buruh Tani" selected>Buruh Tani</option>
                                     <option value="Buruh Bangunan">Buruh Bangunan</option>
@@ -366,6 +368,7 @@ if (isset($_POST['edit_data'])) {
                                     <option value="TKI">TKI</option>
                                     <option value="Lainnya">Lainnya</option>
                                 <?php elseif ($row['PEKERJAAN'] == 'Buruh Bangunan') : ?>
+                                    <option value="Tidak Bekerja">Tidak Bekerja</option>
                                     <option value="Petani">Petani</option>
                                     <option value="Buruh Tani">Buruh Tani</option>
                                     <option value="Buruh Bangunan" selected>Buruh Bangunan</option>
@@ -380,6 +383,7 @@ if (isset($_POST['edit_data'])) {
                                     <option value="TKI">TKI</option>
                                     <option value="Lainnya">Lainnya</option>
                                 <?php elseif ($row['PEKERJAAN'] == 'Buruh Perkebunan') : ?>
+                                    <option value="Tidak Bekerja">Tidak Bekerja</option>
                                     <option value="Petani">Petani</option>
                                     <option value="Buruh Tani">Buruh Tani</option>
                                     <option value="Buruh Bangunan">Buruh Bangunan</option>
@@ -394,6 +398,7 @@ if (isset($_POST['edit_data'])) {
                                     <option value="TKI">TKI</option>
                                     <option value="Lainnya">Lainnya</option>
                                 <?php elseif ($row['PEKERJAAN'] == 'Nelayan') : ?>
+                                    <option value="Tidak Bekerja">Tidak Bekerja</option>
                                     <option value="Petani">Petani</option>
                                     <option value="Buruh Tani">Buruh Tani</option>
                                     <option value="Buruh Bangunan">Buruh Bangunan</option>
@@ -408,6 +413,7 @@ if (isset($_POST['edit_data'])) {
                                     <option value="TKI">TKI</option>
                                     <option value="Lainnya">Lainnya</option>
                                 <?php elseif ($row['PEKERJAAN'] == 'Guru') : ?>
+                                    <option value="Tidak Bekerja">Tidak Bekerja</option>
                                     <option value="Petani">Petani</option>
                                     <option value="Buruh Tani">Buruh Tani</option>
                                     <option value="Buruh Bangunan">Buruh Bangunan</option>
@@ -422,6 +428,7 @@ if (isset($_POST['edit_data'])) {
                                     <option value="TKI">TKI</option>
                                     <option value="Lainnya">Lainnya</option>
                                 <?php elseif ($row['PEKERJAAN'] == 'Pedagang') : ?>
+                                    <option value="Tidak Bekerja">Tidak Bekerja</option>
                                     <option value="Petani">Petani</option>
                                     <option value="Buruh Tani">Buruh Tani</option>
                                     <option value="Buruh Bangunan">Buruh Bangunan</option>
@@ -436,6 +443,7 @@ if (isset($_POST['edit_data'])) {
                                     <option value="TKI">TKI</option>
                                     <option value="Lainnya">Lainnya</option>
                                 <?php elseif ($row['PEKERJAAN'] == 'Pengolahan/Industri') : ?>
+                                    <option value="Tidak Bekerja">Tidak Bekerja</option>
                                     <option value="Petani">Petani</option>
                                     <option value="Buruh Tani">Buruh Tani</option>
                                     <option value="Buruh Bangunan">Buruh Bangunan</option>
@@ -450,6 +458,7 @@ if (isset($_POST['edit_data'])) {
                                     <option value="TKI">TKI</option>
                                     <option value="Lainnya">Lainnya</option>
                                 <?php elseif ($row['PEKERJAAN'] == 'PNS') : ?>
+                                    <option value="Tidak Bekerja">Tidak Bekerja</option>
                                     <option value="Petani">Petani</option>
                                     <option value="Buruh Tani">Buruh Tani</option>
                                     <option value="Buruh Bangunan">Buruh Bangunan</option>
@@ -464,6 +473,7 @@ if (isset($_POST['edit_data'])) {
                                     <option value="TKI">TKI</option>
                                     <option value="Lainnya">Lainnya</option>
                                 <?php elseif ($row['PEKERJAAN'] == 'Pensiunan') : ?>
+                                    <option value="Tidak Bekerja">Tidak Bekerja</option>
                                     <option value="Petani">Petani</option>
                                     <option value="Buruh Tani">Buruh Tani</option>
                                     <option value="Buruh Bangunan">Buruh Bangunan</option>
@@ -478,6 +488,7 @@ if (isset($_POST['edit_data'])) {
                                     <option value="TKI">TKI</option>
                                     <option value="Lainnya">Lainnya</option>
                                 <?php elseif ($row['PEKERJAAN'] == 'Perangkat Desa') : ?>
+                                    <option value="Tidak Bekerja">Tidak Bekerja</option>
                                     <option value="Petani">Petani</option>
                                     <option value="Buruh Tani">Buruh Tani</option>
                                     <option value="Buruh Bangunan">Buruh Bangunan</option>
@@ -492,6 +503,7 @@ if (isset($_POST['edit_data'])) {
                                     <option value="TKI">TKI</option>
                                     <option value="Lainnya">Lainnya</option>
                                 <?php elseif ($row['PEKERJAAN'] == 'TKI') : ?>
+                                    <option value="Tidak Bekerja">Tidak Bekerja</option>
                                     <option value="Petani">Petani</option>
                                     <option value="Buruh Tani">Buruh Tani</option>
                                     <option value="Buruh Bangunan">Buruh Bangunan</option>
@@ -506,6 +518,7 @@ if (isset($_POST['edit_data'])) {
                                     <option value="TKI" selected>TKI</option>
                                     <option value="Lainnya">Lainnya</option>
                                 <?php elseif ($row['PEKERJAAN'] == 'Lainnya') : ?>
+                                    <option value="Tidak Bekerja">Tidak Bekerja</option>
                                     <option value="Petani">Petani</option>
                                     <option value="Buruh Tani">Buruh Tani</option>
                                     <option value="Buruh Bangunan">Buruh Bangunan</option>
@@ -519,7 +532,23 @@ if (isset($_POST['edit_data'])) {
                                     <option value="Perangkat Desa">Perangkat Desa</option>
                                     <option value="TKI">TKI</option>
                                     <option value="Lainnya" selected>Lainnya</option>
+                                <?php elseif ($row['PEKERJAAN'] == 'Tidak Bekerja') : ?>
+                                    <option value="Tidak Bekerja" selected>Tidak Bekerja</option>
+                                    <option value="Petani">Petani</option>
+                                    <option value="Buruh Tani">Buruh Tani</option>
+                                    <option value="Buruh Bangunan">Buruh Bangunan</option>
+                                    <option value="Buruh Perkebunan">Buruh Perkebunan</option>
+                                    <option value="Nelayan">Nelayan</option>
+                                    <option value="Guru">Guru</option>
+                                    <option value="Pedagang">Pedagang</option>
+                                    <option value="Pengolahan/Industri">Pengolahan/Industri</option>
+                                    <option value="PNS">PNS</option>
+                                    <option value="Pensiunan">Pensiunan</option>
+                                    <option value="Perangkat Desa">Perangkat Desa</option>
+                                    <option value="TKI">TKI</option>
+                                    <option value="Lainnya">Lainnya</option>
                                 <?php else : ?>
+                                    <option value="Tidak Bekerja">Tidak Bekerja</option>
                                     <option value="Petani">Petani</option>
                                     <option value="Buruh Tani">Buruh Tani</option>
                                     <option value="Buruh Bangunan">Buruh Bangunan</option>
@@ -898,7 +927,7 @@ if (isset($_POST['edit_data'])) {
                                 <div class="form-group">
                                     <label>Jenis Bantuan</label>
                                     <select class="form-control select ceks" name="jenis_bantuan" style="width: 100%;">
-                                        <option hidden>--Pilih Jenis Tabungan--</option>
+                                        <option hidden>--Pilih Jenis Bantuan--</option>
                                         <?php if ($row['jenis_bantuan'] == "BLT") : ?>
                                             <option value="BLT" selected>BLT</option>
                                             <option value="Program Keluarga Harapan">Program Keluarga Harapan</option>

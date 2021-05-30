@@ -8,6 +8,8 @@ include 'views/layout/user/navbar.php';
 <?php
 if (isset($_GET['views_user']) && $_GET['views_user'] == "beranda") {
     include 'views/pages/user/beranda.php';
+} else if (isset($_GET['views_user']) && $_GET['views_user'] == "list_data") {
+    include 'views/pages/user/list_data.php';
 } else {
     include 'views/pages/user/beranda.php';
 }

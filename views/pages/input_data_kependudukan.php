@@ -106,6 +106,7 @@
                              <label>Pekerjaan Utama</label>
                              <select class="form-control select2" name="pekerjaan" style="width: 100%;">
                                  <option hidden>--Pilih Pekerjaan--</option>
+                                 <option value="Tidak Bekerja">Tidak Bekerja</option>
                                  <option value="Petani">Petani</option>
                                  <option value="Buruh Tani">Buruh Tani</option>
                                  <option value="Buruh Bangunan">Buruh Bangunan</option>
@@ -279,7 +280,7 @@
                                  <div class="form-group">
                                      <label>Jenis Bantuan</label>
                                      <select class="form-control select ceks" name="jenis_bantuan" style="width: 100%;">
-                                         <option hidden>--Pilih Jenis Tabungan--</option>
+                                         <option hidden>--Pilih Jenis Bantuan--</option>
                                          <option value="BLT">BLT</option>
                                          <option value="Program Keluarga Harapan">Program Keluarga Harapan</option>
                                          <option value="Bantuan Sosial Tunai">Bantuan Sosial Tunai</option>

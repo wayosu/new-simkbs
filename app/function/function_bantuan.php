@@ -34,7 +34,7 @@ function tampil_rekom_bantuan($mysqli)
                             <label for="">Jenis Bantuan</label>
                             <select class="form-control" name="jenis_bantuan" style="width: 100%;">
                                  <option hidden>--Pilih Jenis Tabungan--</option>
-                                 <option value="BlT">BLT</option>
+                                 <option value="BLT">BLT</option>
                                  <option value="Program Keluarga Harapan">Program Keluarga Harapan</option>
                                  <option value="Bantuan Sosial Tunai">Bantuan Sosial Tunai</option>
                                  <option value="Bantuan Presiden">Bantuan Presiden</option>
