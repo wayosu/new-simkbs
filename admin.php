@@ -25,6 +25,8 @@ include 'views/layout/sidebar.php';
         include 'views/pages/data_klasifikasi_kependudukan.php';
     } else if (isset($_GET['views']) && $_GET['views'] == "data_klasifikasi_bantuan") {
         include 'views/pages/data_klasifikasi_bantuan.php';
+    } else if (isset($_GET['views']) && $_GET['views'] == "detail_penduduk") {
+        include 'views/pages/detail_penduduk.php';
     } else {
         include 'views/pages/dashboard.php';
     }
