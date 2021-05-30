@@ -37,14 +37,14 @@ if (isset($_POST['simpan_data'])) {
     // var_dump($bhn_makanan, $pakaian_pertahun, $biaya_pengobatan, $frekuensi_perminggu, $makan_perhari);
 
     // data tabungan
-    $kepem_tabungan = isset($_POST['kepem_tabungan']) ? $_POST['kepem_tabungan'] : "1";
-    $jenis_tabungan = isset($_POST['jenis_tabungan']) ? $_POST['kepem_tabungan'] : "0";
-    $harga = isset($_POST['harga']) ? $_POST['harga'] : "0";
+    $kepem_tabungan = isset($_POST['kepem_tabungan']) ? $_POST['kepem_tabungan'] : NULL;
+    $jenis_tabungan = isset($_POST['jenis_tabungan']) ? $_POST['jenis_tabungan'] : NULL;
+    $harga = isset($_POST['harga']) ? $_POST['harga'] : NULL;
     // var_dump($kepem_tabungan, $jenis_tabungan, $harga);
 
     //data bantuan
-    $bantuan = $_POST['penerima_bantuan'];
-    $jenis_bantuan = $_POST['jenis_bantuan'];
+    $bantuan = isset($_POST['penerima_bantuan']) ? $_POST['penerima_bantuan'] : NULL;
+    $jenis_bantuan = isset($_POST['jenis_bantuan']) ? $_POST['jenis_bantuan'] : NULL;
 
     $sql_kependudukan = $mysqli->query("INSERT INTO tabel_kependudukan (NO_KK, NIK, NAMA_LGKP, HBKEL, JK, TMPT_LHR, TGL_LHR, TAHUN, BULAN, HARI, NAMA_LGKP_AYAH, NAMA_LGKP_IBU, KECAMATAN, KELURAHAN, DSN, AGAMA, bantuan, jenis_bantuan) 
     VALUES ('$no_kk', '$nik', '$nm', '$hubkel', '$jk', '$tmp_lahir', '$tgl_lahir', '$tahun', '$bulan', '$hari', '$nm_ayah', '$nm_ibu', 'TILONGKABILA', 'BUTU', '$dusun', '$agama','$bantuan','$jenis_bantuan')");

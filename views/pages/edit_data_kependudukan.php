@@ -5,7 +5,7 @@ $sql = $mysqli->query("SELECT * FROM tabel_kependudukan
                         JOIN tabel_konsumsi ON tabel_kependudukan.NIK = tabel_konsumsi.NIK 
                         JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK 
                         JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK 
-                        JOIN tabel_tabungan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.NIK = '$nik'");
+                        JOIN tabel_tabungan ON tabel_kependudukan.NIK = tabel_tabungan.NIK WHERE tabel_kependudukan.NIK = '$nik'");
 $row = $sql->fetch_assoc();
 
 if (isset($_POST['edit_data'])) {
@@ -41,14 +41,19 @@ if (isset($_POST['edit_data'])) {
     $makan_perhari = $_POST['makan_perhari'];
 
     // data tabungan
-    $kepem_tabungan = isset($_POST['kepem_tabungan']) ? $_POST['kepem_tabungan'] : "1";
-    $jenis_tabungan = isset($_POST['jenis_tabungan']) ? $_POST['kepem_tabungan'] : "0";
-    $harga = isset($_POST['harga']) ? $_POST['harga'] : "0";
+    $kepem_tabungan = isset($_POST['kepem_tabungan']) ? $_POST['kepem_tabungan'] : NULL;
+    $jenis_tabungan = isset($_POST['jenis_tabungan']) ? $_POST['jenis_tabungan'] : NULL;
+    $harga = isset($_POST['harga']) ? $_POST['harga'] : NULL;
+    // var_dump($kepem_tabungan, $jenis_tabungan, $harga);
+
+    //data bantuan
+    $bantuan = isset($_POST['penerima_bantuan']) ? $_POST['penerima_bantuan'] : NULL;
+    $jenis_bantuan = isset($_POST['jenis_bantuan']) ? $_POST['jenis_bantuan'] : NULL;
 
     $sql_kependudukan = $mysqli->query("UPDATE tabel_kependudukan 
                                         SET NAMA_LGKP='$nm', HBKEL='$hubkel', JK='$jk', TMPT_LHR='$tmp_lahir', 
                                         TGL_LHR='$tgl_lahir', TAHUN='$tahun', BULAN='$bulan', HARI='$hari', 
-                                        NAMA_LGKP_AYAH='$nm_ayah', NAMA_LGKP_IBU='$nm_ibu', DSN='$dusun', AGAMA='$agama' WHERE NIK = '$nik'");
+                                        NAMA_LGKP_AYAH='$nm_ayah', NAMA_LGKP_IBU='$nm_ibu', DSN='$dusun', AGAMA='$agama', bantuan='$bantuan', jenis_bantuan='$jenis_bantuan' WHERE NIK = '$nik'");
     $sql_tabungan = $mysqli->query("UPDATE tabel_tabungan 
                                     SET NAMA='$nm', KEPEMILIKAN_TABUNGAN='$kepem_tabungan', JENIS_TABUNGAN='$jenis_tabungan', 
                                     HARGA='$harga' WHERE NIK = '$nik'");
@@ -170,13 +175,20 @@ if (isset($_POST['edit_data'])) {
                                     <option value="budha">Budha</option>
                                     <option value="hindu" selected>Hindu</option>
                                     <option value="khonghucu">Khonghucu</option>
-                                <?php else : ?>
+                                <?php elseif ($row['AGAMA'] == "khonghucu") : ?>
                                     <option value="islam">Islam</option>
                                     <option value="kristen">Kristen</option>
                                     <option value="katolik">Katolik</option>
                                     <option value="budha">Budha</option>
                                     <option value="hindu">Hindu</option>
                                     <option value="khonghucu" selected>Khonghucu</option>
+                                <?php else : ?>
+                                    <option value="islam">Islam</option>
+                                    <option value="kristen">Kristen</option>
+                                    <option value="katolik">Katolik</option>
+                                    <option value="budha">Budha</option>
+                                    <option value="hindu">Hindu</option>
+                                    <option value="khonghucu">Khonghucu</option>
                                 <?php endif; ?>
                             </select>
                         </div>
@@ -191,14 +203,18 @@ if (isset($_POST['edit_data'])) {
                                     <option value="1" selected>Kepala Keluarga</option>
                                     <option value="3">Istri</option>
                                     <option value="9">Anak</option>
-                                <?php elseif ($row['HBKEL'] == 2) : ?>
+                                <?php elseif ($row['HBKEL'] == 3) : ?>
                                     <option value="1">Kepala Keluarga</option>
                                     <option value="3" selected>Istri</option>
                                     <option value="9">Anak</option>
-                                <?php else : ?>
+                                <?php elseif ($row['HBKEL'] == 9) : ?>
                                     <option value="1">Kepala Keluarga</option>
                                     <option value="3">Istri</option>
                                     <option value="9" selected>Anak</option>
+                                <?php else : ?>
+                                    <option value="1">Kepala Keluarga</option>
+                                    <option value="3">Istri</option>
+                                    <option value="9">Anak</option>
                                 <?php endif; ?>
                             </select>
                         </div>
@@ -294,7 +310,7 @@ if (isset($_POST['edit_data'])) {
                                     <option value="S1 dan Sederajat">S1 dan Sederajat</option>
                                     <option value="S2 dan Sederajat" selected>S2 dan Sederajat</option>
                                     <option value="S3 dan Sederajat">S3 dan Sederajat</option>
-                                <?php else : ?>
+                                <?php elseif ($row['PENDIDIKAN_TERAKHIR'] == 'S3 dan Sederajat') : ?>
                                     <option value="Tidak Sekolah">Tidak Sekolah</option>
                                     <option value="Tidak Tamat SD">Tidak Tamat SD</option>
                                     <option value="SD dan Sederajat">SD dan Sederajat</option>
@@ -304,6 +320,16 @@ if (isset($_POST['edit_data'])) {
                                     <option value="S1 dan Sederajat">S1 dan Sederajat</option>
                                     <option value="S2 dan Sederajat">S2 dan Sederajat</option>
                                     <option value="S3 dan Sederajat" selected>S3 dan Sederajat</option>
+                                <?php else : ?>
+                                    <option value="Tidak Sekolah">Tidak Sekolah</option>
+                                    <option value="Tidak Tamat SD">Tidak Tamat SD</option>
+                                    <option value="SD dan Sederajat">SD dan Sederajat</option>
+                                    <option value="SMP dan Sederajat">SMP dan Sederajat</option>
+                                    <option value="SMA dan Sederajat">SMA dan Sederajat</option>
+                                    <option value="Diploma 1-3">Diploma 1-3</option>
+                                    <option value="S1 dan Sederajat">S1 dan Sederajat</option>
+                                    <option value="S2 dan Sederajat">S2 dan Sederajat</option>
+                                    <option value="S3 dan Sederajat">S3 dan Sederajat</option>
                                 <?php endif; ?>
                             </select>
                         </div>
@@ -479,7 +505,7 @@ if (isset($_POST['edit_data'])) {
                                     <option value="Perangkat Desa">Perangkat Desa</option>
                                     <option value="TKI" selected>TKI</option>
                                     <option value="Lainnya">Lainnya</option>
-                                <?php else : ?>
+                                <?php elseif ($row['PEKERJAAN'] == 'Lainnya') : ?>
                                     <option value="Petani">Petani</option>
                                     <option value="Buruh Tani">Buruh Tani</option>
                                     <option value="Buruh Bangunan">Buruh Bangunan</option>
@@ -493,6 +519,20 @@ if (isset($_POST['edit_data'])) {
                                     <option value="Perangkat Desa">Perangkat Desa</option>
                                     <option value="TKI">TKI</option>
                                     <option value="Lainnya" selected>Lainnya</option>
+                                <?php else : ?>
+                                    <option value="Petani">Petani</option>
+                                    <option value="Buruh Tani">Buruh Tani</option>
+                                    <option value="Buruh Bangunan">Buruh Bangunan</option>
+                                    <option value="Buruh Perkebunan">Buruh Perkebunan</option>
+                                    <option value="Nelayan">Nelayan</option>
+                                    <option value="Guru">Guru</option>
+                                    <option value="Pedagang">Pedagang</option>
+                                    <option value="Pengolahan/Industri">Pengolahan/Industri</option>
+                                    <option value="PNS">PNS</option>
+                                    <option value="Pensiunan">Pensiunan</option>
+                                    <option value="Perangkat Desa">Perangkat Desa</option>
+                                    <option value="TKI">TKI</option>
+                                    <option value="Lainnya">Lainnya</option>
                                 <?php endif; ?>
                             </select>
                         </div>
@@ -512,10 +552,14 @@ if (isset($_POST['edit_data'])) {
                                     <option value="1">1</option>
                                     <option value="2" selected>2</option>
                                     <option value="3">3</option>
-                                <?php else : ?>
+                                <?php elseif ($row['DSN'] == 3) : ?>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3" selected>3</option>
+                                <?php else : ?>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
                                 <?php endif; ?>
                             </select>
                         </div>
@@ -550,11 +594,16 @@ if (isset($_POST['edit_data'])) {
                                     <option value="2">Susu</option>
                                     <option value="3" selected>Ayam</option>
                                     <option value="4">Lainnya</option>
-                                <?php else : ?>
+                                <?php elseif ($row['BAHAN_MAKANAN'] == 4) : ?>
                                     <option value="1">Daging</option>
                                     <option value="2">Susu</option>
                                     <option value="3">Ayam</option>
                                     <option value="4" selected>Lainnya</option>
+                                <?php else : ?>
+                                    <option value="1">Daging</option>
+                                    <option value="2">Susu</option>
+                                    <option value="3">Ayam</option>
+                                    <option value="4">Lainnya</option>
                                 <?php endif; ?>
                             </select>
                         </div>
@@ -586,11 +635,17 @@ if (isset($_POST['edit_data'])) {
                                     <option value="2">2 Stel</option>
                                     <option value="3" selected>3 Stel</option>
                                     <option value="4">Lainnya</option>
+                                <?php elseif ($row['PAKAIAN_PER_TAHUN'] == 4) : ?>
+                                    <option value="0">Tidak Pernah</option>
+                                    <option value="1">1 Stel</option>
+                                    <option value="2">2 Stel</option>
+                                    <option value="3">3 Stel</option>
+                                    <option value="4" selected>Lainnya</option>
                                 <?php else : ?>
                                     <option value="0">Tidak Pernah</option>
                                     <option value="1">1 Stel</option>
                                     <option value="2">2 Stel</option>
-                                    <option value="3" selected>3 Stel</option>
+                                    <option value="3">3 Stel</option>
                                     <option value="4">Lainnya</option>
                                 <?php endif; ?>
                             </select>
@@ -651,12 +706,18 @@ if (isset($_POST['edit_data'])) {
                                     <option value="2">2 Kali Seminggu</option>
                                     <option value="3" selected>3 Kali Seminggu</option>
                                     <option value="4">Hampir Tiap Hari</option>
-                                <?php else : ?>
+                                <?php elseif ($row['FREKUENSI_PER_MINGGU'] == 4) : ?>
                                     <option value="0">Tidak Pernah</option>
                                     <option value="1">1 Kali Seminggu</option>
                                     <option value="2">2 Kali Seminggu</option>
                                     <option value="3">3 Kali Seminggu</option>
                                     <option value="4" selected>Hampir Tiap Hari</option>
+                                <?php else : ?>
+                                    <option value="0">Tidak Pernah</option>
+                                    <option value="1">1 Kali Seminggu</option>
+                                    <option value="2">2 Kali Seminggu</option>
+                                    <option value="3">3 Kali Seminggu</option>
+                                    <option value="4">Hampir Tiap Hari</option>
                                 <?php endif; ?>
                             </select>
                         </div>
@@ -688,12 +749,18 @@ if (isset($_POST['edit_data'])) {
                                     <option value="2">2 Kali Sehari</option>
                                     <option value="3" selected>3 Kali Sehari</option>
                                     <option value="4">Lainnya</option>
-                                <?php else : ?>
+                                <?php elseif ($row['MAKAN_PER_HARI'] == 4) : ?>
                                     <option value="0">Tidak Pernah</option>
                                     <option value="1">1 Kali Sehari</option>
                                     <option value="2">2 Kali Sehari</option>
                                     <option value="3">3 Kali Sehari</option>
                                     <option value="4" selected>Lainnya</option>
+                                <?php else : ?>
+                                    <option value="0">Tidak Pernah</option>
+                                    <option value="1">1 Kali Sehari</option>
+                                    <option value="2">2 Kali Sehari</option>
+                                    <option value="3">3 Kali Sehari</option>
+                                    <option value="4">Lainnya</option>
                                 <?php endif; ?>
                             </select>
                         </div>
@@ -702,87 +769,89 @@ if (isset($_POST['edit_data'])) {
             </div>
         </div>
 
-        <div class="card">
-            <div class="card-header" style="background-color: #042165;">
-                <h3 class="card-title text-white">Data Tabungan</h3>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label>Kepemilikan Tabungan</label><br>
-                            <?php if ($row['KEPEMILIKAN_TABUNGAN'] == 0) : ?>
-                                <div class="form-check-inline mt-2">
-                                    <label class="form-check-label">
-                                        <input type="radio" name="kepem_tabungan" id="" class="form-check-input" value="0" checked>Tidak
-                                    </label>
-                                </div>
-                                <div class="form-check-inline mt-2">
-                                    <label class="form-check-label">
-                                        <input type="radio" name="kepem_tabungan" id="" class="form-check-input" value="1">Ya
-                                    </label>
-                                </div>
-                            <?php elseif ($row['KEPEMILIKAN_TABUNGAN'] == 1) : ?>
-                                <div class="form-check-inline mt-2">
-                                    <label class="form-check-label">
-                                        <input type="radio" name="kepem_tabungan" id="" class="form-check-input" value="0">Tidak
-                                    </label>
-                                </div>
-                                <div class="form-check-inline mt-2">
-                                    <label class="form-check-label">
-                                        <input type="radio" name="kepem_tabungan" id="" class="form-check-input" value="1" checked>Ya
-                                    </label>
-                                </div>
-                            <?php endif; ?>
-                        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header" style="background-color: #042165;">
+                        <h3 class="card-title text-white">Data Tabungan</h3>
                     </div>
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <label>Jenis Tabungan</label>
-                            <select class="form-control select2 cekKepem" name="jenis_tabungan" style="width: 100%;">
-                                <option hidden>--Pilih Jenis Tabungan--</option>
-                                <?php if ($row['JENIS_TABUNGAN'] == 1) : ?>
-                                    <option value="1" selected>Sepeda Motor Kredit</option>
-                                    <option value="2">Emas</option>
-                                    <option value="3">Hewan Ternak</option>
-                                    <option value="4">Kapal Motor</option>
-                                    <option value="5">Barang Modal Lainnya</option>
-                                <?php elseif ($row['JENIS_TABUNGAN'] == 2) : ?>
-                                    <option value="1">Sepeda Motor Kredit</option>
-                                    <option value="2" selected>Emas</option>
-                                    <option value="3">Hewan Ternak</option>
-                                    <option value="4">Kapal Motor</option>
-                                    <option value="5">Barang Modal Lainnya</option>
-                                <?php elseif ($row['JENIS_TABUNGAN'] == 3) : ?>
-                                    <option value="1">Sepeda Motor Kredit</option>
-                                    <option value="2">Emas</option>
-                                    <option value="3" selected>Hewan Ternak</option>
-                                    <option value="4">Kapal Motor</option>
-                                    <option value="5">Barang Modal Lainnya</option>
-                                <?php elseif ($row['JENIS_TABUNGAN'] == 4) : ?>
-                                    <option value="1">Sepeda Motor Kredit</option>
-                                    <option value="2">Emas</option>
-                                    <option value="3">Hewan Ternak</option>
-                                    <option value="4" selected>Kapal Motor</option>
-                                    <option value="5">Barang Modal Lainnya</option>
-                                <?php elseif ($row['JENIS_TABUNGAN'] == 5) : ?>
-                                    <option value="1">Sepeda Motor Kredit</option>
-                                    <option value="2">Emas</option>
-                                    <option value="3">Hewan Ternak</option>
-                                    <option value="4">Kapal Motor</option>
-                                    <option value="5" selected>Barang Modal Lainnya</option>
-                                <?php else : ?>
-                                    <option value="0" selected>-</option>
-                                    <option value="1">Sepeda Motor Kredit</option>
-                                    <option value="2">Emas</option>
-                                    <option value="3">Hewan Ternak</option>
-                                    <option value="4">Kapal Motor</option>
-                                    <option value="5">Barang Modal Lainnya</option>
-                                <?php endif; ?>
-                            </select>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-auto">
+                                <div class="form-group">
+                                    <label>Kepemilikan Tabungan</label><br>
+                                    <?php if ($row['KEPEMILIKAN_TABUNGAN'] == 0) : ?>
+                                        <div class="form-check-inline mt-2">
+                                            <label class="form-check-label">
+                                                <input type="radio" name="kepem_tabungan" id="" class="form-check-input" value="0" checked>Tidak
+                                            </label>
+                                        </div>
+                                        <div class="form-check-inline mt-2">
+                                            <label class="form-check-label">
+                                                <input type="radio" name="kepem_tabungan" id="" class="form-check-input" value="1">Ya
+                                            </label>
+                                        </div>
+                                    <?php elseif ($row['KEPEMILIKAN_TABUNGAN'] == 1) : ?>
+                                        <div class="form-check-inline mt-2">
+                                            <label class="form-check-label">
+                                                <input type="radio" name="kepem_tabungan" id="" class="form-check-input" value="0">Tidak
+                                            </label>
+                                        </div>
+                                        <div class="form-check-inline mt-2">
+                                            <label class="form-check-label">
+                                                <input type="radio" name="kepem_tabungan" id="" class="form-check-input" value="1" checked>Ya
+                                            </label>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Jenis Tabungan</label>
+                                    <select class="form-control select2 cekKepem" name="jenis_tabungan" style="width: 100%;">
+                                        <option hidden>--Pilih Jenis Tabungan--</option>
+                                        <?php if ($row['JENIS_TABUNGAN'] == 1) : ?>
+                                            <option value="1" selected>Sepeda Motor Kredit</option>
+                                            <option value="2">Emas</option>
+                                            <option value="3">Hewan Ternak</option>
+                                            <option value="4">Kapal Motor</option>
+                                            <option value="5">Barang Modal Lainnya</option>
+                                        <?php elseif ($row['JENIS_TABUNGAN'] == 2) : ?>
+                                            <option value="1">Sepeda Motor Kredit</option>
+                                            <option value="2" selected>Emas</option>
+                                            <option value="3">Hewan Ternak</option>
+                                            <option value="4">Kapal Motor</option>
+                                            <option value="5">Barang Modal Lainnya</option>
+                                        <?php elseif ($row['JENIS_TABUNGAN'] == 3) : ?>
+                                            <option value="1">Sepeda Motor Kredit</option>
+                                            <option value="2">Emas</option>
+                                            <option value="3" selected>Hewan Ternak</option>
+                                            <option value="4">Kapal Motor</option>
+                                            <option value="5">Barang Modal Lainnya</option>
+                                        <?php elseif ($row['JENIS_TABUNGAN'] == 4) : ?>
+                                            <option value="1">Sepeda Motor Kredit</option>
+                                            <option value="2">Emas</option>
+                                            <option value="3">Hewan Ternak</option>
+                                            <option value="4" selected>Kapal Motor</option>
+                                            <option value="5">Barang Modal Lainnya</option>
+                                        <?php elseif ($row['JENIS_TABUNGAN'] == 5) : ?>
+                                            <option value="1">Sepeda Motor Kredit</option>
+                                            <option value="2">Emas</option>
+                                            <option value="3">Hewan Ternak</option>
+                                            <option value="4">Kapal Motor</option>
+                                            <option value="5" selected>Barang Modal Lainnya</option>
+                                        <?php else : ?>
+                                            <!-- <option value="0" selected>-</option> -->
+                                            <option value="1">Sepeda Motor Kredit</option>
+                                            <option value="2">Emas</option>
+                                            <option value="3">Hewan Ternak</option>
+                                            <option value="4">Kapal Motor</option>
+                                            <option value="5">Barang Modal Lainnya</option>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-5">
                         <div class="form-group">
                             <label for="">Harga</label>
                             <input type="number" name="harga" class="form-control cekKepem" id="" value="<?= $row['HARGA']; ?>" placeholder="Harga Tabungan">
@@ -790,7 +859,120 @@ if (isset($_POST['edit_data'])) {
                     </div>
                 </div>
             </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header" style="background-color: #042165;">
+                        <h3 class="card-title text-white">Data Bantuan</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-auto">
+                                <div class="form-group">
+                                    <label>Penerima Bantuan?</label><br>
+                                    <?php if ($row['bantuan'] == 0) : ?>
+                                        <div class="form-check-inline mt-2">
+                                            <label class="form-check-label">
+                                                <input type="radio" name="penerima_bantuan" class="form-check-input" value="0" checked>Tidak
+                                            </label>
+                                        </div>
+                                        <div class="form-check-inline mt-2">
+                                            <label class="form-check-label">
+                                                <input type="radio" name="penerima_bantuan" class="form-check-input" value="1">Ya
+                                            </label>
+                                        </div>
+                                    <?php elseif ($row['bantuan'] == 1) : ?>
+                                        <div class="form-check-inline mt-2">
+                                            <label class="form-check-label">
+                                                <input type="radio" name="penerima_bantuan" class="form-check-input" value="0">Tidak
+                                            </label>
+                                        </div>
+                                        <div class="form-check-inline mt-2">
+                                            <label class="form-check-label">
+                                                <input type="radio" name="penerima_bantuan" class="form-check-input" value="1" checked>Ya
+                                            </label>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Jenis Bantuan</label>
+                                    <select class="form-control select ceks" name="jenis_bantuan" style="width: 100%;">
+                                        <option hidden>--Pilih Jenis Tabungan--</option>
+                                        <?php if ($row['jenis_bantuan'] == "BLT") : ?>
+                                            <option value="BLT" selected>BLT</option>
+                                            <option value="Program Keluarga Harapan">Program Keluarga Harapan</option>
+                                            <option value="Bantuan Sosial Tunai">Bantuan Sosial Tunai</option>
+                                            <option value="Bantuan Presiden">Bantuan Presiden</option>
+                                            <option value="Bantuan UMKM">Bantuan UMKM</option>
+                                            <option value="Bantuan Untuk Pekerja">Bantuan Untuk Pekerja</option>
+                                            <option value="Bantuan Pendidikan Anak">Bantuan Pendidikan Anak</option>
+                                        <?php elseif ($row['jenis_bantuan'] == "Program Keluarga Harapan") : ?>
+                                            <option value="BLT">BLT</option>
+                                            <option value="Program Keluarga Harapan" selected>Program Keluarga Harapan</option>
+                                            <option value="Bantuan Sosial Tunai">Bantuan Sosial Tunai</option>
+                                            <option value="Bantuan Presiden">Bantuan Presiden</option>
+                                            <option value="Bantuan UMKM">Bantuan UMKM</option>
+                                            <option value="Bantuan Untuk Pekerja">Bantuan Untuk Pekerja</option>
+                                            <option value="Bantuan Pendidikan Anak">Bantuan Pendidikan Anak</option>
+                                        <?php elseif ($row['jenis_bantuan'] == "Bantuan Sosial Tunai") : ?>
+                                            <option value="BLT">BLT</option>
+                                            <option value="Program Keluarga Harapan">Program Keluarga Harapan</option>
+                                            <option value="Bantuan Sosial Tunai" selected>Bantuan Sosial Tunai</option>
+                                            <option value="Bantuan Presiden">Bantuan Presiden</option>
+                                            <option value="Bantuan UMKM">Bantuan UMKM</option>
+                                            <option value="Bantuan Untuk Pekerja">Bantuan Untuk Pekerja</option>
+                                            <option value="Bantuan Pendidikan Anak">Bantuan Pendidikan Anak</option>
+                                        <?php elseif ($row['jenis_bantuan'] == "Bantuan Presiden") : ?>
+                                            <option value="BLT">BLT</option>
+                                            <option value="Program Keluarga Harapan">Program Keluarga Harapan</option>
+                                            <option value="Bantuan Sosial Tunai">Bantuan Sosial Tunai</option>
+                                            <option value="Bantuan Presiden" selected>Bantuan Presiden</option>
+                                            <option value="Bantuan UMKM">Bantuan UMKM</option>
+                                            <option value="Bantuan Untuk Pekerja">Bantuan Untuk Pekerja</option>
+                                            <option value="Bantuan Pendidikan Anak">Bantuan Pendidikan Anak</option>
+                                        <?php elseif ($row['jenis_bantuan'] == "Bantuan UMKM") : ?>
+                                            <option value="BLT">BLT</option>
+                                            <option value="Program Keluarga Harapan">Program Keluarga Harapan</option>
+                                            <option value="Bantuan Sosial Tunai">Bantuan Sosial Tunai</option>
+                                            <option value="Bantuan Presiden">Bantuan Presiden</option>
+                                            <option value="Bantuan UMKM" selected>Bantuan UMKM</option>
+                                            <option value="Bantuan Untuk Pekerja">Bantuan Untuk Pekerja</option>
+                                            <option value="Bantuan Pendidikan Anak">Bantuan Pendidikan Anak</option>
+                                        <?php elseif ($row['jenis_bantuan'] == "Bantuan Untuk Pekerja") : ?>
+                                            <option value="BLT">BLT</option>
+                                            <option value="Program Keluarga Harapan">Program Keluarga Harapan</option>
+                                            <option value="Bantuan Sosial Tunai">Bantuan Sosial Tunai</option>
+                                            <option value="Bantuan Presiden">Bantuan Presiden</option>
+                                            <option value="Bantuan UMKM">Bantuan UMKM</option>
+                                            <option value="Bantuan Untuk Pekerja" selected>Bantuan Untuk Pekerja</option>
+                                            <option value="Bantuan Pendidikan Anak">Bantuan Pendidikan Anak</option>
+                                        <?php elseif ($row['jenis_bantuan'] == "Bantuan Pendidikan Anak") : ?>
+                                            <option value="BLT">BLT</option>
+                                            <option value="Program Keluarga Harapan">Program Keluarga Harapan</option>
+                                            <option value="Bantuan Sosial Tunai">Bantuan Sosial Tunai</option>
+                                            <option value="Bantuan Presiden">Bantuan Presiden</option>
+                                            <option value="Bantuan UMKM">Bantuan UMKM</option>
+                                            <option value="Bantuan Untuk Pekerja">Bantuan Untuk Pekerja</option>
+                                            <option value="Bantuan Pendidikan Anak" selected>Bantuan Pendidikan Anak</option>
+                                        <?php else : ?>
+                                            <option value="BLT">BLT</option>
+                                            <option value="Program Keluarga Harapan">Program Keluarga Harapan</option>
+                                            <option value="Bantuan Sosial Tunai">Bantuan Sosial Tunai</option>
+                                            <option value="Bantuan Presiden">Bantuan Presiden</option>
+                                            <option value="Bantuan UMKM">Bantuan UMKM</option>
+                                            <option value="Bantuan Untuk Pekerja">Bantuan Untuk Pekerja</option>
+                                            <option value="Bantuan Pendidikan Anak">Bantuan Pendidikan Anak</option>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
         <div class="row">
             <div class="col-md-12 mb-3">
                 <button type="submit" name="edit_data" class="btn btn-block btn-success float-right"><i class="fas fa-save"></i> Simpan Perubahan Data</button>

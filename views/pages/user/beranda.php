@@ -406,7 +406,7 @@ $sql_s1 = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_pendidikan
             <div class="row justify-content-center">
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                     <div class="icon-box">
-                        <div class="icon"><img src="<?= $base_url; ?>asset_user/img/4x/islam_1@4x-8.png" alt=""></div>
+                        <div class="icon"><img src="<?= $base_url; ?>asset_user/img/4x/religion/islam.png" alt="" class="p-3" width="50%"></div>
                         <h4 class="title"><a href="">Islam</a></h4>
                         <p class="description">Jumlah orang yang memeluk agama Islam di Desa Butu adalah 437 Jiwa</p>
                     </div>
@@ -414,13 +414,45 @@ $sql_s1 = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_pendidikan
 
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
                     <div class="icon-box">
-                        <div class="icon"><img src="<?= $base_url; ?>asset_user/img/4x/kristen_1@4x-8.png" alt=""></div>
+                        <div class="icon"><img src="<?= $base_url; ?>asset_user/img/4x/religion/christian.png" alt="" class="p-3" width="50%"></div>
                         <h4 class="title"><a href="">Kristen</a></h4>
                         <p class="description">Jumlah orang yang memeluk agama Kristen di Desa Butu adalah 437 Jiwa</p>
                     </div>
                 </div>
 
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="icon-box">
+                        <div class="icon"><img src="<?= $base_url; ?>asset_user/img/4x/religion/christian.png" alt="" class="p-3" width="50%"></div>
+                        <h4 class="title"><a href="">Katolik</a></h4>
+                        <p class="description">Jumlah orang yang memeluk agama Kristen di Desa Butu adalah 437 Jiwa</p>
+                    </div>
+                </div>
 
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="icon-box">
+                        <div class="icon">
+                            <img src="<?= $base_url; ?>asset_user/img/4x/religion/buddhism.png" alt="" class="p-3" width="50%">
+                        </div>
+                        <h4 class="title"><a href="">Budha</a></h4>
+                        <p class="description">Jumlah orang yang memeluk agama Kristen di Desa Butu adalah 437 Jiwa</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="icon-box">
+                        <div class="icon"><img src="<?= $base_url; ?>asset_user/img/4x/religion/hinduism.png" alt="" class="p-3" width="50%"></div>
+                        <h4 class="title"><a href="">Hindu</a></h4>
+                        <p class="description">Jumlah orang yang memeluk agama Kristen di Desa Butu adalah 437 Jiwa</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="icon-box">
+                        <div class="icon"><img src="<?= $base_url; ?>asset_user/img/4x/religion/confucianism.png" alt="" class="p-3" width="50%"></div>
+                        <h4 class="title"><a href="">Khonghucu</a></h4>
+                        <p class="description">Jumlah orang yang memeluk agama Kristen di Desa Butu adalah 437 Jiwa</p>
+                    </div>
+                </div>
             </div>
 
         </div>

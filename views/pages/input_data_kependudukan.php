@@ -209,41 +209,43 @@
              </div>
          </div>
 
-         <div class="card">
-             <div class="card-header" style="background-color: #042165;">
-                 <h3 class="card-title text-white">Data Tabungan</h3>
-             </div>
-             <div class="card-body">
-                 <div class="row">
-                     <div class="col-md-2">
-                         <div class="form-group">
-                             <label>Kepemilikan Tabungan</label><br>
-                             <div class="form-check-inline mt-2">
-                                 <label class="form-check-label">
-                                     <input type="radio" name="kepem_tabungan" class="form-check-input" value="0">Tidak
-                                 </label>
+         <div class="row">
+             <div class="col-md-6">
+                 <div class="card">
+                     <div class="card-header" style="background-color: #042165;">
+                         <h3 class="card-title text-white">Data Tabungan</h3>
+                     </div>
+                     <div class="card-body">
+                         <div class="row">
+                             <div class="col-auto">
+                                 <div class="form-group">
+                                     <label>Kepemilikan Tabungan</label><br>
+                                     <div class="form-check-inline mt-2">
+                                         <label class="form-check-label">
+                                             <input type="radio" name="kepem_tabungan" class="form-check-input" value="0">Tidak
+                                         </label>
+                                     </div>
+                                     <div class="form-check-inline mt-2">
+                                         <label class="form-check-label">
+                                             <input type="radio" name="kepem_tabungan" class="form-check-input" value="1">Ya
+                                         </label>
+                                     </div>
+                                 </div>
                              </div>
-                             <div class="form-check-inline mt-2">
-                                 <label class="form-check-label">
-                                     <input type="radio" name="kepem_tabungan" class="form-check-input" value="1">Ya
-                                 </label>
+                             <div class="col">
+                                 <div class="form-group">
+                                     <label>Jenis Tabungan</label>
+                                     <select class="form-control select2 cekKepem" name="jenis_tabungan" style="width: 100%;">
+                                         <option hidden>--Pilih Jenis Tabungan--</option>
+                                         <option value="1">Sepeda Motor Kredit</option>
+                                         <option value="2">Emas</option>
+                                         <option value="3">Hewan Ternak</option>
+                                         <option value="4">Kapal Motor</option>
+                                         <option value="5">Barang Modal Lainnya</option>
+                                     </select>
+                                 </div>
                              </div>
                          </div>
-                     </div>
-                     <div class="col-md-5">
-                         <div class="form-group">
-                             <label>Jenis Tabungan</label>
-                             <select class="form-control select2 cekKepem" name="jenis_tabungan" style="width: 100%;">
-                                 <option hidden>--Pilih Jenis Tabungan--</option>
-                                 <option value="1">Sepeda Motor Kredit</option>
-                                 <option value="2">Emas</option>
-                                 <option value="3">Hewan Ternak</option>
-                                 <option value="4">Kapal Motor</option>
-                                 <option value="5">Barang Modal Lainnya</option>
-                             </select>
-                         </div>
-                     </div>
-                     <div class="col-md-5">
                          <div class="form-group">
                              <label for="">Harga</label>
                              <input type="number" name="harga" class="form-control cekKepem" id="" placeholder="Harga Tabungan">
@@ -251,47 +253,49 @@
                      </div>
                  </div>
              </div>
-         </div>
-
-         <div class="card">
-             <div class="card-header" style="background-color: #042165;">
-                 <h3 class="card-title text-white">Data Bantuan</h3>
-             </div>
-             <div class="card-body">
-                 <div class="row">
-                     <div class="col-md-2">
-                         <div class="form-group">
-                             <label>Penerima Bantuan?</label><br>
-                             <div class="form-check-inline mt-2">
-                                 <label class="form-check-label">
-                                     <input type="radio" name="penerima_bantuan" class="form-check-input" value="0">Tidak
-                                 </label>
-                             </div>
-                             <div class="form-check-inline mt-2">
-                                 <label class="form-check-label">
-                                     <input type="radio" name="penerima_bantuan" class="form-check-input" value="1">Ya
-                                 </label>
-                             </div>
-                         </div>
+             <div class="col-md-6">
+                 <div class="card">
+                     <div class="card-header" style="background-color: #042165;">
+                         <h3 class="card-title text-white">Data Bantuan</h3>
                      </div>
-                     <div class="col-md-10">
-                         <div class="form-group">
-                             <label>Jenis Bantuan</label>
-                             <select class="form-control select ceks" name="jenis_bantuan" style="width: 100%;">
-                                 <option hidden>--Pilih Jenis Tabungan--</option>
-                                 <option value="BlT">BLT</option>
-                                 <option value="Program Keluarga Harapan">Program Keluarga Harapan</option>
-                                 <option value="Bantuan Sosial Tunai">Bantuan Sosial Tunai</option>
-                                 <option value="Bantuan Presiden">Bantuan Presiden</option>
-                                 <option value="Bantuan UMKM">Bantuan UMKM</option>
-                                 <option value="Bantuan Untuk Pekerja">Bantuan Untuk Pekerja</option>
-                                 <option value="Bantuan Pendidikan Anak">Bantuan Pendidikan Anak</option>
-                             </select>
+                     <div class="card-body">
+                         <div class="row">
+                             <div class="col-auto">
+                                 <div class="form-group">
+                                     <label>Penerima Bantuan?</label><br>
+                                     <div class="form-check-inline mt-2">
+                                         <label class="form-check-label">
+                                             <input type="radio" name="penerima_bantuan" class="form-check-input" value="0">Tidak
+                                         </label>
+                                     </div>
+                                     <div class="form-check-inline mt-2">
+                                         <label class="form-check-label">
+                                             <input type="radio" name="penerima_bantuan" class="form-check-input" value="1">Ya
+                                         </label>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="col">
+                                 <div class="form-group">
+                                     <label>Jenis Bantuan</label>
+                                     <select class="form-control select ceks" name="jenis_bantuan" style="width: 100%;">
+                                         <option hidden>--Pilih Jenis Tabungan--</option>
+                                         <option value="BLT">BLT</option>
+                                         <option value="Program Keluarga Harapan">Program Keluarga Harapan</option>
+                                         <option value="Bantuan Sosial Tunai">Bantuan Sosial Tunai</option>
+                                         <option value="Bantuan Presiden">Bantuan Presiden</option>
+                                         <option value="Bantuan UMKM">Bantuan UMKM</option>
+                                         <option value="Bantuan Untuk Pekerja">Bantuan Untuk Pekerja</option>
+                                         <option value="Bantuan Pendidikan Anak">Bantuan Pendidikan Anak</option>
+                                     </select>
+                                 </div>
+                             </div>
                          </div>
                      </div>
                  </div>
              </div>
          </div>
+
          <div class="row">
              <div class="col-md-12 mb-3">
                  <button type="submit" name="simpan_data" class="btn btn-block btn-success float-right"><i class="fas fa-save"></i> Simpan Data</button>
