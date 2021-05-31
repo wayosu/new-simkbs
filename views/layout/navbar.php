@@ -14,7 +14,7 @@
    <!-- Right navbar links -->
    <ul class="navbar-nav ml-auto">
      <li class="nav-item">
-       <a class="nav-link text-white" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+       <a class="nav-link text-white" href="<?= $base_url; ?>app/logout.php" onclick="return confirm('Yakin ingin keluar dari akun ini?')">
          <i class="fas fa-sign-out-alt"></i> Logout
        </a>
      </li>

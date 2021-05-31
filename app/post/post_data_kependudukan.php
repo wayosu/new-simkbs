@@ -1,10 +1,23 @@
 <?php
 include 'app/function/function_data_kependudukan.php';
+include 'app/function/function_bantuan.php';
 
 if (isset($_POST['simpan_data'])) {
     // data individu
     $no_kk = $_POST['no_kk'];
     $nik = $_POST['nik'];
+    
+    $cek_nik = $mysqli->query("SELECT * FROM tabel_kependudukan WHERE NIK='$nik'");
+    if (mysqli_num_rows($cek_nik) > 0) {
+        ?>
+            <script>
+                alert("Maaf, NIK yang anda masukkan sudah ada!");
+                document.location.href = 'input_data_kependudukan';
+            </script>
+        <?php
+        return false;
+    }
+
     $nm = $_POST['nm'];
     $jk = $_POST['jk'];
     $tmp_lahir = $_POST['tmp_lahir'];
@@ -36,13 +49,17 @@ if (isset($_POST['simpan_data'])) {
     // var_dump($bhn_makanan, $pakaian_pertahun, $biaya_pengobatan, $frekuensi_perminggu, $makan_perhari);
 
     // data tabungan
-    $kepem_tabungan = isset($_POST['kepem_tabungan']) ? $_POST['kepem_tabungan'] : "1";
-    $jenis_tabungan = isset($_POST['jenis_tabungan']) ? $_POST['kepem_tabungan'] : "0";
-    $harga = isset($_POST['harga']) ? $_POST['harga'] : "0";
+    $kepem_tabungan = isset($_POST['kepem_tabungan']) ? $_POST['kepem_tabungan'] : NULL;
+    $jenis_tabungan = isset($_POST['jenis_tabungan']) ? $_POST['jenis_tabungan'] : NULL;
+    $harga = isset($_POST['harga']) ? $_POST['harga'] : NULL;
     // var_dump($kepem_tabungan, $jenis_tabungan, $harga);
 
-    $sql_kependudukan = $mysqli->query("INSERT INTO tabel_kependudukan (NO_KK, NIK, NAMA_LGKP, HBKEL, JK, TMPT_LHR, TGL_LHR, TAHUN, BULAN, HARI, NAMA_LGKP_AYAH, NAMA_LGKP_IBU, KECAMATAN, KELURAHAN, DSN, AGAMA) 
-    VALUES ('$no_kk', '$nik', '$nm', '$hubkel', '$jk', '$tmp_lahir', '$tgl_lahir', '$tahun', '$bulan', '$hari', '$nm_ayah', '$nm_ibu', 'TILONGKABILA', 'BUTU', '$dusun', '$agama')");
+    //data bantuan
+    $bantuan = isset($_POST['penerima_bantuan']) ? $_POST['penerima_bantuan'] : NULL;
+    $jenis_bantuan = isset($_POST['jenis_bantuan']) ? $_POST['jenis_bantuan'] : NULL;
+
+    $sql_kependudukan = $mysqli->query("INSERT INTO tabel_kependudukan (NO_KK, NIK, NAMA_LGKP, HBKEL, JK, TMPT_LHR, TGL_LHR, TAHUN, BULAN, HARI, NAMA_LGKP_AYAH, NAMA_LGKP_IBU, KECAMATAN, KELURAHAN, DSN, AGAMA, bantuan, jenis_bantuan) 
+    VALUES ('$no_kk', '$nik', '$nm', '$hubkel', '$jk', '$tmp_lahir', '$tgl_lahir', '$tahun', '$bulan', '$hari', '$nm_ayah', '$nm_ibu', 'TILONGKABILA', 'BUTU', '$dusun', '$agama','$bantuan','$jenis_bantuan')");
 
     $sql_tabungan = $mysqli->query("INSERT INTO tabel_tabungan (NIK, NAMA, KEPEMILIKAN_TABUNGAN, JENIS_TABUNGAN, HARGA) 
     VALUES ('$nik', '$nm', '$kepem_tabungan', '$jenis_tabungan', '$harga')");
@@ -82,4 +99,27 @@ if (isset($_POST['hapus_data'])) {
         </script>
 <?php
     }
+}
+
+if(isset($_POST['update_bntn'])){
+    $nik = $_POST['nik'];
+    $jb = $_POST['jenis_bantuan'];
+    $sql_update_bantuan = $mysqli->query("UPDATE tabel_kependudukan SET bantuan='1', jenis_bantuan = '$jb' WHERE NIK = '$nik'");
+    echo '
+    <script>
+    alert("Berhasil Menambah Jenis Bantuan");
+    document.location.href="data_klasifikasi_bantuan";
+    </script>
+    ';
+}
+if(isset($_POST['hapus_daftar'])){
+    $nik = $_POST['nik'];
+    $update = $mysqli->query("UPDATE tabel_Kependudukan SET bantuan = '0', jenis_bantuan = '' WHERE NIK = '$nik'");
+    echo '
+    <script>
+    alert("Berhasil Menghapus Penduduk Dari Daftar");
+    document.location.href="data_klasifikasi_bantuan";
+    </script>
+    ';
+
 }

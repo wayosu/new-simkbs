@@ -16,11 +16,11 @@ function tampil_data($mysqli)
                 <?php endif; ?>
             </td>
             <td><?= $row['TMPT_LHR']; ?></td>
-            <td><?= $row['TGL_LHR']; ?></td>
+            <td><?= tgl_indo($row['TGL_LHR'])   ; ?></td>
             <td><?= $row['AGAMA']; ?></td>
             <td><?= $row['PENDIDIKAN_TERAKHIR']; ?></td>
             <td><?= $row['PEKERJAAN']; ?></td>
-            <td><?= $row['PENGHASILAN_PER_BULAN']; ?></td>
+            <td>Rp. <?= number_format($row['PENGHASILAN_PER_BULAN'])    ; ?></td>
             <td><?= $row['DSN']; ?></td>
             <td>
                 <button type="button" class="btn btn-default" data-toggle="dropdown">
@@ -32,6 +32,7 @@ function tampil_data($mysqli)
                         <button class="dropdown-item" type="submit" name="hapus_data" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</button>
                     </form>
                     <a href="edit_data_kependudukan/<?= $row['NIK']; ?>" class="dropdown-item">Edit</a>
+                    <a href="detail_penduduk/<?= $row['NIK']; ?>" class="dropdown-item">Detail</a>
                 </div>
             </td>
         </tr>

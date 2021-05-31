@@ -395,7 +395,7 @@
                                         <th><?= $row_lakij['ttl'] ?></th>
                                         <th><?= $row_perempuanj['ttl'] ?></th>
                                         <!-- // -->
-                                        <th><?php echo array_sum($n); ?></th>
+                                        <th><?= isset($n) ? array_sum($n) : "0"; ?></th>
 
 
                                     </tr>
@@ -1090,7 +1090,7 @@
                                         <th style="vertical-align: middle; text-align: center;"><?= $row_pekerjaanlaki['ttl'] ?></th>
                                         <th style="vertical-align: middle; text-align: center;"><?= $row_pekerjaanperempuan['ttl'] ?></th>
                                         <!-- // -->
-                                        <th style="vertical-align: middle; text-align: center;"><?= array_sum($x) ?></th>
+                                        <th style="vertical-align: middle; text-align: center;"><?= isset($x) ? array_sum($x) : "0"; ?></th>
 
                                     </tr>
                                 </tfoot>

@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="shortcut icon" href="<?= $base_url; ?>kab.png" type="image/x-icon">
     <title>Administrator | KBS</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="<?= $base_url; ?>asset_user/img/logo-campur.png" type="image/x-icon">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?= $base_url; ?>plugins/fontawesome-free/css/all.min.css">
@@ -25,6 +25,31 @@
     <link rel="stylesheet" href="<?= $base_url; ?>plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 
 </head>
+ <?php
+    function tgl_indo($tanggal)
+    {
+        $bulan = array(
+            1 =>   'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        );
+        $pecahkan = explode('-', $tanggal);
 
+        // variabel pecahkan 0 = tanggal
+        // variabel pecahkan 1 = bulan
+        // variabel pecahkan 2 = tahun
+
+        return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+    }
+    ?>
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">

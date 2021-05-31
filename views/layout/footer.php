@@ -1,13 +1,13 @@
 <footer class="main-footer">
   <strong>Copyright &copy;
     <script>
-      document.write(new Date().getFullYear())
+      document.write(new Date().getFullYear());
     </script>
     <a href="<?= $base_url; ?>dashboard">KBS</a>.
   </strong>
   All rights reserved.
   <div class="float-right d-none d-sm-inline-block">
-    <b>Version</b> 3.0.5
+    <b>Versi</b> 1.0
   </div>
 </footer>
 
@@ -32,18 +32,44 @@
     "responsive": true,
     "autoWidth": false,
   });
+  $(".example2").DataTable({
+    "responsive": true,
+    "autoWidth": false,
+  });
+  $(".example3").DataTable({
+    "responsive": true,
+    "autoWidth": false,
+  });
 
   //Initialize Select2 Elements
   $('.select2bs4').select2({
     theme: 'bootstrap4'
   });
 
+  if ($('input[name=kepem_tabungan]:checked').val() == "0") {
+    $('.cekKepem').attr("Disabled", true);
+  } else if ($('input[name=kepem_tabungan]:checked').val() == "1") {
+    $('.cekKepem').attr("Disabled", false);
+  }
+
+  if ($('input[name=penerima_bantuan]:checked').val() == "0") {
+    $('.ceks').attr("Disabled", true);
+  } else if ($('input[name=penerima_bantuan]:checked').val() == "1") {
+    $('.ceks').attr("Disabled", false);
+  }
 
   $("input[name=kepem_tabungan]:radio").click(function() {
     if ($('input[name=kepem_tabungan]:checked').val() == "0") {
       $('.cekKepem').attr("Disabled", true);
     } else if ($('input[name=kepem_tabungan]:checked').val() == "1") {
       $('.cekKepem').attr("Disabled", false);
+    }
+  });
+  $("input[name=penerima_bantuan]:radio").click(function() {
+    if ($('input[name=penerima_bantuan]:checked').val() == "0") {
+      $('.ceks').attr("Disabled", true);
+    } else if ($('input[name=penerima_bantuan]:checked').val() == "1") {
+      $('.ceks').attr("Disabled", false);
     }
   });
 

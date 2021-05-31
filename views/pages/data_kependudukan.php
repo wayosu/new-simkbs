@@ -1,4 +1,4 @@
-<?php include 'app/post/post_data_kependudukan.php';  ?>
+<?php error_reporting(0); include 'app/post/post_data_kependudukan.php';  ?>
 
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -33,7 +33,7 @@
                     <!-- /.card-header -->
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="example1" class="table table-bordered table-striped" style="font-size: 14px;">
+                            <table class="table table-bordered table-striped example3" style="font-size: 14px;">
                                 <thead>
                                     <tr>
                                         <th>No KK</th>

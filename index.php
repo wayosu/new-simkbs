@@ -1,33 +1,30 @@
 <?php
-$base_url = 'http://localhost/SIMKBS/';
-include 'app/koneksi.php';
-include 'views/layout/header.php';
-include 'views/layout/navbar.php';
-include 'views/layout/sidebar.php';
+session_start();
+// mengecek admin login atau tidak
+if (isset($_SESSION['username'])) {
 ?>
-<div class="content-wrapper">
-    <?php
-    if (isset($_GET['views']) && $_GET['views'] == "dashboard") {
-        include 'views/pages/dashboard.php';
-    } else if (isset($_GET['views']) && $_GET['views'] == "data_kependudukan") {
-        include 'views/pages/data_kependudukan.php';
-    } else if (isset($_GET['views']) && $_GET['views'] == "input_data_kependudukan") {
-        include 'views/pages/input_data_kependudukan.php';
-    } else if (isset($_GET['views']) && $_GET['views'] == "edit_data_kependudukan") {
-        include 'views/pages/edit_data_kependudukan.php';
-    } else if (isset($_GET['views']) && $_GET['views'] == "data_kondisi_rumah") {
-        include 'views/pages/data_kondisi_rumah.php';
-    } else if (isset($_GET['views']) && $_GET['views'] == "input_data_kondisi") {
-        include 'views/pages/input_data_kondisi.php';
-    } else if (isset($_GET['views']) && $_GET['views'] == "edit_data_kondisi") {
-        include 'views/pages/edit_data_kondisi.php';
-    } else if (isset($_GET['views']) && $_GET['views'] == "data_klasifikasi_kependudukan") {
-        include 'views/pages/data_klasifikasi_kependudukan.php';
-    } else if (isset($_GET['views']) && $_GET['views'] == "data_klasifikasi_bantuan") {
-        include 'views/pages/data_klasifikasi_bantuan.php';
-    } else {
-        include 'views/pages/dashboard.php';
-    }
-    ?>
-</div>
-<?php include 'views/layout/footer.php'; ?>
+    <script>
+        alert('Anda sedang aktif, tidak dapat mengakses halaman ini!');
+        window.location.href = 'dashboard';
+    </script>
+<?php
+    return false;
+}
+
+$base_url = 'http://localhost/simkbs/';
+include 'app/koneksi.php';
+include 'views/layout/user/header.php';
+include 'views/layout/user/navbar.php';
+?>
+
+<?php
+if (isset($_GET['views_user']) && $_GET['views_user'] == "beranda") {
+    include 'views/pages/user/beranda.php';
+} else if (isset($_GET['views_user']) && $_GET['views_user'] == "list_data") {
+    include 'views/pages/user/list_data.php';
+} else {
+    include 'views/pages/user/beranda.php';
+}
+?>
+
+<?php include 'views/layout/user/footer.php'; ?>
