@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2021 at 05:25 AM
+-- Generation Time: May 31, 2021 at 05:36 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.14
 
@@ -48,6 +48,13 @@ CREATE TABLE `tabel_kependudukan` (
   `jenis_bantuan` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tabel_kependudukan`
+--
+
+INSERT INTO `tabel_kependudukan` (`NO_KK`, `NIK`, `NAMA_LGKP`, `HBKEL`, `JK`, `TMPT_LHR`, `TGL_LHR`, `TAHUN`, `BULAN`, `HARI`, `NAMA_LGKP_AYAH`, `NAMA_LGKP_IBU`, `KECAMATAN`, `KELURAHAN`, `DSN`, `AGAMA`, `bantuan`, `jenis_bantuan`) VALUES
+('73', '83', 'Culpa maiores fugia', '9', 2, 'Aut at laborum Sit ', '2010-12-12', '10', '5', '19', 'Velit elit enim lor', 'Illo ad consectetur ', 'TILONGKABILA', 'BUTU', '2', 'khonghucu', '0', '');
+
 -- --------------------------------------------------------
 
 --
@@ -64,6 +71,13 @@ CREATE TABLE `tabel_konsumsi` (
   `BIAYA_PENGOBATAN` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tabel_konsumsi`
+--
+
+INSERT INTO `tabel_konsumsi` (`NIK`, `NAMA`, `BAHAN_MAKANAN`, `FREKUENSI_PER_MINGGU`, `PAKAIAN_PER_TAHUN`, `MAKAN_PER_HARI`, `BIAYA_PENGOBATAN`) VALUES
+(83, 'Culpa maiores fugia', '1', 1, 1, 0, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -77,6 +91,13 @@ CREATE TABLE `tabel_pekerjaan` (
   `PENGHASILAN_PER_BULAN` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tabel_pekerjaan`
+--
+
+INSERT INTO `tabel_pekerjaan` (`NIK`, `NAMA`, `PEKERJAAN`, `PENGHASILAN_PER_BULAN`) VALUES
+(83, 'Culpa maiores fugia', 'Perangkat Desa', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -88,6 +109,13 @@ CREATE TABLE `tabel_pendidikan` (
   `NAMA` varchar(50) NOT NULL,
   `PENDIDIKAN_TERAKHIR` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tabel_pendidikan`
+--
+
+INSERT INTO `tabel_pendidikan` (`NIK`, `NAMA`, `PENDIDIKAN_TERAKHIR`) VALUES
+(83, 'Culpa maiores fugia', 'S3 dan Sederajat');
 
 -- --------------------------------------------------------
 
@@ -120,6 +148,13 @@ CREATE TABLE `tabel_tabungan` (
   `HARGA` int(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tabel_tabungan`
+--
+
+INSERT INTO `tabel_tabungan` (`NIK`, `NAMA`, `KEPEMILIKAN_TABUNGAN`, `JENIS_TABUNGAN`, `HARGA`) VALUES
+(83, 'Culpa maiores fugia', 0, 0, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -132,6 +167,13 @@ CREATE TABLE `user` (
   `username` varchar(10) NOT NULL,
   `pass` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `nama`, `username`, `pass`) VALUES
+(2, 'Amirrudin Paneo', 'amirpaneo', '4e72fc71d6afe049572655387d0f5346');
 
 --
 -- Indexes for dumped tables
@@ -187,7 +229,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
