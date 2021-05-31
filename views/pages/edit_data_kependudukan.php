@@ -12,6 +12,7 @@ if (isset($_POST['edit_data'])) {
     $nik = $_POST['nik'];
 
     // data individu
+    $nokk = $_POST['no_kk'];
     $nm = $_POST['nm'];
     $jk = $_POST['jk'];
     $tmp_lahir = $_POST['tmp_lahir'];
@@ -51,7 +52,7 @@ if (isset($_POST['edit_data'])) {
     $jenis_bantuan = isset($_POST['jenis_bantuan']) ? $_POST['jenis_bantuan'] : NULL;
 
     $sql_kependudukan = $mysqli->query("UPDATE tabel_kependudukan 
-                                        SET NAMA_LGKP='$nm', HBKEL='$hubkel', JK='$jk', TMPT_LHR='$tmp_lahir', 
+                                        SET NO_KK='$nokk', NAMA_LGKP='$nm', HBKEL='$hubkel', JK='$jk', TMPT_LHR='$tmp_lahir', 
                                         TGL_LHR='$tgl_lahir', TAHUN='$tahun', BULAN='$bulan', HARI='$hari', 
                                         NAMA_LGKP_AYAH='$nm_ayah', NAMA_LGKP_IBU='$nm_ibu', DSN='$dusun', AGAMA='$agama', bantuan='$bantuan', jenis_bantuan='$jenis_bantuan' WHERE NIK = '$nik'");
     $sql_tabungan = $mysqli->query("UPDATE tabel_tabungan 
@@ -105,7 +106,7 @@ if (isset($_POST['edit_data'])) {
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="">No KK</label>
-                            <input type="text" name="no_kk" class="form-control" id="" value="<?= $row['NO_KK']; ?>" placeholder="Masukkan No.KK" readonly>
+                            <input type="text" name="no_kk" class="form-control" id="" value="<?= $row['NO_KK']; ?>" placeholder="Masukkan No.KK">
                         </div>
                         <div class="form-group">
                             <label for="">NIK</label>

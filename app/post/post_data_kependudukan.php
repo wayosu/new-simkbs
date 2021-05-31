@@ -6,6 +6,18 @@ if (isset($_POST['simpan_data'])) {
     // data individu
     $no_kk = $_POST['no_kk'];
     $nik = $_POST['nik'];
+    
+    $cek_nik = $mysqli->query("SELECT * FROM tabel_kependudukan WHERE NIK='$nik'");
+    if (mysqli_num_rows($cek_nik) > 0) {
+        ?>
+            <script>
+                alert("Maaf, NIK yang anda masukkan sudah ada!");
+                document.location.href = 'input_data_kependudukan';
+            </script>
+        <?php
+        return false;
+    }
+
     $nm = $_POST['nm'];
     $jk = $_POST['jk'];
     $tmp_lahir = $_POST['tmp_lahir'];
