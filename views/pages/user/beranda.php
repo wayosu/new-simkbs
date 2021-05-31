@@ -41,7 +41,7 @@ $sql_s3 = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_pendidikan
                         <h5 class="modal-title" id="exampleModalLabel">Pencarian Lebih Lengkap</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="list_data.php" method="GET">
+                    <form action="filter" method="GET">
                         <div class="modal-body">
                             <!-- Dusun -->
                             <div class="row">
@@ -123,7 +123,7 @@ $sql_s3 = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_pendidikan
                         <div class="col-lg-6 text-center">
                             <h2>Cari Informasi Penerima Bantuan</h2>
                             <!-- pencarian -->
-                            <form class="d-flex custom-search" action="search.php" method="GET">
+                            <form class="d-flex custom-search" action="search" method="GET">
                                 <input class="form-control me-2" type="number" name="nik" placeholder="Masukan NIK Kepala Keluarga" aria-label="Search" required>
                                 <!-- Tombol cari -->
                                 <button class="btn text-light me-2" type="submit" style="background-color: #042165;">Cari</button>

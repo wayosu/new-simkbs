@@ -1,4 +1,16 @@
 <?php
+session_start();
+// mengecek admin login atau tidak
+if (!isset($_SESSION['username'])) {
+?>
+    <script>
+        alert('Anda harus login untuk mengakses halaman ini!');
+        window.location.href = 'login';
+    </script>
+<?php
+    return false;
+}
+
 $base_url = 'http://localhost/simkbs/';
 include 'app/koneksi.php';
 include 'views/layout/header.php';

@@ -1,4 +1,16 @@
 <?php
+session_start();
+// mengecek admin login atau tidak
+if (isset($_SESSION['username'])) {
+?>
+    <script>
+        alert('Anda sedang aktif, tidak dapat mengakses halaman ini!');
+        window.location.href = 'dashboard';
+    </script>
+<?php
+    return false;
+}
+
 $base_url = 'http://localhost/simkbs/';
 include 'app/koneksi.php';
 include 'views/layout/user/header.php';

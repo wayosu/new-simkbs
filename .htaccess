@@ -5,7 +5,9 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 RewriteRule ^beranda$ index.php?views_user=beranda
-RewriteRule ^search$ index.php?views_user=search
+RewriteRule ^search$ search.php
+RewriteRule ^filter$ list_data.php
+RewriteRule ^login$ login.php
 
 RewriteRule ^dashboard$ admin.php?views=dashboard
 

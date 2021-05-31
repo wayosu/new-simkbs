@@ -1,17 +1,18 @@
  <!-- Main Sidebar Container -->
  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #042165;">
-
-
-
+   <a href="<?= $base_url; ?>dashboard" class="brand-link">
+     <img src="<?= $base_url; ?>asset_user/img/logo-campur.png" alt="Logo" class="brand-image bg-light img-circle elevation-3" style="opacity: 1">
+     <span class="brand-text font-weight-light">KBS - Desa Butu</span>
+   </a>
    <!-- Sidebar -->
    <div class="sidebar">
      <!-- Sidebar user (optional) -->
      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
        <div class="image">
-         <img src="<?= $base_url; ?>kab.png" alt="User Image">
+         <img src="<?= $base_url; ?>dist/img/0.png" alt="User Image">
        </div>
        <div class="info">
-         <a href="<?= $base_url; ?>dashboard" class="d-block">DESA BUTU</a>
+         <a href="<?= $base_url; ?>dashboard" class="d-block"><?= $_SESSION['nama']; ?></a>
        </div>
      </div>
 
