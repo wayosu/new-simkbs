@@ -109,6 +109,19 @@
     }
   });
 
+  $(".jkjk").change(function() {
+    if ($(this).val() == "3") {
+      $("#dataKonsumsi").hide();
+      $("#dataTabunganBantuan").hide();
+    } else if ($(this).val() == "9") {
+      $("#dataKonsumsi").hide();
+      $("#dataTabunganBantuan").hide();
+    } else {
+      $("#dataKonsumsi").show();
+      $("#dataTabunganBantuan").show();
+    }
+  });
+
   function fetch_select(val) {
     $.ajax({
       type: 'post',

@@ -43,7 +43,7 @@
 
                          <div class="form-group">
                              <label>Jenis Kelamin</label>
-                             <select class="form-control select2 jkjk" name="jk" style="width: 100%;">
+                             <select class="form-control select2" name="jk" style="width: 100%;">
                                  <option hidden>--Pilih Jenis Kelamin--</option>
                                  <option value="1">Laki-laki</option>
                                  <option value="2">Perempuan</option>
@@ -157,7 +157,7 @@
              </div>
          </div>
 
-         <div class="card">
+         <div class="card" id="dataKonsumsi">
              <div class="card-header" style="background-color: #042165;">
                  <h3 class="card-title text-white">Data Konsumsi</h3>
              </div>
@@ -167,7 +167,7 @@
                          <div class="form-group">
                              <label>Bahan Makanan</label>
                              <select class="form-control select2" name="bhn_makanan" style="width: 100%;">
-                                 <option hidden>--Pilih Bahan Makanan--</option>
+                                 <option value="" hidden>--Pilih Bahan Makanan--</option>
                                  <option value="1">Daging</option>
                                  <option value="2">Susu</option>
                                  <option value="3">Ayam</option>
@@ -177,7 +177,7 @@
                          <div class="form-group">
                              <label>Pakaian Per Tahun</label>
                              <select class="form-control select2" name="pakaian_pertahun" style="width: 100%;">
-                                 <option hidden>--Pilih Pakaian Baru Per Tahun--</option>
+                                 <option value="" hidden>--Pilih Pakaian Baru Per Tahun--</option>
                                  <option value="0">Tidak Pernah</option>
                                  <option value="1">1 Stel</option>
                                  <option value="2">2 Stel</option>
@@ -203,7 +203,7 @@
                          <div class="form-group">
                              <label>Frekuensi Per Minggu</label>
                              <select class="form-control select2" name="frekuensi_perminggu" style="width: 100%;">
-                                 <option hidden>--Pilih Frekuensi--</option>
+                                 <option value="" hidden>--Pilih Frekuensi--</option>
                                  <option value="0">Tidak Pernah</option>
                                  <option value="1">1 Kali Seminggu</option>
                                  <option value="2">2 Kali Seminggu</option>
@@ -214,7 +214,7 @@
                          <div class="form-group">
                              <label>Makan Per Hari</label>
                              <select class="form-control select2" name="makan_perhari" style="width: 100%;">
-                                 <option hidden>--Pilih Banyak Makan Dalam Sehari--</option>
+                                 <option value="" hidden>--Pilih Banyak Makan Dalam Sehari--</option>
                                  <option value="0">Tidak Pernah</option>
                                  <option value="1">1 Kali Sehari</option>
                                  <option value="2">2 Kali Sehari</option>
@@ -227,7 +227,7 @@
              </div>
          </div>
 
-         <div class="row">
+         <div class="row" id="dataTabunganBantuan">
              <div class="col-md-6">
                  <div class="card">
                      <div class="card-header" style="background-color: #042165;">
@@ -254,7 +254,7 @@
                                  <div class="form-group">
                                      <label>Jenis Tabungan</label>
                                      <select class="form-control select2 cekKepem" name="jenis_tabungan" style="width: 100%;">
-                                         <option hidden>--Pilih Jenis Tabungan--</option>
+                                         <option value="" hidden>--Pilih Jenis Tabungan--</option>
                                          <option value="1">Sepeda Motor Kredit</option>
                                          <option value="2">Emas</option>
                                          <option value="3">Hewan Ternak</option>
@@ -297,7 +297,7 @@
                                  <div class="form-group">
                                      <label>Jenis Bantuan</label>
                                      <select class="form-control select ceks" name="jenis_bantuan" style="width: 100%;">
-                                         <option hidden>--Pilih Jenis Bantuan--</option>
+                                         <option value="" hidden>--Pilih Jenis Bantuan--</option>
                                          <option value="BPNT">Bantuan Sembako (BPNT)</option>
                                          <option value="PKH">Bantuan PKH</option>
                                          <option value="BST">Bantuan Sosial Tunai (BST)</option>

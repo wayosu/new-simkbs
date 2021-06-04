@@ -43,11 +43,11 @@ if (isset($_POST['simpan_data'])) {
     // var_dump($no_kk, $nik, $nm, $jk, $tmp_lahir, $tgl_lahir, $tahun, $bulan, $hari, $hubkel, $nm_ayah, $nm_ibu, $pend_terakhir, $pekerjaan, $penghasilan, $dusun);
 
     // data konsumsi
-    $bhn_makanan = $_POST['bhn_makanan'];
-    $pakaian_pertahun = $_POST['pakaian_pertahun'];
-    $biaya_pengobatan = isset($_POST['biaya_pengobatan']) ? $_POST['biaya_pengobatan'] : "1";
-    $frekuensi_perminggu = $_POST['frekuensi_perminggu'];
-    $makan_perhari = $_POST['makan_perhari'];
+    $bhn_makanan = isset($_POST['bhn_makanan']) ? $_POST['bhn_makanan'] : NULL;
+    $pakaian_pertahun = isset($_POST['pakaian_pertahun']) ? $_POST['pakaian_pertahun'] : NULL;
+    $biaya_pengobatan = isset($_POST['biaya_pengobatan']) ? $_POST['biaya_pengobatan'] : NULL;
+    $frekuensi_perminggu = isset($_POST['frekuensi_perminggu']) ? $_POST['frekuensi_perminggu'] : NULL;
+    $makan_perhari = isset($_POST['makan_perhari']) ? $_POST['makan_perhari'] : NULL;
     // var_dump($bhn_makanan, $pakaian_pertahun, $biaya_pengobatan, $frekuensi_perminggu, $makan_perhari);
 
     // data tabungan
