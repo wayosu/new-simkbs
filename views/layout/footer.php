@@ -32,6 +32,19 @@
     "responsive": true,
     "autoWidth": false,
   });
+  $("#example2").DataTable({
+    "responsive": true,
+    "autoWidth": false,
+  });
+  $("#example3").DataTable({
+    "responsive": true,
+    "autoWidth": false,
+  });
+  $("#example4").DataTable({
+    "responsive": true,
+    "autoWidth": false,
+  });
+
   $(".example2").DataTable({
     "responsive": true,
     "autoWidth": false,
@@ -73,6 +86,29 @@
     }
   });
 
+  $(".jkjk").change(function() {
+    if ($(this).val() == "3") {
+      const html = `
+        <div class="form-group" id="jkjkjk">
+            <label>Ibu Hamil ?</label>
+            <div style="margin-bottom:-9.5px;">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="ibu_hamil" value="1">
+                <label class="form-check-label">Ya</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="ibu_hamil" value="0">
+                <label class="form-check-label">Tidak</label>
+              </div>
+            </div>
+        </div>
+      `;
+      $(".formjkjk").append(html);
+    } else {
+      $("#jkjkjk").remove();
+    }
+  });
+
   function fetch_select(val) {
     $.ajax({
       type: 'post',
@@ -90,6 +126,7 @@
     });
   }
 </script>
+
 </body>
 
 </html>

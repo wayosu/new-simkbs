@@ -83,13 +83,10 @@ $sql_s3 = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_pendidikan
                                         <label for="jenis_bantuan" class="col-form-label"><b>Jenis Bantuan</b></label>
                                         <select id="jenis_bantuan" name="jenis_bantuan" class="form-control pencek">
                                             <option value="" hidden>--Pilih Jenis Bantuan--</option>
-                                            <option value="BLT">BLT</option>
-                                            <option value="Program Keluarga Harapan">Program Keluarga Harapan</option>
-                                            <option value="Bantuan Sosial Tunai">Bantuan Sosial Tunai</option>
-                                            <option value="Bantuan Presiden">Bantuan Presiden</option>
-                                            <option value="Bantuan UMKM">Bantuan UMKM</option>
-                                            <option value="Bantuan Untuk Pekerja">Bantuan Untuk Pekerja</option>
-                                            <option value="Bantuan Pendidikan Anak">Bantuan Pendidikan Anak</option>
+                                            <option value="BPNT">Bantuan Sembako (BPNT)</option>
+                                            <option value="PKH">Bantuan PKH</option>
+                                            <option value="BST">Bantuan Sosial Tunai (BST)</option>
+                                            <option value="BLT">Bantuan Langsung Tunai Dana Desa (BLT-Dana Desa)</option>
                                         </select>
                                     </div>
                                 </div>
