@@ -38,11 +38,11 @@ if (isset($_POST['edit_data'])) {
     $dusun = $_POST['dusun'];
 
     // data konsumsi
-    $bhn_makanan = $_POST['bhn_makanan'];
-    $pakaian_pertahun = $_POST['pakaian_pertahun'];
-    $biaya_pengobatan = isset($_POST['biaya_pengobatan']) ? $_POST['biaya_pengobatan'] : "1";
-    $frekuensi_perminggu = $_POST['frekuensi_perminggu'];
-    $makan_perhari = $_POST['makan_perhari'];
+    $bhn_makanan = isset($_POST['bhn_makanan']) ? $_POST['bhn_makanan'] : NULL;
+    $pakaian_pertahun = isset($_POST['pakaian_pertahun']) ? $_POST['pakaian_pertahun'] : NULL;
+    $biaya_pengobatan = isset($_POST['biaya_pengobatan']) ? $_POST['biaya_pengobatan'] : NULL;
+    $frekuensi_perminggu = isset($_POST['frekuensi_perminggu']) ? $_POST['frekuensi_perminggu'] : NULL;
+    $makan_perhari = isset($_POST['makan_perhari']) ? $_POST['makan_perhari'] : NULL;
 
     // data tabungan
     $kepem_tabungan = isset($_POST['kepem_tabungan']) ? $_POST['kepem_tabungan'] : NULL;
@@ -637,7 +637,7 @@ if (isset($_POST['edit_data'])) {
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" id="dataKonsumsi">
             <div class="card-header" style="background-color: #042165;">
                 <h3 class="card-title text-white">Data Konsumsi</h3>
             </div>
@@ -647,7 +647,7 @@ if (isset($_POST['edit_data'])) {
                         <div class="form-group">
                             <label>Bahan Makanan</label>
                             <select class="form-control select2" name="bhn_makanan" style="width: 100%;">
-                                <option hidden>--Pilih Bahan Makanan--</option>
+                                <option value="" hidden>--Pilih Bahan Makanan--</option>
                                 <?php if ($row['BAHAN_MAKANAN'] == 1) : ?>
                                     <option value="1" selected>Daging</option>
                                     <option value="2">Susu</option>
@@ -679,7 +679,7 @@ if (isset($_POST['edit_data'])) {
                         <div class="form-group">
                             <label>Pakaian Per Tahun</label>
                             <select class="form-control select2" name="pakaian_pertahun" style="width: 100%;">
-                                <option hidden>--Pilih Pakaian Baru Per Tahun--</option>
+                                <option value="" hidden>--Pilih Pakaian Baru Per Tahun--</option>
                                 <?php if ($row['PAKAIAN_PER_TAHUN'] == 0) : ?>
                                     <option value="0" selected>Tidak Pernah</option>
                                     <option value="1">1 Stel</option>
@@ -732,7 +732,7 @@ if (isset($_POST['edit_data'])) {
                                         <input type="radio" name="biaya_pengobatan" id="" class="form-check-input" value="1">Sanggup Membayar
                                     </label>
                                 </div>
-                            <?php else : ?>
+                            <?php elseif ($row['BIAYA_PENGOBATAN'] == 1) : ?>
                                 <div class="form-check-inline mt-0">
                                     <label class="form-check-label">
                                         <input type="radio" name="biaya_pengobatan" id="" class="form-check-input" value="0">Tidak Sanggup Membayar
@@ -743,6 +743,17 @@ if (isset($_POST['edit_data'])) {
                                         <input type="radio" name="biaya_pengobatan" id="" class="form-check-input" value="1" checked>Sanggup Membayar
                                     </label>
                                 </div>
+                            <?php else : ?>
+                                <div class="form-check-inline mt-0">
+                                    <label class="form-check-label">
+                                        <input type="radio" name="biaya_pengobatan" id="" class="form-check-input" value="0">Tidak Sanggup Membayar
+                                    </label>
+                                </div>
+                                <div class="form-check-inline mt-0">
+                                    <label class="form-check-label">
+                                        <input type="radio" name="biaya_pengobatan" id="" class="form-check-input" value="1">Sanggup Membayar
+                                    </label>
+                                </div>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -750,7 +761,7 @@ if (isset($_POST['edit_data'])) {
                         <div class="form-group">
                             <label>Frekuensi Per Minggu</label>
                             <select class="form-control select2" name="frekuensi_perminggu" style="width: 100%;">
-                                <option hidden>--Pilih Frekuensi--</option>
+                                <option value="" hidden>--Pilih Frekuensi--</option>
                                 <?php if ($row['FREKUENSI_PER_MINGGU'] == 0) : ?>
                                     <option value="0" selected>Tidak Pernah</option>
                                     <option value="1">1 Kali Seminggu</option>
@@ -793,7 +804,7 @@ if (isset($_POST['edit_data'])) {
                         <div class="form-group">
                             <label>Makan Per Hari</label>
                             <select class="form-control select2" name="makan_perhari" style="width: 100%;">
-                                <option hidden>--Pilih Banyak Makan Dalam Sehari--</option>
+                                <option value="" hidden>--Pilih Banyak Makan Dalam Sehari--</option>
                                 <?php if ($row['MAKAN_PER_HARI'] == 0) : ?>
                                     <option value="0" selected>Tidak Pernah</option>
                                     <option value="1">1 Kali Sehari</option>
@@ -838,7 +849,7 @@ if (isset($_POST['edit_data'])) {
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" id="dataTabunganBantuan">
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header" style="background-color: #042165;">
@@ -871,6 +882,17 @@ if (isset($_POST['edit_data'])) {
                                                 <input type="radio" name="kepem_tabungan" id="" class="form-check-input" value="1" checked>Ya
                                             </label>
                                         </div>
+                                    <?php else : ?>
+                                        <div class="form-check-inline mt-2">
+                                            <label class="form-check-label">
+                                                <input type="radio" name="kepem_tabungan" id="" class="form-check-input" value="0">Tidak
+                                            </label>
+                                        </div>
+                                        <div class="form-check-inline mt-2">
+                                            <label class="form-check-label">
+                                                <input type="radio" name="kepem_tabungan" id="" class="form-check-input" value="1">Ya
+                                            </label>
+                                        </div>
                                     <?php endif; ?>
                                 </div>
                             </div>
@@ -878,7 +900,7 @@ if (isset($_POST['edit_data'])) {
                                 <div class="form-group">
                                     <label>Jenis Tabungan</label>
                                     <select class="form-control select2 cekKepem" name="jenis_tabungan" style="width: 100%;">
-                                        <option hidden>--Pilih Jenis Tabungan--</option>
+                                        <option value="" hidden>--Pilih Jenis Tabungan--</option>
                                         <?php if ($row['JENIS_TABUNGAN'] == 1) : ?>
                                             <option value="1" selected>Sepeda Motor Kredit</option>
                                             <option value="2">Emas</option>
@@ -978,7 +1000,7 @@ if (isset($_POST['edit_data'])) {
                                 <div class="form-group">
                                     <label>Jenis Bantuan</label>
                                     <select class="form-control select ceks" name="jenis_bantuan" style="width: 100%;">
-                                        <option hidden>--Pilih Jenis Bantuan--</option>
+                                        <option value="" hidden>--Pilih Jenis Bantuan--</option>
                                         <?php if ($row['jenis_bantuan'] == "BPNT") : ?>
                                             <option value="BPNT" selected>Bantuan Sembako (BPNT)</option>
                                             <option value="PKH">Bantuan PKH</option>
@@ -1063,5 +1085,16 @@ if (isset($_POST['edit_data'])) {
         $(".formjkjk").append(html);
     } else {
         $("#jkjkjk").remove();
+    }
+
+    if ($(".jkjk").val() == "3") {
+        $("#dataKonsumsi").hide();
+        $("#dataTabunganBantuan").hide();
+    } else if ($(".jkjk").val() == "9") {
+        $("#dataKonsumsi").hide();
+        $("#dataTabunganBantuan").hide();
+    } else {
+        $("#dataKonsumsi").show();
+        $("#dataTabunganBantuan").show();
     }
 </script>
