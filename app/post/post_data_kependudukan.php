@@ -20,6 +20,8 @@ if (isset($_POST['simpan_data'])) {
 
     $nm = $_POST['nm'];
     $jk = $_POST['jk'];
+    $ibu_hamil = isset($_POST['ibu_hamil']) ? $_POST['ibu_hamil'] : NULL;
+    $disabilitas = isset($_POST['disabilitas']) ? $_POST['disabilitas'] : NULL;
     $tmp_lahir = $_POST['tmp_lahir'];
     $tgl_lahir = $_POST['tgl_lahir'];
 
@@ -58,8 +60,8 @@ if (isset($_POST['simpan_data'])) {
     $bantuan = isset($_POST['penerima_bantuan']) ? $_POST['penerima_bantuan'] : NULL;
     $jenis_bantuan = isset($_POST['jenis_bantuan']) ? $_POST['jenis_bantuan'] : NULL;
 
-    $sql_kependudukan = $mysqli->query("INSERT INTO tabel_kependudukan (NO_KK, NIK, NAMA_LGKP, HBKEL, JK, TMPT_LHR, TGL_LHR, TAHUN, BULAN, HARI, NAMA_LGKP_AYAH, NAMA_LGKP_IBU, KECAMATAN, KELURAHAN, DSN, AGAMA, bantuan, jenis_bantuan) 
-    VALUES ('$no_kk', '$nik', '$nm', '$hubkel', '$jk', '$tmp_lahir', '$tgl_lahir', '$tahun', '$bulan', '$hari', '$nm_ayah', '$nm_ibu', 'TILONGKABILA', 'BUTU', '$dusun', '$agama','$bantuan','$jenis_bantuan')");
+    $sql_kependudukan = $mysqli->query("INSERT INTO tabel_kependudukan (NO_KK, NIK, NAMA_LGKP, HBKEL, JK, TMPT_LHR, TGL_LHR, TAHUN, BULAN, HARI, NAMA_LGKP_AYAH, NAMA_LGKP_IBU, KECAMATAN, KELURAHAN, DSN, AGAMA, bantuan, jenis_bantuan, ibu_hamil, disabilitas) 
+    VALUES ('$no_kk', '$nik', '$nm', '$hubkel', '$jk', '$tmp_lahir', '$tgl_lahir', '$tahun', '$bulan', '$hari', '$nm_ayah', '$nm_ibu', 'TILONGKABILA', 'BUTU', '$dusun', '$agama','$bantuan','$jenis_bantuan','$ibu_hamil','$disabilitas')");
 
     $sql_tabungan = $mysqli->query("INSERT INTO tabel_tabungan (NIK, NAMA, KEPEMILIKAN_TABUNGAN, JENIS_TABUNGAN, HARGA) 
     VALUES ('$nik', '$nm', '$kepem_tabungan', '$jenis_tabungan', '$harga')");
@@ -101,13 +103,42 @@ if (isset($_POST['hapus_data'])) {
     }
 }
 
-if(isset($_POST['update_bntn'])){
+if(isset($_POST['update_bpnt'])){
     $nik = $_POST['nik'];
-    $jb = $_POST['jenis_bantuan'];
-    $sql_update_bantuan = $mysqli->query("UPDATE tabel_kependudukan SET bantuan='1', jenis_bantuan = '$jb' WHERE NIK = '$nik'");
+    $sql_update_bantuan = $mysqli->query("UPDATE tabel_kependudukan SET bantuan='1', jenis_bantuan = 'BPNT' WHERE NIK = '$nik'");
     echo '
     <script>
-    alert("Berhasil Menambah Jenis Bantuan");
+    alert("Berhasil Menambah Ke Bantuan Sembako BPNT");
+    document.location.href="data_klasifikasi_bantuan";
+    </script>
+    ';
+}
+if(isset($_POST['update_pkh'])){
+    $nik = $_POST['nik'];
+    $sql_update_bantuan = $mysqli->query("UPDATE tabel_kependudukan SET bantuan='1', jenis_bantuan = 'PKH' WHERE NIK = '$nik'");
+    echo '
+    <script>
+    alert("Berhasil Menambah Ke Bantuan PKH");
+    document.location.href="data_klasifikasi_bantuan";
+    </script>
+    ';
+}
+if(isset($_POST['update_bst'])){
+    $nik = $_POST['nik'];
+    $sql_update_bantuan = $mysqli->query("UPDATE tabel_kependudukan SET bantuan='1', jenis_bantuan = 'BST' WHERE NIK = '$nik'");
+    echo '
+    <script>
+    alert("Berhasil Menambah Ke Bantuan Sosial Tunai (BST)");
+    document.location.href="data_klasifikasi_bantuan";
+    </script>
+    ';
+}
+if(isset($_POST['update_blt'])){
+    $nik = $_POST['nik'];
+    $sql_update_bantuan = $mysqli->query("UPDATE tabel_kependudukan SET bantuan='1', jenis_bantuan = 'BLT' WHERE NIK = '$nik'");
+    echo '
+    <script>
+    alert("Berhasil Menambah Ke BLT-Dana Desa");
     document.location.href="data_klasifikasi_bantuan";
     </script>
     ';

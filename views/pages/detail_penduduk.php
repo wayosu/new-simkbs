@@ -24,6 +24,7 @@ $row = $query->fetch_assoc();
 ?>
 <section class="content">
     <div class="container-fluid">
+    <a href="../data_kependudukan" class="btn text-light" style="background-color: #042165;"><i class="fas fa-arrow-alt-circle-left"></i> Kembali</a>
         <div class="row">
             <div class="col-12">
                 <div class="card mt-3">
@@ -249,20 +250,20 @@ $row = $query->fetch_assoc();
                                                                 ?></div>
                                 </div>
                             </div>
-                      
-                        <div class="form-group">
-                            <label for="">Harga</label>
-                            <div class="text-primary"><?php
-                                                        if ($row['HARGA'] == '1') {
-                                                            echo 'Tidak Memiliki Bantuan';
-                                                        } else {
-                                                            echo 'Rp. ' . $row['HARGA'];
-                                                        }
-                                                        ?></div>
+
+                            <div class="form-group">
+                                <label for="">Harga</label>
+                                <div class="text-primary"><?php
+                                                            if ($row['HARGA'] == '1') {
+                                                                echo 'Tidak Memiliki Bantuan';
+                                                            } else {
+                                                                echo 'Rp. ' . $row['HARGA'];
+                                                            }
+                                                            ?></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
             <div class="col-md-6">
                 <div class="card">
@@ -277,8 +278,10 @@ $row = $query->fetch_assoc();
                                     <div class="text-primary"><?php
                                                                 if ($row['bantuan'] == '0') {
                                                                     echo 'Tidak';
-                                                                } else {
+                                                                } else if ($row['bantuan'] == '1') {
                                                                     echo "Ya";
+                                                                } else {
+                                                                    echo "Tidak";
                                                                 }
                                                                 ?></div>
 
@@ -288,7 +291,7 @@ $row = $query->fetch_assoc();
                                 <div class="form-group">
                                     <label>Jenis Bantuan</label>
                                     <div class="text-primary"><?php
-                                                                if ($row['jenis_bantuan'] == '') {
+                                                                if ($row['jenis_bantuan'] == '' || $row['jenis_bantuan'] == '--Pilih Jenis Bantuan--') {
                                                                     echo 'Tidak Memiliki Bantuan';
                                                                 } else {
                                                                     echo $row['jenis_bantuan'];

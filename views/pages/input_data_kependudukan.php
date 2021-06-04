@@ -40,14 +40,16 @@
                              <label for="">Nama</label>
                              <input type="text" name="nm" class="form-control" id="" placeholder="Masukkan Nama Lengkap">
                          </div>
+
                          <div class="form-group">
                              <label>Jenis Kelamin</label>
-                             <select class="form-control select2" name="jk" style="width: 100%;">
+                             <select class="form-control select2 jkjk" name="jk" style="width: 100%;">
                                  <option hidden>--Pilih Jenis Kelamin--</option>
                                  <option value="1">Laki-laki</option>
                                  <option value="2">Perempuan</option>
                              </select>
                          </div>
+
                          <div class="form-group">
                              <label for="">Tempat Lahir</label>
                              <input type="text" name="tmp_lahir" class="form-control" id="" placeholder="Masukkan Tempat Lahir">
@@ -68,16 +70,31 @@
                                  <option value="khonghucu">Khonghucu</option>
                              </select>
                          </div>
+                         <div class="form-group">
+                             <label>Disabilitas ?</label>
+                             <div style="margin-bottom:-9.5px;">
+                                 <div class="form-check">
+                                     <input class="form-check-input" type="radio" name="disabilitas" value="1">
+                                     <label class="form-check-label">Ya</label>
+                                 </div>
+                                 <div class="form-check">
+                                     <input class="form-check-input" type="radio" name="disabilitas" value="0">
+                                     <label class="form-check-label">Tidak</label>
+                                 </div>
+                             </div>
+                         </div>
                      </div>
                      <div class="col-md-6">
-                         <div class="form-group">
-                             <label>Hubungan Keluarga</label>
-                             <select class="form-control select2" name="hubkel" style="width: 100%;">
-                                 <option hidden>--Pilih Hubungan Keluarga--</option>
-                                 <option value="1">Kepala Keluarga</option>
-                                 <option value="3">Istri</option>
-                                 <option value="9">Anak</option>
-                             </select>
+                         <div class="formjkjk">
+                             <div class="form-group">
+                                 <label>Hubungan Keluarga</label>
+                                 <select class="form-control select2 jkjk" name="hubkel" style="width: 100%;">
+                                     <option hidden>--Pilih Hubungan Keluarga--</option>
+                                     <option value="1">Kepala Keluarga</option>
+                                     <option value="3">Istri</option>
+                                     <option value="9">Anak</option>
+                                 </select>
+                             </div>
                          </div>
                          <div class="form-group">
                              <label for="">Nama Ayah</label>
@@ -281,13 +298,10 @@
                                      <label>Jenis Bantuan</label>
                                      <select class="form-control select ceks" name="jenis_bantuan" style="width: 100%;">
                                          <option hidden>--Pilih Jenis Bantuan--</option>
-                                         <option value="BLT">BLT</option>
-                                         <option value="Program Keluarga Harapan">Program Keluarga Harapan</option>
-                                         <option value="Bantuan Sosial Tunai">Bantuan Sosial Tunai</option>
-                                         <option value="Bantuan Presiden">Bantuan Presiden</option>
-                                         <option value="Bantuan UMKM">Bantuan UMKM</option>
-                                         <option value="Bantuan Untuk Pekerja">Bantuan Untuk Pekerja</option>
-                                         <option value="Bantuan Pendidikan Anak">Bantuan Pendidikan Anak</option>
+                                         <option value="BPNT">Bantuan Sembako (BPNT)</option>
+                                         <option value="PKH">Bantuan PKH</option>
+                                         <option value="BST">Bantuan Sosial Tunai (BST)</option>
+                                         <option value="BLT">Bantuan Langsung Tunai Dana Desa (BLT-Dana Desa)</option>
                                      </select>
                                  </div>
                              </div>
