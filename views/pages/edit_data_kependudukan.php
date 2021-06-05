@@ -652,27 +652,18 @@ if (isset($_POST['edit_data'])) {
                                     <option value="1" selected>Daging</option>
                                     <option value="2">Susu</option>
                                     <option value="3">Ayam</option>
-                                    <option value="4">Lainnya</option>
                                 <?php elseif ($row['BAHAN_MAKANAN'] == 2) : ?>
                                     <option value="1">Daging</option>
                                     <option value="2" selected>Susu</option>
                                     <option value="3">Ayam</option>
-                                    <option value="4">Lainnya</option>
                                 <?php elseif ($row['BAHAN_MAKANAN'] == 3) : ?>
                                     <option value="1">Daging</option>
                                     <option value="2">Susu</option>
                                     <option value="3" selected>Ayam</option>
-                                    <option value="4">Lainnya</option>
-                                <?php elseif ($row['BAHAN_MAKANAN'] == 4) : ?>
-                                    <option value="1">Daging</option>
-                                    <option value="2">Susu</option>
-                                    <option value="3">Ayam</option>
-                                    <option value="4" selected>Lainnya</option>
                                 <?php else : ?>
                                     <option value="1">Daging</option>
                                     <option value="2">Susu</option>
                                     <option value="3">Ayam</option>
-                                    <option value="4">Lainnya</option>
                                 <?php endif; ?>
                             </select>
                         </div>
