@@ -189,7 +189,7 @@
             <div class="col-12 col-sm-6 col-md-4">
                 <div class="card card-light">
                     <div class="card-header">
-                        <h3 class="card-title">Rekomendasi Penerima Bantuan</h3>
+                        <h3 class="card-title">Penerima Bantuan</h3>
                     </div>
                     <div class="card-body">
                         <div class="chart">
