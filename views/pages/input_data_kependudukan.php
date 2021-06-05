@@ -171,7 +171,6 @@
                                  <option value="1">Daging</option>
                                  <option value="2">Susu</option>
                                  <option value="3">Ayam</option>
-                                 <option value="4">Lainnya</option>
                              </select>
                          </div>
                          <div class="form-group">
