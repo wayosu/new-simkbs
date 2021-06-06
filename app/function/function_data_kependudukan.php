@@ -1,7 +1,7 @@
 <?php
 function tampil_data($mysqli)
 {
-    $sql = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK=tabel_pendidikan.NIK JOIN tabel_pekerjaan ON tabel_kependudukan.NIK=tabel_pekerjaan.NIK");
+    $sql = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK=tabel_pendidikan.NIK JOIN tabel_pekerjaan ON tabel_kependudukan.NIK=tabel_pekerjaan.NIK ORDER BY tabel_kependudukan.NO_KK DESC");
     while ($row = $sql->fetch_assoc()) {
 ?>
         <tr>
@@ -15,12 +15,20 @@ function tampil_data($mysqli)
                     Perempuan
                 <?php endif; ?>
             </td>
-            <td><?= $row['TMPT_LHR']; ?></td>
-            <td><?= tgl_indo($row['TGL_LHR'])   ; ?></td>
-            <td><?= $row['AGAMA']; ?></td>
-            <td><?= $row['PENDIDIKAN_TERAKHIR']; ?></td>
+            <td>
+                <?php if ($row['HBKEL'] == 1) : ?>
+                    Kepala Keluarga
+                <?php elseif ($row['HBKEL'] == 3) : ?>
+                    Istri
+                <?php elseif ($row['HBKEL'] == 9) : ?>
+                    Anak
+                <?php else : ?>
+                    -
+                <?php endif; ?>
+            </td>
+            <td><?= $row['TMPT_LHR']; ?>, <?= tgl_indo($row['TGL_LHR']); ?></td>
             <td><?= $row['PEKERJAAN']; ?></td>
-            <td>Rp. <?= number_format($row['PENGHASILAN_PER_BULAN'])    ; ?></td>
+            <td>Rp. <?= number_format($row['PENGHASILAN_PER_BULAN']); ?></td>
             <td><?= $row['DSN']; ?></td>
             <td>
                 <button type="button" class="btn btn-default" data-toggle="dropdown">
