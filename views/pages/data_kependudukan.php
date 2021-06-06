@@ -40,10 +40,10 @@
                                         <th>NIK</th>
                                         <th>Nama</th>
                                         <th>Jenis Kelamin</th>
-                                        <th>Tempat Lahir</th>
-                                        <th>Tgl Lahir</th>
-                                        <th>Agama</th>
-                                        <th>Pendidikan Terakhir</th>
+                                        <th>Hubungan Keluarga</th>
+                                        <th>Tempat Tanggal Lahir</th>
+                                        <!-- <th>Agama</th> -->
+                                        <!-- <th>Pendidikan Terakhir</th> -->
                                         <th>Pekerjaan Utama</th>
                                         <th>Penghasilan per Bulan</th>
                                         <th>Dusun</th>
