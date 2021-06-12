@@ -25,7 +25,7 @@
                         <li><a href="#Kelompok">Kelompok Umur</a></li>
                         <li><a href="#Agama">Agama</a></li>
                         <li><a href="#Dusun">Dusun</a></li>
-                        <li><a href="#Perkawinan">Perkawinan</a></li>
+                        <!-- <li><a href="#Perkawinan">Perkawinan</a></li> -->
                     </ul>
                 </li>
                 <li><a class="nav-link scrollto" href="#contact">Contact</a></li>

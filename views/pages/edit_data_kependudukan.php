@@ -264,7 +264,7 @@ if (isset($_POST['edit_data'])) {
                         </div>
                         <div class="form-group">
                             <label for="">Nama Ibu</label>
-                            <input type="text" name="nm_ibu" class="form-control" id="" value="<?= $row['NAMA_LGKP_IBU']; ?>" placeholder="Masukkan Nama Ayah">
+                            <input type="text" name="nm_ibu" class="form-control" id="" value="<?= $row['NAMA_LGKP_IBU']; ?>" placeholder="Masukkan Nama Ibu">
                         </div>
                         <div class="form-group">
                             <label>Pendidikan Terakhir</label>
@@ -385,7 +385,8 @@ if (isset($_POST['edit_data'])) {
                                     <option value="Buruh Perkebunan">Buruh Perkebunan</option>
                                     <option value="Nelayan">Nelayan</option>
                                     <option value="Guru">Guru</option>
-                                    <option value="Pedagang">Pedagang</option>
+                                    <option value="Pedagang Besar">Pedagang Besar</option>
+                                    <option value="Pedagang Kecil">Pedagang Kecil</option>
                                     <option value="Pengolahan/Industri">Pengolahan/Industri</option>
                                     <option value="PNS">PNS</option>
                                     <option value="Pensiunan">Pensiunan</option>
@@ -400,7 +401,8 @@ if (isset($_POST['edit_data'])) {
                                     <option value="Buruh Perkebunan">Buruh Perkebunan</option>
                                     <option value="Nelayan">Nelayan</option>
                                     <option value="Guru">Guru</option>
-                                    <option value="Pedagang">Pedagang</option>
+                                    <option value="Pedagang Besar">Pedagang Besar</option>
+                                    <option value="Pedagang Kecil">Pedagang Kecil</option>
                                     <option value="Pengolahan/Industri">Pengolahan/Industri</option>
                                     <option value="PNS">PNS</option>
                                     <option value="Pensiunan">Pensiunan</option>
@@ -415,7 +417,8 @@ if (isset($_POST['edit_data'])) {
                                     <option value="Buruh Perkebunan">Buruh Perkebunan</option>
                                     <option value="Nelayan">Nelayan</option>
                                     <option value="Guru">Guru</option>
-                                    <option value="Pedagang">Pedagang</option>
+                                    <option value="Pedagang Besar">Pedagang Besar</option>
+                                    <option value="Pedagang Kecil">Pedagang Kecil</option>
                                     <option value="Pengolahan/Industri">Pengolahan/Industri</option>
                                     <option value="PNS">PNS</option>
                                     <option value="Pensiunan">Pensiunan</option>
@@ -430,7 +433,8 @@ if (isset($_POST['edit_data'])) {
                                     <option value="Buruh Perkebunan" selected>Buruh Perkebunan</option>
                                     <option value="Nelayan">Nelayan</option>
                                     <option value="Guru">Guru</option>
-                                    <option value="Pedagang">Pedagang</option>
+                                    <option value="Pedagang Besar">Pedagang Besar</option>
+                                    <option value="Pedagang Kecil">Pedagang Kecil</option>
                                     <option value="Pengolahan/Industri">Pengolahan/Industri</option>
                                     <option value="PNS">PNS</option>
                                     <option value="Pensiunan">Pensiunan</option>
@@ -445,7 +449,8 @@ if (isset($_POST['edit_data'])) {
                                     <option value="Buruh Perkebunan">Buruh Perkebunan</option>
                                     <option value="Nelayan" selected>Nelayan</option>
                                     <option value="Guru">Guru</option>
-                                    <option value="Pedagang">Pedagang</option>
+                                    <option value="Pedagang Besar">Pedagang Besar</option>
+                                    <option value="Pedagang Kecil">Pedagang Kecil</option>
                                     <option value="Pengolahan/Industri">Pengolahan/Industri</option>
                                     <option value="PNS">PNS</option>
                                     <option value="Pensiunan">Pensiunan</option>
@@ -460,14 +465,15 @@ if (isset($_POST['edit_data'])) {
                                     <option value="Buruh Perkebunan">Buruh Perkebunan</option>
                                     <option value="Nelayan">Nelayan</option>
                                     <option value="Guru" selected>Guru</option>
-                                    <option value="Pedagang">Pedagang</option>
+                                    <option value="Pedagang Besar">Pedagang Besar</option>
+                                    <option value="Pedagang Kecil">Pedagang Kecil</option>
                                     <option value="Pengolahan/Industri">Pengolahan/Industri</option>
                                     <option value="PNS">PNS</option>
                                     <option value="Pensiunan">Pensiunan</option>
                                     <option value="Perangkat Desa">Perangkat Desa</option>
                                     <option value="TKI">TKI</option>
                                     <option value="Lainnya">Lainnya</option>
-                                <?php elseif ($row['PEKERJAAN'] == 'Pedagang') : ?>
+                                <?php elseif ($row['PEKERJAAN'] == 'Pedagang Besar') : ?>
                                     <option value="Tidak Bekerja">Tidak Bekerja</option>
                                     <option value="Petani">Petani</option>
                                     <option value="Buruh Tani">Buruh Tani</option>
@@ -475,7 +481,24 @@ if (isset($_POST['edit_data'])) {
                                     <option value="Buruh Perkebunan">Buruh Perkebunan</option>
                                     <option value="Nelayan">Nelayan</option>
                                     <option value="Guru">Guru</option>
-                                    <option value="Pedagang" selected>Pedagang</option>
+                                    <option value="Pedagang Besar" selected>Pedagang Besar</option>
+                                    <option value="Pedagang Kecil">Pedagang Kecil</option>
+                                    <option value="Pengolahan/Industri">Pengolahan/Industri</option>
+                                    <option value="PNS">PNS</option>
+                                    <option value="Pensiunan">Pensiunan</option>
+                                    <option value="Perangkat Desa">Perangkat Desa</option>
+                                    <option value="TKI">TKI</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                <?php elseif ($row['PEKERJAAN'] == 'Pedagang Kecil') : ?>
+                                    <option value="Tidak Bekerja">Tidak Bekerja</option>
+                                    <option value="Petani">Petani</option>
+                                    <option value="Buruh Tani">Buruh Tani</option>
+                                    <option value="Buruh Bangunan">Buruh Bangunan</option>
+                                    <option value="Buruh Perkebunan">Buruh Perkebunan</option>
+                                    <option value="Nelayan">Nelayan</option>
+                                    <option value="Guru">Guru</option>
+                                    <option value="Pedagang Besar">Pedagang Besar</option>
+                                    <option value="Pedagang Kecil" selected>Pedagang Kecil</option>
                                     <option value="Pengolahan/Industri">Pengolahan/Industri</option>
                                     <option value="PNS">PNS</option>
                                     <option value="Pensiunan">Pensiunan</option>
@@ -490,7 +513,8 @@ if (isset($_POST['edit_data'])) {
                                     <option value="Buruh Perkebunan">Buruh Perkebunan</option>
                                     <option value="Nelayan">Nelayan</option>
                                     <option value="Guru">Guru</option>
-                                    <option value="Pedagang">Pedagang</option>
+                                    <option value="Pedagang Besar">Pedagang Besar</option>
+                                    <option value="Pedagang Kecil">Pedagang Kecil</option>
                                     <option value="Pengolahan/Industri" selected>Pengolahan/Industri</option>
                                     <option value="PNS">PNS</option>
                                     <option value="Pensiunan">Pensiunan</option>
@@ -505,7 +529,8 @@ if (isset($_POST['edit_data'])) {
                                     <option value="Buruh Perkebunan">Buruh Perkebunan</option>
                                     <option value="Nelayan">Nelayan</option>
                                     <option value="Guru">Guru</option>
-                                    <option value="Pedagang">Pedagang</option>
+                                    <option value="Pedagang Besar">Pedagang Besar</option>
+                                    <option value="Pedagang Kecil">Pedagang Kecil</option>
                                     <option value="Pengolahan/Industri">Pengolahan/Industri</option>
                                     <option value="PNS" selected>PNS</option>
                                     <option value="Pensiunan">Pensiunan</option>
@@ -520,7 +545,8 @@ if (isset($_POST['edit_data'])) {
                                     <option value="Buruh Perkebunan">Buruh Perkebunan</option>
                                     <option value="Nelayan">Nelayan</option>
                                     <option value="Guru">Guru</option>
-                                    <option value="Pedagang">Pedagang</option>
+                                    <option value="Pedagang Besar">Pedagang Besar</option>
+                                    <option value="Pedagang Kecil">Pedagang Kecil</option>
                                     <option value="Pengolahan/Industri">Pengolahan/Industri</option>
                                     <option value="PNS">PNS</option>
                                     <option value="Pensiunan" selected>Pensiunan</option>
@@ -535,7 +561,8 @@ if (isset($_POST['edit_data'])) {
                                     <option value="Buruh Perkebunan">Buruh Perkebunan</option>
                                     <option value="Nelayan">Nelayan</option>
                                     <option value="Guru">Guru</option>
-                                    <option value="Pedagang">Pedagang</option>
+                                    <option value="Pedagang Besar">Pedagang Besar</option>
+                                    <option value="Pedagang Kecil">Pedagang Kecil</option>
                                     <option value="Pengolahan/Industri">Pengolahan/Industri</option>
                                     <option value="PNS">PNS</option>
                                     <option value="Pensiunan">Pensiunan</option>
@@ -550,7 +577,8 @@ if (isset($_POST['edit_data'])) {
                                     <option value="Buruh Perkebunan">Buruh Perkebunan</option>
                                     <option value="Nelayan">Nelayan</option>
                                     <option value="Guru">Guru</option>
-                                    <option value="Pedagang">Pedagang</option>
+                                    <option value="Pedagang Besar">Pedagang Besar</option>
+                                    <option value="Pedagang Kecil">Pedagang Kecil</option>
                                     <option value="Pengolahan/Industri">Pengolahan/Industri</option>
                                     <option value="PNS">PNS</option>
                                     <option value="Pensiunan">Pensiunan</option>
@@ -565,7 +593,8 @@ if (isset($_POST['edit_data'])) {
                                     <option value="Buruh Perkebunan">Buruh Perkebunan</option>
                                     <option value="Nelayan">Nelayan</option>
                                     <option value="Guru">Guru</option>
-                                    <option value="Pedagang">Pedagang</option>
+                                    <option value="Pedagang Besar">Pedagang Besar</option>
+                                    <option value="Pedagang Kecil">Pedagang Kecil</option>
                                     <option value="Pengolahan/Industri">Pengolahan/Industri</option>
                                     <option value="PNS">PNS</option>
                                     <option value="Pensiunan">Pensiunan</option>
@@ -580,7 +609,8 @@ if (isset($_POST['edit_data'])) {
                                     <option value="Buruh Perkebunan">Buruh Perkebunan</option>
                                     <option value="Nelayan">Nelayan</option>
                                     <option value="Guru">Guru</option>
-                                    <option value="Pedagang">Pedagang</option>
+                                    <option value="Pedagang Besar">Pedagang Besar</option>
+                                    <option value="Pedagang Kecil">Pedagang Kecil</option>
                                     <option value="Pengolahan/Industri">Pengolahan/Industri</option>
                                     <option value="PNS">PNS</option>
                                     <option value="Pensiunan">Pensiunan</option>
@@ -595,7 +625,8 @@ if (isset($_POST['edit_data'])) {
                                     <option value="Buruh Perkebunan">Buruh Perkebunan</option>
                                     <option value="Nelayan">Nelayan</option>
                                     <option value="Guru">Guru</option>
-                                    <option value="Pedagang">Pedagang</option>
+                                    <option value="Pedagang Besar">Pedagang Besar</option>
+                                    <option value="Pedagang Kecil">Pedagang Kecil</option>
                                     <option value="Pengolahan/Industri">Pengolahan/Industri</option>
                                     <option value="PNS">PNS</option>
                                     <option value="Pensiunan">Pensiunan</option>
@@ -711,41 +742,27 @@ if (isset($_POST['edit_data'])) {
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Biaya Pengobatan PUSKESMAS</label><br>
-                            <?php if ($row['BIAYA_PENGOBATAN'] == 0) : ?>
-                                <div class="form-check-inline mt-0">
-                                    <label class="form-check-label">
-                                        <input type="radio" name="biaya_pengobatan" id="" class="form-check-input" value="0" checked>Tidak Sanggup Membayar
-                                    </label>
-                                </div>
-                                <div class="form-check-inline mt-0">
-                                    <label class="form-check-label">
-                                        <input type="radio" name="biaya_pengobatan" id="" class="form-check-input" value="1">Sanggup Membayar
-                                    </label>
-                                </div>
-                            <?php elseif ($row['BIAYA_PENGOBATAN'] == 1) : ?>
-                                <div class="form-check-inline mt-0">
-                                    <label class="form-check-label">
-                                        <input type="radio" name="biaya_pengobatan" id="" class="form-check-input" value="0">Tidak Sanggup Membayar
-                                    </label>
-                                </div>
-                                <div class="form-check-inline mt-0">
-                                    <label class="form-check-label">
-                                        <input type="radio" name="biaya_pengobatan" id="" class="form-check-input" value="1" checked>Sanggup Membayar
-                                    </label>
-                                </div>
-                            <?php else : ?>
-                                <div class="form-check-inline mt-0">
-                                    <label class="form-check-label">
-                                        <input type="radio" name="biaya_pengobatan" id="" class="form-check-input" value="0">Tidak Sanggup Membayar
-                                    </label>
-                                </div>
-                                <div class="form-check-inline mt-0">
-                                    <label class="form-check-label">
-                                        <input type="radio" name="biaya_pengobatan" id="" class="form-check-input" value="1">Sanggup Membayar
-                                    </label>
-                                </div>
-                            <?php endif; ?>
+                            <label>Biaya Pengobatan</label>
+                            <select class="form-control select2" name="biaya_pengobatan" style="width: 100%;">
+                                <option value="" hidden>--Pilih Biaya Pengobatan--</option>
+                                <?php if ($row['BIAYA_PENGOBATAN'] == 0) : ?>
+                                    <option value="0" selected>BPJS Gratis</option>
+                                    <option value="1">BPJS Mandiri</option>
+                                    <option value="2">Lainnya</option>
+                                <?php elseif ($row['BIAYA_PENGOBATAN'] == 1) : ?>
+                                    <option value="0">BPJS Gratis</option>
+                                    <option value="1" selected>BPJS Mandiri</option>
+                                    <option value="2">Lainnya</option>
+                                <?php elseif ($row['BIAYA_PENGOBATAN'] == 2) : ?>
+                                    <option value="0">BPJS Gratis</option>
+                                    <option value="1">BPJS Mandiri</option>
+                                    <option value="2" selected>Lainnya</option>
+                                <?php else : ?>
+                                    <option value="0">BPJS Gratis</option>
+                                    <option value="1">BPJS Mandiri</option>
+                                    <option value="2">Lainnya</option>
+                                <?php endif; ?>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-6">

@@ -121,48 +121,150 @@ if (isset($_POST['edit_data'])) {
                             <label>Jenis Lantai</label>
                             <select class="form-control select2" name="jenis_lantai" style="width: 100%;">
                                 <option hidden>--Pilih Jenis Lantai--</option>
-                                <?php if ($row['JENIS_LANTAI'] == "Marmer") : ?>
-                                    <option value="Marmer" selected>Marmer</option>
+                                <?php if ($row['JENIS_LANTAI'] == "Marmer/Granit") : ?>
+                                    <option value="Marmer/Granit" selected>Marmer/Granit</option>
                                     <option value="Keramik">Keramik</option>
-                                    <option value="Kayu/Papan">Kayu/Papan</option>
-                                    <option value="Semen">Semen</option>
+                                    <option value="Parket/Vinil/Permadani">Parket/Vinil/Permadani</option>
+                                    <option value="Ubin/Tegel/Teraso">Ubin/Tegel/Teraso</option>
+                                    <option value="Kayu/Papan berkualitas tinggi">Kayu/Papan berkualitas tinggi</option>
+                                    <option value="Semen/Bata merah">Semen/Bata merah</option>
+                                    <option value="Cor">Cor</option>
                                     <option value="Bambu">Bambu</option>
+                                    <option value="Kayu/Papan berkualitas rendah">Kayu/Papan berkualitas rendah</option>
+                                    <option value="Tanah">Tanah</option>
                                     <option value="Lainnya">Lainnya</option>
                                 <?php elseif ($row['JENIS_LANTAI'] == "Keramik") : ?>
-                                    <option value="Marmer">Marmer</option>
+                                    <option value="Marmer/Granit">Marmer/Granit</option>
                                     <option value="Keramik" selected>Keramik</option>
-                                    <option value="Kayu/Papan">Kayu/Papan</option>
-                                    <option value="Semen">Semen</option>
+                                    <option value="Parket/Vinil/Permadani">Parket/Vinil/Permadani</option>
+                                    <option value="Ubin/Tegel/Teraso">Ubin/Tegel/Teraso</option>
+                                    <option value="Kayu/Papan berkualitas tinggi">Kayu/Papan berkualitas tinggi</option>
+                                    <option value="Semen/Bata merah">Semen/Bata merah</option>
+                                    <option value="Cor">Cor</option>
                                     <option value="Bambu">Bambu</option>
+                                    <option value="Kayu/Papan berkualitas rendah">Kayu/Papan berkualitas rendah</option>
+                                    <option value="Tanah">Tanah</option>
                                     <option value="Lainnya">Lainnya</option>
-                                <?php elseif ($row['JENIS_LANTAI'] == "Kayu/Papan") : ?>
-                                    <option value="Marmer">Marmer</option>
+                                <?php elseif ($row['JENIS_LANTAI'] == "Parket/Vinil/Permadani") : ?>
+                                    <option value="Marmer/Granit">Marmer/Granit</option>
                                     <option value="Keramik">Keramik</option>
-                                    <option value="Kayu/Papan" selected>Kayu/Papan</option>
-                                    <option value="Semen">Semen</option>
+                                    <option value="Parket/Vinil/Permadani" selected>Parket/Vinil/Permadani</option>
+                                    <option value="Ubin/Tegel/Teraso">Ubin/Tegel/Teraso</option>
+                                    <option value="Kayu/Papan berkualitas tinggi">Kayu/Papan berkualitas tinggi</option>
+                                    <option value="Semen/Bata merah">Semen/Bata merah</option>
+                                    <option value="Cor">Cor</option>
                                     <option value="Bambu">Bambu</option>
+                                    <option value="Kayu/Papan berkualitas rendah">Kayu/Papan berkualitas rendah</option>
+                                    <option value="Tanah">Tanah</option>
                                     <option value="Lainnya">Lainnya</option>
-                                <?php elseif ($row['JENIS_LANTAI'] == "Semen") : ?>
-                                    <option value="Marmer">Marmer</option>
-                                    <option value="Keramik" selected>Keramik</option>
-                                    <option value="Kayu/Papan">Kayu/Papan</option>
-                                    <option value="Semen" selected>Semen</option>
+                                <?php elseif ($row['JENIS_LANTAI'] == "Ubin/Tegel/Teraso") : ?>
+                                    <option value="Marmer/Granit">Marmer/Granit</option>
+                                    <option value="Keramik">Keramik</option>
+                                    <option value="Parket/Vinil/Permadani">Parket/Vinil/Permadani</option>
+                                    <option value="Ubin/Tegel/Teraso" selected>Ubin/Tegel/Teraso</option>
+                                    <option value="Kayu/Papan berkualitas tinggi">Kayu/Papan berkualitas tinggi</option>
+                                    <option value="Semen/Bata merah">Semen/Bata merah</option>
+                                    <option value="Cor">Cor</option>
                                     <option value="Bambu">Bambu</option>
+                                    <option value="Kayu/Papan berkualitas rendah">Kayu/Papan berkualitas rendah</option>
+                                    <option value="Tanah">Tanah</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                <?php elseif ($row['JENIS_LANTAI'] == "Kayu/Papan berkualitas tinggi") : ?>
+                                    <option value="Marmer/Granit">Marmer/Granit</option>
+                                    <option value="Keramik">Keramik</option>
+                                    <option value="Parket/Vinil/Permadani">Parket/Vinil/Permadani</option>
+                                    <option value="Ubin/Tegel/Teraso">Ubin/Tegel/Teraso</option>
+                                    <option value="Kayu/Papan berkualitas tinggi" selected>Kayu/Papan berkualitas tinggi</option>
+                                    <option value="Semen/Bata merah">Semen/Bata merah</option>
+                                    <option value="Cor">Cor</option>
+                                    <option value="Bambu">Bambu</option>
+                                    <option value="Kayu/Papan berkualitas rendah">Kayu/Papan berkualitas rendah</option>
+                                    <option value="Tanah">Tanah</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                <?php elseif ($row['JENIS_LANTAI'] == "Semen/Bata merah") : ?>
+                                    <option value="Marmer/Granit">Marmer/Granit</option>
+                                    <option value="Keramik">Keramik</option>
+                                    <option value="Parket/Vinil/Permadani">Parket/Vinil/Permadani</option>
+                                    <option value="Ubin/Tegel/Teraso">Ubin/Tegel/Teraso</option>
+                                    <option value="Kayu/Papan berkualitas tinggi">Kayu/Papan berkualitas tinggi</option>
+                                    <option value="Semen/Bata merah" selected>Semen/Bata merah</option>
+                                    <option value="Cor">Cor</option>
+                                    <option value="Bambu">Bambu</option>
+                                    <option value="Kayu/Papan berkualitas rendah">Kayu/Papan berkualitas rendah</option>
+                                    <option value="Tanah">Tanah</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                <?php elseif ($row['JENIS_LANTAI'] == "Cor") : ?>
+                                    <option value="Marmer/Granit">Marmer/Granit</option>
+                                    <option value="Keramik">Keramik</option>
+                                    <option value="Parket/Vinil/Permadani">Parket/Vinil/Permadani</option>
+                                    <option value="Ubin/Tegel/Teraso">Ubin/Tegel/Teraso</option>
+                                    <option value="Kayu/Papan berkualitas tinggi">Kayu/Papan berkualitas tinggi</option>
+                                    <option value="Semen/Bata merah">Semen/Bata merah</option>
+                                    <option value="Cor" selected>Cor</option>
+                                    <option value="Bambu">Bambu</option>
+                                    <option value="Kayu/Papan berkualitas rendah">Kayu/Papan berkualitas rendah</option>
+                                    <option value="Tanah">Tanah</option>
                                     <option value="Lainnya">Lainnya</option>
                                 <?php elseif ($row['JENIS_LANTAI'] == "Bambu") : ?>
-                                    <option value="Marmer">Marmer</option>
-                                    <option value="Keramik" selected>Keramik</option>
-                                    <option value="Kayu/Papan">Kayu/Papan</option>
-                                    <option value="Semen">Semen</option>
-                                    <option value="Bambu" selected>Bambu</option>
-                                    <option value="Lainnya">Lainnya</option>
-                                <?php else : ?>
-                                    <option value="Marmer">Marmer</option>
+                                    <option value="Marmer/Granit">Marmer/Granit</option>
                                     <option value="Keramik">Keramik</option>
-                                    <option value="Kayu/Papan">Kayu/Papan</option>
-                                    <option value="Semen">Semen</option>
+                                    <option value="Parket/Vinil/Permadani">Parket/Vinil/Permadani</option>
+                                    <option value="Ubin/Tegel/Teraso">Ubin/Tegel/Teraso</option>
+                                    <option value="Kayu/Papan berkualitas tinggi">Kayu/Papan berkualitas tinggi</option>
+                                    <option value="Semen/Bata merah">Semen/Bata merah</option>
+                                    <option value="Cor">Cor</option>
+                                    <option value="Bambu" selected>Bambu</option>
+                                    <option value="Kayu/Papan berkualitas rendah">Kayu/Papan berkualitas rendah</option>
+                                    <option value="Tanah">Tanah</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                <?php elseif ($row['JENIS_LANTAI'] == "Kayu/Papan berkualitas rendah") : ?>
+                                    <option value="Marmer/Granit">Marmer/Granit</option>
+                                    <option value="Keramik">Keramik</option>
+                                    <option value="Parket/Vinil/Permadani">Parket/Vinil/Permadani</option>
+                                    <option value="Ubin/Tegel/Teraso">Ubin/Tegel/Teraso</option>
+                                    <option value="Kayu/Papan berkualitas tinggi">Kayu/Papan berkualitas tinggi</option>
+                                    <option value="Semen/Bata merah">Semen/Bata merah</option>
+                                    <option value="Cor">Cor</option>
                                     <option value="Bambu">Bambu</option>
+                                    <option value="Kayu/Papan berkualitas rendah" selected>Kayu/Papan berkualitas rendah</option>
+                                    <option value="Tanah">Tanah</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                <?php elseif ($row['JENIS_LANTAI'] == "Tanah") : ?>
+                                    <option value="Marmer/Granit">Marmer/Granit</option>
+                                    <option value="Keramik">Keramik</option>
+                                    <option value="Parket/Vinil/Permadani">Parket/Vinil/Permadani</option>
+                                    <option value="Ubin/Tegel/Teraso">Ubin/Tegel/Teraso</option>
+                                    <option value="Kayu/Papan berkualitas tinggi">Kayu/Papan berkualitas tinggi</option>
+                                    <option value="Semen/Bata merah">Semen/Bata merah</option>
+                                    <option value="Cor">Cor</option>
+                                    <option value="Bambu">Bambu</option>
+                                    <option value="Kayu/Papan berkualitas rendah">Kayu/Papan berkualitas rendah</option>
+                                    <option value="Tanah" selected>Tanah</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                <?php elseif ($row['JENIS_LANTAI'] == "Lainnya") : ?>
+                                    <option value="Marmer/Granit">Marmer/Granit</option>
+                                    <option value="Keramik">Keramik</option>
+                                    <option value="Parket/Vinil/Permadani">Parket/Vinil/Permadani</option>
+                                    <option value="Ubin/Tegel/Teraso">Ubin/Tegel/Teraso</option>
+                                    <option value="Kayu/Papan berkualitas tinggi">Kayu/Papan berkualitas tinggi</option>
+                                    <option value="Semen/Bata merah">Semen/Bata merah</option>
+                                    <option value="Cor">Cor</option>
+                                    <option value="Bambu">Bambu</option>
+                                    <option value="Kayu/Papan berkualitas rendah">Kayu/Papan berkualitas rendah</option>
+                                    <option value="Tanah">Tanah</option>
                                     <option value="Lainnya" selected>Lainnya</option>
+                                <?php else : ?>
+                                    <option value="Marmer/Granit">Marmer/Granit</option>
+                                    <option value="Keramik">Keramik</option>
+                                    <option value="Parket/Vinil/Permadani">Parket/Vinil/Permadani</option>
+                                    <option value="Ubin/Tegel/Teraso">Ubin/Tegel/Teraso</option>
+                                    <option value="Kayu/Papan berkualitas tinggi">Kayu/Papan berkualitas tinggi</option>
+                                    <option value="Semen/Bata merah">Semen/Bata merah</option>
+                                    <option value="Cor">Cor</option>
+                                    <option value="Bambu">Bambu</option>
+                                    <option value="Kayu/Papan berkualitas rendah">Kayu/Papan berkualitas rendah</option>
+                                    <option value="Tanah">Tanah</option>
+                                    <option value="Lainnya">Lainnya</option>
                                 <?php endif; ?>
                             </select>
                         </div>
@@ -170,26 +272,31 @@ if (isset($_POST['edit_data'])) {
                             <label>Jenis Dinding</label>
                             <select class="form-control select2" name="jenis_dinding" style="width: 100%;">
                                 <option hidden>--Pilih Jenis Dinding--</option>
-                                <?php if ($row['JENIS_DINDING'] == "Bambu") : ?>
-                                    <option value="Bambu" selected>Bambu</option>
-                                    <option value="Rumbia">Rumbia</option>
-                                    <option value="Tembok Tanpa Di Plester">Tembok Tanpa Di Plester</option>
+                                <?php if ($row['JENIS_DINDING'] == "Semen/Beton/Kayu berkualitas tinggi") : ?>
+                                    <option value="Semen/Beton/Kayu berkualitas tinggi" selected>Semen/Beton/Kayu berkualitas tinggi</option>
+                                    <option value="Tembok tanpa diplester">Tembok tanpa diplester</option>
+                                    <option value="Kayu berkualitas rendah/Bambu">Kayu berkualitas rendah/Bambu</option>
                                     <option value="Lainnya">Lainnya</option>
-                                <?php elseif ($row['JENIS_DINDING'] == "Rumbia") : ?>
-                                    <option value="Bambu">Bambu</option>
-                                    <option value="Rumbia" selected>Rumbia</option>
-                                    <option value="Tembok Tanpa Di Plester">Tembok Tanpa Di Plester</option>
+                                <?php elseif ($row['JENIS_DINDING'] == "Tembok tanpa diplester") : ?>
+                                    <option value="Semen/Beton/Kayu berkualitas tinggi">Semen/Beton/Kayu berkualitas tinggi</option>
+                                    <option value="Tembok tanpa diplester" selected>Tembok tanpa diplester</option>
+                                    <option value="Kayu berkualitas rendah/Bambu">Kayu berkualitas rendah/Bambu</option>
                                     <option value="Lainnya">Lainnya</option>
-                                <?php elseif ($row['JENIS_DINDING'] == "Tembok Tanpa Di Plester") : ?>
-                                    <option value="Bambu">Bambu</option>
-                                    <option value="Rumbia">Rumbia</option>
-                                    <option value="Tembok Tanpa Di Plester" selected>Tembok Tanpa Di Plester</option>
+                                <?php elseif ($row['JENIS_DINDING'] == "Kayu berkualitas rendah/Bambu") : ?>
+                                    <option value="Semen/Beton/Kayu berkualitas tinggi">Semen/Beton/Kayu berkualitas tinggi</option>
+                                    <option value="Tembok tanpa diplester">Tembok tanpa diplester</option>
+                                    <option value="Kayu berkualitas rendah/Bambu" selected>Kayu berkualitas rendah/Bambu</option>
                                     <option value="Lainnya">Lainnya</option>
-                                <?php else : ?>
-                                    <option value="Bambu">Bambu</option>
-                                    <option value="Rumbia">Rumbia</option>
-                                    <option value="Tembok Tanpa Di Plester">Tembok Tanpa Di Plester</option>
+                                <?php elseif ($row['JENIS_DINDING'] == "Lainnya") : ?>
+                                    <option value="Semen/Beton/Kayu berkualitas tinggi">Semen/Beton/Kayu berkualitas tinggi</option>
+                                    <option value="Tembok tanpa diplester">Tembok tanpa diplester</option>
+                                    <option value="Kayu berkualitas rendah/Bambu">Kayu berkualitas rendah/Bambu</option>
                                     <option value="Lainnya" selected>Lainnya</option>
+                                <?php else : ?>
+                                    <option value="Semen/Beton/Kayu berkualitas tinggi">Semen/Beton/Kayu berkualitas tinggi</option>
+                                    <option value="Tembok tanpa diplester">Tembok tanpa diplester</option>
+                                    <option value="Kayu berkualitas rendah/Bambu">Kayu berkualitas rendah/Bambu</option>
+                                    <option value="Lainnya">Lainnya</option>
                                 <?php endif; ?>
                             </select>
                         </div>
@@ -197,26 +304,70 @@ if (isset($_POST['edit_data'])) {
                             <label>Sumber Air Minum</label>
                             <select class="form-control select2" name="sumber_air" style="width: 100%;">
                                 <option hidden>--Pilih Sumber Air Minum--</option>
-                                <?php if ($row['SUMBER_AIR_MINUM'] == "Mata Air tidak Terlindung") : ?>
-                                    <option value="Mata Air tidak Terlindung" selected>Mata Air tidak Terlindung</option>
+                                <?php if ($row['SUMBER_AIR_MINUM'] == "Mata air tidak terlindung") : ?>
+                                    <option value="Mata air tidak terlindung" selected>Mata air tidak terlindung</option>
                                     <option value="Sungai">Sungai</option>
                                     <option value="Air Hujan">Air Hujan</option>
+                                    <option value="Sumur">Sumur</option>
+                                    <option value="Pompa air/DAP">Pompa air/DAP</option>
+                                    <option value="Air isi ulang/Kemasan">Air isi ulang/Kemasan</option>
                                     <option value="Lainnya">Lainnya</option>
                                 <?php elseif ($row['SUMBER_AIR_MINUM'] == "Sungai") : ?>
-                                    <option value="Mata Air tidak Terlindung">Mata Air tidak Terlindung</option>
+                                    <option value="Mata air tidak terlindung">Mata air tidak terlindung</option>
                                     <option value="Sungai" selected>Sungai</option>
                                     <option value="Air Hujan">Air Hujan</option>
+                                    <option value="Sumur">Sumur</option>
+                                    <option value="Pompa air/DAP">Pompa air/DAP</option>
+                                    <option value="Air isi ulang/Kemasan">Air isi ulang/Kemasan</option>
                                     <option value="Lainnya">Lainnya</option>
                                 <?php elseif ($row['SUMBER_AIR_MINUM'] == "Air Hujan") : ?>
-                                    <option value="Mata Air tidak Terlindung">Mata Air tidak Terlindung</option>
+                                    <option value="Mata air tidak terlindung">Mata air tidak terlindung</option>
                                     <option value="Sungai">Sungai</option>
                                     <option value="Air Hujan" selected>Air Hujan</option>
+                                    <option value="Sumur">Sumur</option>
+                                    <option value="Pompa air/DAP">Pompa air/DAP</option>
+                                    <option value="Air isi ulang/Kemasan">Air isi ulang/Kemasan</option>
                                     <option value="Lainnya">Lainnya</option>
-                                <?php else : ?>
-                                    <option value="Mata Air tidak Terlindung">Mata Air tidak Terlindung</option>
+                                <?php elseif ($row['SUMBER_AIR_MINUM'] == "Sumur") : ?>
+                                    <option value="Mata air tidak terlindung">Mata air tidak terlindung</option>
                                     <option value="Sungai">Sungai</option>
                                     <option value="Air Hujan">Air Hujan</option>
+                                    <option value="Sumur" selected>Sumur</option>
+                                    <option value="Pompa air/DAP">Pompa air/DAP</option>
+                                    <option value="Air isi ulang/Kemasan">Air isi ulang/Kemasan</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                <?php elseif ($row['SUMBER_AIR_MINUM'] == "Pompa air/DAP") : ?>
+                                    <option value="Mata air tidak terlindung">Mata air tidak terlindung</option>
+                                    <option value="Sungai">Sungai</option>
+                                    <option value="Air Hujan">Air Hujan</option>
+                                    <option value="Sumur">Sumur</option>
+                                    <option value="Pompa air/DAP" selected>Pompa air/DAP</option>
+                                    <option value="Air isi ulang/Kemasan">Air isi ulang/Kemasan</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                <?php elseif ($row['SUMBER_AIR_MINUM'] == "Air isi ulang/Kemasan") : ?>
+                                    <option value="Mata air tidak terlindung">Mata air tidak terlindung</option>
+                                    <option value="Sungai">Sungai</option>
+                                    <option value="Air Hujan">Air Hujan</option>
+                                    <option value="Sumur">Sumur</option>
+                                    <option value="Pompa air/DAP">Pompa air/DAP</option>
+                                    <option value="Air isi ulang/Kemasan" selected>Air isi ulang/Kemasan</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                <?php elseif ($row['SUMBER_AIR_MINUM'] == "Lainnya") : ?>
+                                    <option value="Mata air tidak terlindung">Mata air tidak terlindung</option>
+                                    <option value="Sungai">Sungai</option>
+                                    <option value="Air Hujan">Air Hujan</option>
+                                    <option value="Sumur">Sumur</option>
+                                    <option value="Pompa air/DAP">Pompa air/DAP</option>
+                                    <option value="Air isi ulang/Kemasan">Air isi ulang/Kemasan</option>
                                     <option value="Lainnya" selected>Lainnya</option>
+                                <?php else : ?>
+                                    <option value="Mata air tidak terlindung">Mata air tidak terlindung</option>
+                                    <option value="Sungai">Sungai</option>
+                                    <option value="Air Hujan">Air Hujan</option>
+                                    <option value="Sumur">Sumur</option>
+                                    <option value="Pompa air/DAP">Pompa air/DAP</option>
+                                    <option value="Air isi ulang/Kemasan">Air isi ulang/Kemasan</option>
+                                    <option value="Lainnya">Lainnya</option>
                                 <?php endif; ?>
                             </select>
                         </div>
@@ -229,15 +380,39 @@ if (isset($_POST['edit_data'])) {
                                 <?php if ($row['BAHAN_BAKAR_MEMASAK'] == "Kayu Bakar") : ?>
                                     <option value="Kayu Bakar" selected>Kayu Bakar</option>
                                     <option value="Minyak Tanah">Minyak Tanah</option>
-                                    <option value="Gas">Gas</option>
+                                    <option value="Gas Subsidi">Gas Subsidi</option>
+                                    <option value="Gas Non-Subsidi">Gas Non-Subsidi</option>
+                                    <option value="Lainnya">Lainnya</option>
                                 <?php elseif ($row['BAHAN_BAKAR_MEMASAK'] == "Minyak Tanah") : ?>
                                     <option value="Kayu Bakar">Kayu Bakar</option>
                                     <option value="Minyak Tanah" selected>Minyak Tanah</option>
-                                    <option value="Gas">Gas</option>
+                                    <option value="Gas Subsidi">Gas Subsidi</option>
+                                    <option value="Gas Non-Subsidi">Gas Non-Subsidi</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                <?php elseif ($row['BAHAN_BAKAR_MEMASAK'] == "Gas Subsidi") : ?>
+                                    <option value="Kayu Bakar">Kayu Bakar</option>
+                                    <option value="Minyak Tanah">Minyak Tanah</option>
+                                    <option value="Gas Subsidi" selected>Gas Subsidi</option>
+                                    <option value="Gas Non-Subsidi">Gas Non-Subsidi</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                <?php elseif ($row['BAHAN_BAKAR_MEMASAK'] == "Gas Non-Subsidi") : ?>
+                                    <option value="Kayu Bakar">Kayu Bakar</option>
+                                    <option value="Minyak Tanah">Minyak Tanah</option>
+                                    <option value="Gas Subsidi">Gas Subsidi</option>
+                                    <option value="Gas Non-Subsidi" selected>Gas Non-Subsidi</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                <?php elseif ($row['BAHAN_BAKAR_MEMASAK'] == "Lainnya") : ?>
+                                    <option value="Kayu Bakar">Kayu Bakar</option>
+                                    <option value="Minyak Tanah">Minyak Tanah</option>
+                                    <option value="Gas Subsidi">Gas Subsidi</option>
+                                    <option value="Gas Non-Subsidi">Gas Non-Subsidi</option>
+                                    <option value="Lainnya" selected>Lainnya</option>
                                 <?php else : ?>
                                     <option value="Kayu Bakar">Kayu Bakar</option>
                                     <option value="Minyak Tanah">Minyak Tanah</option>
-                                    <option value="Gas" selected>Gas</option>
+                                    <option value="Gas Subsidi">Gas Subsidi</option>
+                                    <option value="Gas Non-Subsidi">Gas Non-Subsidi</option>
+                                    <option value="Lainnya">Lainnya</option>
                                 <?php endif; ?>
                             </select>
                         </div>
