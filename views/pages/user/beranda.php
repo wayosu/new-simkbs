@@ -22,7 +22,11 @@ $sql_s3 = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_pendidikan
         <div class="row gy-4">
             <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
                 <h1>Kependudukan dan Bantuan Sosial</h1>
-                <p>Kependudukan dan Bantuan Sosial atau disingkat KBS merupakan sistem yang menampilkan data penduduk dan data penerima bantuan sosial di Desa Butu</p>
+                <p style="text-align: justify;">
+                    Dalam pengklasifikasian bantuan, sistem ini menggunakan kriteria - kriteria yang berdasarkan keputusan 
+                    Menteri Sosial Republik Indonesia Nomor : 146 / HUK / 2013 tentang penetapan kriteria dan Pendataan Fakir 
+                    Miskin dan Orang Tidak Mampu terdiri atas 14 (empat belas) kriteria kemiskinan.
+                </p>
                 <div>
                     <!-- tombol Lihat Daftar Penerima bantuan -->
                     <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn-get-started scrollto">Lihat Daftar Penerima Bantuan</a>
@@ -140,7 +144,22 @@ $sql_s3 = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_pendidikan
                 <h6>Cari Informasi Penerima Bantuan</h6>
                 <p>Untuk mengecek siapa saja yang menerima bantuan, Anda dapat memulai dengan Memasukkan NIK dari kepala keluarga yang ingin dicari.</p>
             </div>
+        </div>
 
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-2 d-flex align-items-center justify-content-center about-img pb-3">
+                <img src="<?= $base_url; ?>asset_user/img/Artboard.png" style="width: 300px !important;" alt="" data-aos="zoom-in">
+            </div>
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-7 text-center">       
+                    <h2 style="font-size: 1.5rem;">Klasifikasi Bantuan</h2>
+                    <p>
+                        Dalam pengklasifikasian bantuan, sistem ini menggunakan kriteria - kriteria yang berdasarkan keputusan 
+                        Menteri Sosial Republik Indonesia Nomor : 146 / HUK / 2013 tentang penetapan kriteria dan Pendataan Fakir 
+                        Miskin dan Orang Tidak Mampu terdiri atas 14 (empat belas) kriteria kemiskinan.
+                    </p>
+                </div>
+            </div>
         </div>
     </section><!-- End About Section -->
 
