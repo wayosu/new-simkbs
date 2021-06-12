@@ -62,20 +62,24 @@
                             <label>Luas Lantai</label>
                             <select class="form-control select2" name="luas_lantai" style="width: 100%;">
                                 <option hidden>--Pilih Luas Lantai--</option>
-                                <option value="1">
-                                    <= 8m Persegi </option>
-                                <option value="2">> 8m Persegi</option>
+                                <option value="1"> <= 8m Persegi</option>
+                                <option value="2"> > 8m Persegi</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Jenis Lantai</label>
                             <select class="form-control select2" name="jenis_lantai" style="width: 100%;">
                                 <option hidden>--Pilih Jenis Lantai--</option>
-                                <option value="Marmer">Marmer</option>
+                                <option value="Marmer/Granit">Marmer/Granit</option>
                                 <option value="Keramik">Keramik</option>
-                                <option value="Kayu/Papan">Kayu/Papan</option>
-                                <option value="Semen">Semen</option>
+                                <option value="Parket/Vinil/Permadani">Parket/Vinil/Permadani</option>
+                                <option value="Ubin/Tegel/Teraso">Ubin/Tegel/Teraso</option>
+                                <option value="Kayu/Papan berkualitas tinggi">Kayu/Papan berkualitas tinggi</option>
+                                <option value="Semen/Bata merah">Semen/Bata merah</option>
+                                <option value="Cor">Cor</option>
                                 <option value="Bambu">Bambu</option>
+                                <option value="Kayu/Papan berkualitas rendah">Kayu/Papan berkualitas rendah</option>
+                                <option value="Tanah">Tanah</option>
                                 <option value="Lainnya">Lainnya</option>
                             </select>
                         </div>
@@ -83,9 +87,9 @@
                             <label>Jenis Dinding</label>
                             <select class="form-control select2" name="jenis_dinding" style="width: 100%;">
                                 <option hidden>--Pilih Jenis Dinding--</option>
-                                <option value="Bambu">Bambu</option>
-                                <option value="Rumbia">Rumbia</option>
-                                <option value="Tembok Tanpa Di Plester">Tembok Tanpa Di Plester</option>
+                                <option value="Semen/Beton/Kayu berkualitas tinggi">Semen/Beton/Kayu berkualitas tinggi</option>
+                                <option value="Tembok tanpa diplester">Tembok tanpa plester</option>
+                                <option value="Kayu berkualitas rendah/Bambu">Kayu berkualitas rendah/Bambu</option>
                                 <option value="Lainnya">Lainnya</option>
                             </select>
                         </div>
@@ -93,9 +97,12 @@
                             <label>Sumber Air Minum</label>
                             <select class="form-control select2" name="sumber_air" style="width: 100%;">
                                 <option hidden>--Pilih Sumber Air Minum--</option>
-                                <option value="Mata Air tidak Terlindung">Mata Air tidak Terlindung</option>
+                                <option value="Mata air tidak terlindung">Mata air tidak terlindung</option>
                                 <option value="Sungai">Sungai</option>
                                 <option value="Air Hujan">Air Hujan</option>
+                                <option value="Sumur">Sumur</option>
+                                <option value="Pompa air/DAP">Pompa air/DAP</option>
+                                <option value="Air isi ulang/Kemasan">Air isi ulang/Kemasan</option>
                                 <option value="Lainnya">Lainnya</option>
                             </select>
                         </div>
@@ -107,7 +114,9 @@
                                 <option hidden>--Pilih Bahan Bakar Memasak--</option>
                                 <option value="Kayu Bakar">Kayu Bakar</option>
                                 <option value="Minyak Tanah">Minyak Tanah</option>
-                                <option value="Gas">Gas</option>
+                                <option value="Gas Subsidi">Gas Subsidi</option>
+                                <option value="Gas Non-Subsidi">Gas Non-Subsidi</option>
+                                <option value="Lainnya">Lainnya</option>
                             </select>
                         </div>
                         <div class="form-group">

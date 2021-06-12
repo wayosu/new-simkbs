@@ -116,8 +116,8 @@ if (isset($_GET['terapkan'])) {
                         <div class="text-center">
                             <img src="<?= $base_url; ?>asset_user/img/logo-campur.png" alt="logo" width="5%">
                             <h4>Informasi Rekomendasi Penerima Bantuan</h4>
-                            <small>Jenis Bantuan : <?= $_GET['jenis_bantuan']; ?></small><br>
-                            <small>Dusun <?= $_GET['dusun']; ?></small>
+                            <small style="font-size: 16px;">Jenis Bantuan : <?= $_GET['jenis_bantuan']; ?></small><br>
+                            <small style="font-size: 16px;">Dusun <?= $_GET['dusun']; ?></small>
                             <!-- pencarian -->
                         </div>
                     </div>

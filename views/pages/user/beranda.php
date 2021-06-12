@@ -294,7 +294,8 @@ $sql_s3 = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_pendidikan
             $sql_buruh_bangunan = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN='Buruh Bangunan'");
             $sql_nelayan = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN='Nelayan'");
             $sql_guru = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN='Guru'");
-            $sql_pedagang = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN='Pedagang'");
+            $sql_pedagang_kecil = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN='Pedagang Kecil'");
+            $sql_pedagang_besar = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN='Pedagang Besar'");
             $sql_industri = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN='Pengolahan/Industri'");
             $sql_pns = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN='PNS'");
             $sql_pensiun = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN='Pensiunan'");
@@ -354,8 +355,16 @@ $sql_s3 = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_pendidikan
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                     <div class="icon-box">
                         <div class="icon"><img src="<?= $base_url; ?>asset_user/img/4x/job/pedagang.png" alt="" class="mt-3 mb-4" width="50%"></div>
-                        <h4 class="title"><a href="">Pedagang</a></h4>
-                        <p class="description">Jumlah penduduk yang berkerja sebagai Pedagang di Desa Butu adalah <b><?= mysqli_num_rows($sql_pedagang); ?></b> Jiwa</p>
+                        <h4 class="title"><a href="">Pedagang Kecil</a></h4>
+                        <p class="description">Jumlah penduduk yang berkerja sebagai Pedagang di Desa Butu adalah <b><?= mysqli_num_rows($sql_pedagang_kecil); ?></b> Jiwa</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="icon-box">
+                        <div class="icon"><img src="<?= $base_url; ?>asset_user/img/4x/job/pedagang.png" alt="" class="mt-3 mb-4" width="50%"></div>
+                        <h4 class="title"><a href="">Pedagang Besar</a></h4>
+                        <p class="description">Jumlah penduduk yang berkerja sebagai Pedagang di Desa Butu adalah <b><?= mysqli_num_rows($sql_pedagang_besar); ?></b> Jiwa</p>
                     </div>
                 </div>
 
