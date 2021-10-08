@@ -102,7 +102,7 @@ if (isset($_GET['terapkan'])) {
                 </div>
             </div>
         </main>
-        
+
     <?php
         include 'views/layout/user/footer.php';
     } else if (!empty($_GET['pencarian']) && $_GET['pencarian'] == "penerima" && !empty($_GET['dusun']) && !empty($_GET['jenis_bantuan'])) {
@@ -152,7 +152,14 @@ if (isset($_GET['terapkan'])) {
                                             <tbody>
                                                 <?php
                                                 $nomor = 1;
-                                                $query = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_konsumsi ON tabel_kependudukan.NIK = tabel_konsumsi.NIK JOIN tabel_pekerjaan ON tabel_pekerjaan.NIK = tabel_kependudukan.NIK JOIN tabel_pendidikan ON tabel_pendidikan.NIK = tabel_kependudukan.NIK JOIN tabel_rumah ON tabel_rumah.NIK = tabel_kependudukan.NIK JOIN tabel_tabungan ON tabel_tabungan.NIK = tabel_kependudukan.NIK WHERE tabel_kependudukan.HBKEL = '1' AND bantuan='1' AND LUAS_LANTAI = '1' AND (JENIS_LANTAI ='Bambu' OR JENIS_LANTAI ='Kayu/Papan') AND (JENIS_DINDING ='Bambu' OR JENIS_DINDING ='Rumbia' OR JENIS_DINDING ='Tembok Tanpa Di Plester') AND FASILITAS_BAB = '0' AND SUMBER_PENERANGAN ='0' AND (SUMBER_AIR_MINUM = 'Sungai' OR SUMBER_AIR_MINUM = 'Mata Air Tidak Terlindung' OR SUMBER_AIR_MINUM = 'Air Hujan') AND (BAHAN_BAKAR_MEMASAK = 'Kayu Bakar' OR BAHAN_BAKAR_MEMASAK = 'Minyak Tanah') AND FREKUENSI_PER_MINGGU <= 1 AND PAKAIAN_PER_TAHUN <= 1 AND MAKAN_PER_HARI <= 2 AND BIAYA_PENGOBATAN = '0' AND PENGHASILAN_PER_BULAN < 600000 AND (PENDIDIKAN_TERAKHIR ='Tidak Tamat SD' OR PENDIDIKAN_TERAKHIR ='Tidak Sekolah' OR PENDIDIKAN_TERAKHIR ='SD dan Sederajat') AND KEPEMILIKAN_TABUNGAN = '0' AND DSN='{$_GET['dusun']}' AND jenis_bantuan='{$_GET['jenis_bantuan']}'");
+                                                $query = $mysqli->query("SELECT * FROM tabel_kependudukan 
+                                                                            JOIN tabel_konsumsi ON tabel_kependudukan.NIK = tabel_konsumsi.NIK 
+                                                                            JOIN tabel_pekerjaan ON tabel_pekerjaan.NIK = tabel_kependudukan.NIK 
+                                                                            JOIN tabel_pendidikan ON tabel_pendidikan.NIK = tabel_kependudukan.NIK 
+                                                                            JOIN tabel_rumah ON tabel_rumah.NIK = tabel_kependudukan.NIK 
+                                                                            JOIN tabel_tabungan ON tabel_tabungan.NIK = tabel_kependudukan.NIK 
+                                                                            WHERE tabel_kependudukan.HBKEL = '1' AND bantuan='1' 
+                                                                            AND DSN='{$_GET['dusun']}' AND jenis_bantuan='{$_GET['jenis_bantuan']}'");
                                                 while ($row = $query->fetch_assoc()) {
                                                 ?>
                                                     <tr>
@@ -180,7 +187,7 @@ if (isset($_GET['terapkan'])) {
                 </div>
             </div>
         </main>
-        
+
     <?php
         include 'views/layout/user/footer.php';
     } else {

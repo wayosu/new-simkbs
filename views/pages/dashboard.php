@@ -128,62 +128,56 @@
         <!-- end info boxes -->
 
         <div class="row">
-            <div class="col-12 col-sm-6 col-md-8">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card card-light">
-                            <div class="card-header">
-                                <h3 class="card-title">Bantuan Sembako (BPNT)</h3>
-                            </div>
-                            <div class="card-body">
-                                <div class="chart">
-                                    <canvas id="Bpnt" width="400" height="400"></canvas>
-                                </div>
-                            </div>
-                            <!-- /.card-body -->
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card card-light">
+                    <div class="card-header">
+                        <h3 class="card-title">Bantuan Sembako (BPNT)</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart">
+                            <canvas id="Bpnt" width="400" height="400"></canvas>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="card card-light">
-                            <div class="card-header">
-                                <h3 class="card-title">Bantuan PKH</h3>
-                            </div>
-                            <div class="card-body">
-                                <div class="chart">
-                                    <canvas id="Pkh" width="400" height="400"></canvas>
-                                </div>
-                            </div>
-                            <!-- /.card-body -->
-                        </div>
-                    </div>
+                    <!-- /.card-body -->
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card card-light">
-                            <div class="card-header">
-                                <h3 class="card-title">Bantuan Sosial Tunai (BST)</h3>
-                            </div>
-                            <div class="card-body">
-                                <div class="chart">
-                                    <canvas id="Bst" width="400" height="400"></canvas>
-                                </div>
-                            </div>
-                            <!-- /.card-body -->
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card card-light">
+                    <div class="card-header">
+                        <h3 class="card-title">Bantuan PKH</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart">
+                            <canvas id="Pkh" width="400" height="400"></canvas>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="card card-light">
-                            <div class="card-header">
-                                <h3 class="card-title">BLT Dana Desa</h3>
-                            </div>
-                            <div class="card-body">
-                                <div class="chart">
-                                    <canvas id="Blt" width="400" height="400"></canvas>
-                                </div>
-                            </div>
-                            <!-- /.card-body -->
+                    <!-- /.card-body -->
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card card-light">
+                    <div class="card-header">
+                        <h3 class="card-title">Bantuan Sosial Tunai (BST)</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart">
+                            <canvas id="Bst" width="400" height="400"></canvas>
                         </div>
                     </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card card-light">
+                    <div class="card-header">
+                        <h3 class="card-title">BLT Dana Desa</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart">
+                            <canvas id="Blt" width="400" height="400"></canvas>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
                 </div>
             </div>
             <div class="col-12 col-sm-6 col-md-4">
@@ -200,6 +194,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </section>
 
@@ -227,17 +222,15 @@ $rows_penerima_bpnt3 = mysqli_num_rows($penerima_bpnt3);
         type: 'bar',
         data: {
             labels: ['Dusun 1', 'Dusun 2', 'Dusun 3'],
-            datasets: [
-                {
-                    label: 'Penerima Bantuan',
-                    data: [<?= $rows_penerima_bpnt1; ?>, <?= $rows_penerima_bpnt2; ?>, <?= $rows_penerima_bpnt3; ?>],
-                    backgroundColor: [
-                        '#6610f2',
-                        '#6610f2',
-                        '#6610f2'
-                    ]
-                }
-            ]
+            datasets: [{
+                label: 'Penerima Bantuan',
+                data: [<?= $rows_penerima_bpnt1; ?>, <?= $rows_penerima_bpnt2; ?>, <?= $rows_penerima_bpnt3; ?>],
+                backgroundColor: [
+                    '#6610f2',
+                    '#6610f2',
+                    '#6610f2'
+                ]
+            }]
         },
         options: {
             responsive: true,
@@ -277,17 +270,15 @@ $rows_penerima_pkh3 = mysqli_num_rows($penerima_pkh3);
         type: 'bar',
         data: {
             labels: ['Dusun 1', 'Dusun 2', 'Dusun 3'],
-            datasets: [
-                {
-                    label: 'Penerima Bantuan',
-                    data: [<?= $rows_penerima_pkh1; ?>, <?= $rows_penerima_pkh2; ?>, <?= $rows_penerima_pkh3; ?>],
-                    backgroundColor: [
-                        '#6610f2',
-                        '#6610f2',
-                        '#6610f2'
-                    ]
-                }
-            ]
+            datasets: [{
+                label: 'Penerima Bantuan',
+                data: [<?= $rows_penerima_pkh1; ?>, <?= $rows_penerima_pkh2; ?>, <?= $rows_penerima_pkh3; ?>],
+                backgroundColor: [
+                    '#6610f2',
+                    '#6610f2',
+                    '#6610f2'
+                ]
+            }]
         },
         options: {
             responsive: true,
@@ -327,17 +318,15 @@ $rows_penerima_bst3 = mysqli_num_rows($penerima_bst3);
         type: 'bar',
         data: {
             labels: ['Dusun 1', 'Dusun 2', 'Dusun 3'],
-            datasets: [
-                {
-                    label: 'Penerima Bantuan',
-                    data: [<?= $rows_penerima_bst1; ?>, <?= $rows_penerima_bst2; ?>, <?= $rows_penerima_bst3; ?>],
-                    backgroundColor: [
-                        '#6610f2',
-                        '#6610f2',
-                        '#6610f2'
-                    ]
-                }
-            ]
+            datasets: [{
+                label: 'Penerima Bantuan',
+                data: [<?= $rows_penerima_bst1; ?>, <?= $rows_penerima_bst2; ?>, <?= $rows_penerima_bst3; ?>],
+                backgroundColor: [
+                    '#6610f2',
+                    '#6610f2',
+                    '#6610f2'
+                ]
+            }]
         },
         options: {
             responsive: true,
@@ -377,17 +366,15 @@ $rows_penerima_blt3 = mysqli_num_rows($penerima_blt3);
         type: 'bar',
         data: {
             labels: ['Dusun 1', 'Dusun 2', 'Dusun 3'],
-            datasets: [
-                {
-                    label: 'Penerima Bantuan',
-                    data: [<?= $rows_penerima_blt1; ?>, <?= $rows_penerima_blt2; ?>, <?= $rows_penerima_blt3; ?>],
-                    backgroundColor: [
-                        '#6610f2',
-                        '#6610f2',
-                        '#6610f2'
-                    ]
-                }
-            ]
+            datasets: [{
+                label: 'Penerima Bantuan',
+                data: [<?= $rows_penerima_blt1; ?>, <?= $rows_penerima_blt2; ?>, <?= $rows_penerima_blt3; ?>],
+                backgroundColor: [
+                    '#6610f2',
+                    '#6610f2',
+                    '#6610f2'
+                ]
+            }]
         },
         options: {
             responsive: true,

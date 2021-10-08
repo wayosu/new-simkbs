@@ -41,20 +41,20 @@
     <table width="100%" class="display-header">
         <tr>
             <td>
-                <img src="../../kab.png" alt="logo-kab" width="50">
+                <img src="../../kabgor.png" alt="logo-kab" width="50">
             </td>
         </tr>
         <tr>
             <td>
-                <h3>Kantor Desa Butu</h3>
+                <h3>Kantor Desa Bumela</h3>
             </td>
         </tr>
         <tr>
             <td>
-                <small>Butu, Tilongkabila, Kabupaten Bone Bolango, Gorontalo</small>
+                <small>Bumela, Bilato, Kabupaten Gorontalo, Gorontalo</small>
             </td>
         </tr>
-    </table>
+    </table>    
 
     <h4>Klasifikasi Data Kependudukan Berdasarkan Umur</h4>
 

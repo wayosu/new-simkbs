@@ -93,6 +93,9 @@
                                      <option value="1">Kepala Keluarga</option>
                                      <option value="3">Istri</option>
                                      <option value="9">Anak</option>
+                                     <option value="7">Kakek</option>
+                                     <option value="6">Nenek</option>
+                                     <option value="4">Family Lain</option>
                                  </select>
                              </div>
                          </div>
@@ -102,7 +105,7 @@
                          </div>
                          <div class="form-group">
                              <label for="">Nama Ibu</label>
-                             <input type="text" name="nm_ibu" class="form-control" id="" placeholder="Masukkan Nama Ayah">
+                             <input type="text" name="nm_ibu" class="form-control" id="" placeholder="Masukkan Nama Ibu">
                          </div>
                          <div class="form-group">
                              <label>Pendidikan Terakhir</label>
@@ -130,7 +133,8 @@
                                  <option value="Buruh Perkebunan">Buruh Perkebunan</option>
                                  <option value="Nelayan">Nelayan</option>
                                  <option value="Guru">Guru</option>
-                                 <option value="Pedagang">Pedagang</option>
+                                 <option value="Pedagang Besar">Pedagang Besar</option>
+                                 <option value="Pedagang Kecil">Pedagang Kecil</option>
                                  <option value="Pengolahan/Industri">Pengolahan/Industri</option>
                                  <option value="PNS">PNS</option>
                                  <option value="Pensiunan">Pensiunan</option>
@@ -185,17 +189,13 @@
                              </select>
                          </div>
                          <div class="form-group">
-                             <label>Biaya Pengobatan PUSKESMAS</label><br>
-                             <div class="form-check-inline mt-0">
-                                 <label class="form-check-label">
-                                     <input type="radio" name="biaya_pengobatan" id="" class="form-check-input" value="0">Tidak Sanggup Membayar
-                                 </label>
-                             </div>
-                             <div class="form-check-inline mt-0">
-                                 <label class="form-check-label">
-                                     <input type="radio" name="biaya_pengobatan" id="" class="form-check-input" value="1">Sanggup Membayar
-                                 </label>
-                             </div>
+                             <label>Biaya Pengobatan</label>
+                             <select class="form-control select2" name="biaya_pengobatan" style="width: 100%;">
+                                 <option value="" hidden>--Pilih Biaya Pengobatan--</option>
+                                 <option value="0">BPJS Gratis</option>
+                                 <option value="1">BPJS Mandiri</option>
+                                 <option value="2">Lainnya</option>
+                             </select>
                          </div>
                      </div>
                      <div class="col-md-6">

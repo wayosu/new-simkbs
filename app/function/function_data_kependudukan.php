@@ -22,6 +22,12 @@ function tampil_data($mysqli)
                     Istri
                 <?php elseif ($row['HBKEL'] == 9) : ?>
                     Anak
+                <?php elseif ($row['HBKEL'] == 7) : ?>
+                    Kakek
+                <?php elseif ($row['HBKEL'] == 6) : ?>
+                    Nenek
+                <?php elseif ($row['HBKEL'] == 4) : ?>
+                    Family Lain
                 <?php else : ?>
                     -
                 <?php endif; ?>

@@ -41,6 +41,10 @@ include 'app/post/post_data_kependudukan.php';
                     <div class="card-body">
                         <div class="tab-content" id="custom-tabs-four-tabContent">
                             <div class="tab-pane fade show active" id="custom-tabs-four-home" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
+                                <a href="<?= $base_url ?>app/print/cetak_rekom_bpnt.php" target="_blank" class="btn btn-success">
+                                    <i class="fas fa-print"></i> Print
+                                </a>
+                                <br><br>
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
@@ -63,6 +67,10 @@ include 'app/post/post_data_kependudukan.php';
                                 </table>
                             </div>
                             <div class="tab-pane fade" id="custom-tabs-four-profile" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
+                                <a href="<?= $base_url ?>app/print/cetak_rekom_pkh.php" target="_blank" class="btn btn-success">
+                                    <i class="fas fa-print"></i> Print
+                                </a>
+                                <br><br>
                                 <table id="example2" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
@@ -85,7 +93,11 @@ include 'app/post/post_data_kependudukan.php';
                                 </table>
                             </div>
                             <div class="tab-pane fade" id="custom-tabs-four-messages" role="tabpanel" aria-labelledby="custom-tabs-four-messages-tab">
-                            <table id="example3" class="table table-bordered table-striped">
+                                <a href="<?= $base_url ?>app/print/cetak_rekom_bst.php" target="_blank" class="btn btn-success">
+                                    <i class="fas fa-print"></i> Print
+                                </a>
+                                <br><br>
+                                <table id="example3" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -107,7 +119,11 @@ include 'app/post/post_data_kependudukan.php';
                                 </table>
                             </div>
                             <div class="tab-pane fade" id="custom-tabs-four-settings" role="tabpanel" aria-labelledby="custom-tabs-four-settings-tab">
-                            <table id="example4" class="table table-bordered table-striped">
+                                <a href="<?= $base_url ?>app/print/cetak_rekom_blt.php" target="_blank" class="btn btn-success">
+                                    <i class="fas fa-print"></i> Print
+                                </a>
+                                <br><br>
+                                <table id="example4" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th>No</th>

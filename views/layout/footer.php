@@ -116,6 +116,15 @@
     } else if ($(this).val() == "9") {
       $("#dataKonsumsi").hide();
       $("#dataTabunganBantuan").hide();
+    } else if ($(this).val() == "7") {
+      $("#dataKonsumsi").hide();
+      $("#dataTabunganBantuan").hide();
+    } else if ($(this).val() == "6") {
+      $("#dataKonsumsi").hide();
+      $("#dataTabunganBantuan").hide();
+    } else if ($(this).val() == "4") {
+      $("#dataKonsumsi").hide();
+      $("#dataTabunganBantuan").hide();
     } else {
       $("#dataKonsumsi").show();
       $("#dataTabunganBantuan").show();

@@ -2,7 +2,7 @@
  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #042165;">
    <a href="<?= $base_url; ?>dashboard" class="brand-link">
      <img src="<?= $base_url; ?>asset_user/img/logo-campur.png" alt="Logo" class="brand-image bg-light img-circle elevation-3" style="opacity: 1">
-     <span class="brand-text font-weight-light">KBS - Desa Butu</span>
+     <span class="brand-text font-weight-light">KBS - Desa Bumela</span>
    </a>
    <!-- Sidebar -->
    <div class="sidebar">
@@ -63,6 +63,15 @@
              <i class="nav-icon fas fa-hands-helping"></i>
              <p>
                Klasifikasi Bantuan
+             </p>
+           </a>
+         </li>
+
+         <li class="nav-item has-treeview">
+           <a href="<?= $base_url; ?>control_panel" class="nav-link">
+             <i class="nav-icon fas fa-cog"></i>
+             <p>
+               Control Panel
              </p>
            </a>
          </li>

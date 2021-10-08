@@ -17,6 +17,14 @@
             width: 100%;
             border-collapse: collapse;
         }
+        .display-header{
+            margin-bottom : 1rem;
+        }
+
+        .display-header td {
+            text-align : center;
+            border : none;
+        }
 
         table th {
             padding: 8px;
@@ -30,6 +38,20 @@
 </head>
 
 <body>
+<table border="0" style="border : none" width="100%" class="display-header">
+        <tr>
+            <td>
+                <img src="../../kabgor.png" alt="logo-kab" width="50">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="title-header">Kantor Desa Bumela</span><br>
+                <small>Bumela, Bilato, Kabupaten Gorontalo, Gorontalo</small>
+            </td>
+        </tr>
+    </table>
+
     <table width="100%">
         <thead>
             <tr>

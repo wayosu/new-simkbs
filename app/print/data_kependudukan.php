@@ -54,13 +54,13 @@
     <table width="100%" class="display-header">
         <tr>
             <td>
-                <img src="../../kab.png" alt="logo-kab" width="50">
+                <img src="../../kabgor.png" alt="logo-kab" width="50">
             </td>
         </tr>
         <tr>
             <td>
-                <span class="title-header">Kantor Desa Butu</span><br>
-                <small>Butu, Tilongkabila, Kabupaten Bone Bolango, Gorontalo</small>
+                <span class="title-header">Kantor Desa Bumela</span><br>
+                <small>Bumela, Bilato, Kabupaten Gorontalo, Gorontalo</small>
             </td>
         </tr>
     </table>
@@ -91,10 +91,10 @@
             while ($row = $sql->fetch_assoc()) {
             ?>
                 <?php if ($row['HBKEL'] == 1) : ?>
-                <tr align="center" class="background-tr">
-                <?php else : ?>
-                <tr align="center">
-                <?php endif; ?>
+                    <tr align="center" class="background-tr">
+                    <?php else : ?>
+                    <tr align="center">
+                    <?php endif; ?>
                     <td><?= $row['NO_KK']; ?></td>
                     <td><?= $row['NIK']; ?></td>
                     <td><?= $row['NAMA_LGKP']; ?></td>
@@ -125,10 +125,10 @@
                     <td><?= $row['PEKERJAAN']; ?></td>
                     <td><?= $row['PENGHASILAN_PER_BULAN']; ?></td>
                     <td><?= $row['DSN']; ?></td>
-                </tr>
-            <?php
+                    </tr>
+                <?php
             }
-            ?>
+                ?>
         </tbody>
     </table>
     <script>

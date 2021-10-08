@@ -39,6 +39,8 @@ include 'views/layout/sidebar.php';
         include 'views/pages/data_klasifikasi_bantuan.php';
     } else if (isset($_GET['views']) && $_GET['views'] == "detail_penduduk") {
         include 'views/pages/detail_penduduk.php';
+    } else if (isset($_GET['views']) && $_GET['views'] == "control_panel") {
+        include 'views/pages/control_panel.php';
     } else {
         include 'views/pages/dashboard.php';
     }

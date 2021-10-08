@@ -23,6 +23,8 @@ RewriteRule ^edit_data_kondisi/([0-9]+)$ admin.php?views=edit_data_kondisi&id=$1
 RewriteRule ^data_klasifikasi_kependudukan$ admin.php?views=data_klasifikasi_kependudukan
 RewriteRule ^data_klasifikasi_bantuan$ admin.php?views=data_klasifikasi_bantuan
 
+RewriteRule ^control_panel$ admin.php?views=control_panel
+
 RewriteRule ^([A-Za-z0-9-]+)$ admin.php?views=$1
 RewriteRule ^([A-Za-z0-9-]+)$ index.php?views_user=$1
 
