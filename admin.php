@@ -13,6 +13,11 @@ if (!isset($_SESSION['username'])) {
 
 $base_url = 'http://localhost/simkbs/';
 include 'app/koneksi.php';
+
+$sql_profil = "SELECT * FROM tabel_control WHERE id=1";
+$result_profil = $mysqli->query($sql_profil);
+$row_profil = $result_profil->fetch_object();
+
 include 'views/layout/header.php';
 include 'views/layout/navbar.php';
 include 'views/layout/sidebar.php';

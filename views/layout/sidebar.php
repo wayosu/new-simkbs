@@ -1,8 +1,8 @@
  <!-- Main Sidebar Container -->
  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #042165;">
    <a href="<?= $base_url; ?>dashboard" class="brand-link">
-     <img src="<?= $base_url; ?>asset_user/img/logo-campur.png" alt="Logo" class="brand-image bg-light img-circle elevation-3" style="opacity: 1">
-     <span class="brand-text font-weight-light">KBS - Desa Bumela</span>
+     <img src="<?= $base_url; ?>dist/img/<?= $row_profil->logo_desa; ?>" alt="Logo" class="brand-image">
+     <span class="brand-text font-weight-light"><?= $row_profil->nama_desa; ?></span>
    </a>
    <!-- Sidebar -->
    <div class="sidebar">

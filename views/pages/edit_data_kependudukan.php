@@ -6,7 +6,8 @@ $sql = $mysqli->query("SELECT * FROM tabel_kependudukan
                         JOIN tabel_konsumsi ON tabel_kependudukan.NIK = tabel_konsumsi.NIK 
                         JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK 
                         JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK 
-                        JOIN tabel_tabungan ON tabel_kependudukan.NIK = tabel_tabungan.NIK WHERE tabel_kependudukan.NIK = '$nik'");
+                        JOIN tabel_tabungan ON tabel_kependudukan.NIK = tabel_tabungan.NIK
+                        JOIN tabel_dusun ON tabel_kependudukan.DSN = tabel_dusun.id WHERE tabel_kependudukan.NIK = '$nik'");
 $row = $sql->fetch_assoc();
 
 if (isset($_POST['edit_data'])) {
@@ -677,23 +678,21 @@ if (isset($_POST['edit_data'])) {
                             <label for="">Dusun</label>
                             <select class="form-control select2" name="dusun" style="width: 100%;">
                                 <option hidden>--Pilih Dusun--</option>
-                                <?php if ($row['DSN'] == 1) : ?>
-                                    <option value="1" selected>1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                <?php elseif ($row['DSN'] == 2) : ?>
-                                    <option value="1">1</option>
-                                    <option value="2" selected>2</option>
-                                    <option value="3">3</option>
-                                <?php elseif ($row['DSN'] == 3) : ?>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3" selected>3</option>
-                                <?php else : ?>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                <?php endif; ?>
+                                    <?php  
+                                        $result_dusun= $mysqli->query("SELECT * FROM tabel_dusun");
+                                        while($rows_dusun = $result_dusun->fetch_object()) {
+
+                                            if($row['dusun'] == $rows_dusun->dusun) {
+                                                echo"
+                                                    <option value='$rows_dusun->id' selected>$rows_dusun->dusun</option>
+                                                ";
+                                            } else {
+                                                echo"
+                                                    <option value='$rows_dusun->id'>$rows_dusun->dusun</option>
+                                                ";
+                                            }
+                                        }
+                                    ?>
                             </select>
                         </div>
                     </div>

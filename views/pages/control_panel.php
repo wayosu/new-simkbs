@@ -1,3 +1,8 @@
+<?php
+$url= "http://$_SERVER[HTTP_HOST]/simkbs/";
+include 'app/post/post_control_panel.php';
+?>
+
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
@@ -18,34 +23,29 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Form Dusun</h3>
-                    </div>
-                    <!-- /.card-header -->
-                    <!-- form start -->
-                    <form action="" method="POST">
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="dusun">Dusun</label>
-                                <input type="text" class="form-control" id="dusun" name="dusun">
-                            </div>
+                <div class="card card-primary card-outline">
+                    <div class="card-body box-profile">
+                        <div class="text-center">
+                            <img class="profile-user-img border-0 img-fluid" src="<?= $base_url; ?>dist/img/<?= $row_profil->logo_desa; ?>" alt="User profile picture">
                         </div>
-                        <!-- /.card-body -->
 
-                        <div class="card-footer">
-                            <div class="d-flex justify-content-between">
-                                <button type="reset" name="tambah_dusun" class="btn btn-default">Reset</button>
-                                <button type="submit" name="tambah_dusun" class="btn btn-success">Simpan Data</button>
-                            </div>
-                        </div>
-                    </form>
+                        <h3 class="profile-username text-center"><?= $row_profil->nama_desa; ?></h3>
+
+                        <button type="button" class="btn btn-sm btn-default btn-block" data-toggle="modal" data-target="#modal-edit-profil">
+                            <i class="fas fa-edit"></i> Edit Profil
+                        </button>
+                    </div>
+                    <!-- /.card-body -->
                 </div>
+                <!-- /.card -->
             </div>
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Data Dusun</h3>
+                        <h3 class="card-title mt-1">Data Dusun</h3>
+                        <button type="button" class="btn btn-sm btn-primary float-right" data-toggle="modal" data-target="#modal-tambah">
+                            <i class="fas fa-plus-circle"></i> Tambah Dusun
+                        </button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -54,38 +54,11 @@
                                     <tr>
                                         <th width="10%">#</th>
                                         <th>Dusun</th>
-                                        <th>Aksi</th>
+                                        <th width="20%">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Data Control Panel</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-striped example3" style="font-size: 14px;">
-                                <thead>
-                                    <tr>
-                                        <th width="5%">#</th>
-                                        <th>Nama Desa</th>
-                                        <th>Logo Desa</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
+                                    <?php tampil_dusun($mysqli); ?>
                                 </tbody>
                             </table>
                         </div>
@@ -95,3 +68,78 @@
         </div>
     </div>
 </section>
+
+<div class="modal fade" id="modal-tambah">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Form Tambah Dusun</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="" method="post">
+                <div class="modal-body">
+                    <label for="dusun">Dusun</label>
+                    <input type="text" name="dusun" id="dusun" class="form-control">
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                    <button type="submit" name="tambah_dusun" class="btn btn-success">Simpan</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<div class="modal fade" id="modal-edit-profil">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Form Edit Profil</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id_profil" value="<?= $row_profil->id; ?>">
+                <input type="hidden" name="logo_sebelumnya" value="<?= $row_profil->logo_desa; ?>">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="nama_desa">Nama Desa</label>
+                        <input type="text" name="nama_desa" id="nama_desa" class="form-control" value="<?= $row_profil->nama_desa; ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="logo">Logo Desa</label>
+                        <input type="file" name="gambar" id="logo" class="form-control-file" onchange="loadFile(event)">
+                        <small>*maksimal 4MB</small>
+                    </div>
+                    <div class="form-group">
+                        <img id="img-preview" class="img-fluid" width="150">
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                    <button type="submit" name="edit_profil" class="btn btn-success">Simpan Perubahan</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<script>
+  var loadFile = function(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var output = document.getElementById('img-preview');
+      output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
+</script>

@@ -150,10 +150,15 @@
                          <div class="form-group">
                              <label for="">Dusun</label>
                              <select class="form-control select2" name="dusun" style="width: 100%;">
-                                 <option hidden>--Pilih Dusun--</option>
-                                 <option value="1">1</option>
-                                 <option value="2">2</option>
-                                 <option value="3">3</option>
+                                    <option hidden>--Pilih Dusun--</option>
+                                    <?php  
+                                        $result_dusun= $mysqli->query("SELECT * FROM tabel_dusun");
+                                        while($rows_dusun = $result_dusun->fetch_object()) {
+                                            echo"
+                                                <option value='$rows_dusun->id'>$rows_dusun->dusun</option>
+                                            ";
+                                        }
+                                    ?>
                              </select>
                          </div>
                      </div>

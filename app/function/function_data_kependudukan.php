@@ -1,7 +1,7 @@
 <?php
 function tampil_data($mysqli)
 {
-    $sql = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK=tabel_pendidikan.NIK JOIN tabel_pekerjaan ON tabel_kependudukan.NIK=tabel_pekerjaan.NIK ORDER BY tabel_kependudukan.NO_KK DESC");
+    $sql = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK=tabel_pendidikan.NIK JOIN tabel_pekerjaan ON tabel_kependudukan.NIK=tabel_pekerjaan.NIK JOIN tabel_dusun ON tabel_kependudukan.DSN=tabel_dusun.id ORDER BY tabel_kependudukan.NO_KK DESC");
     while ($row = $sql->fetch_assoc()) {
 ?>
         <tr>
@@ -35,7 +35,7 @@ function tampil_data($mysqli)
             <td><?= $row['TMPT_LHR']; ?>, <?= tgl_indo($row['TGL_LHR']); ?></td>
             <td><?= $row['PEKERJAAN']; ?></td>
             <td>Rp. <?= number_format($row['PENGHASILAN_PER_BULAN']); ?></td>
-            <td><?= $row['DSN']; ?></td>
+            <td><?= $row['dusun']; ?></td>
             <td>
                 <button type="button" class="btn btn-default" data-toggle="dropdown">
                     <i class="fas fa-cog"></i>
