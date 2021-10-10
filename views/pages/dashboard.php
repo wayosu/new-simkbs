@@ -25,7 +25,7 @@
                         <span class="info-box-text">Pria</span>
                         <span class="info-box-number">
                             <?php
-                            $sql_pria = $mysqli->query("SELECT * FROM tabel_kependudukan WHERE JK='1'");
+                            $sql_pria = $mysqli->query("SELECT * FROM tabel_kependudukan WHERE JK=1");
                             echo mysqli_num_rows($sql_pria);
                             ?>
                         </span>
@@ -73,57 +73,30 @@
 
         <!-- start info boxes -->
         <div class="row">
-            <div class="col-12 col-sm-6 col-md-4">
-                <!-- small box -->
-                <div class="small-box bg-light">
-                    <div class="inner">
-                        <h3>
-                            <?php
-                            $sql_dusun1 = $mysqli->query("SELECT * FROM tabel_kependudukan WHERE DSN=1");
-                            echo mysqli_num_rows($sql_dusun1);
-                            ?>
-                        </h3>
-                        <p>Dusun 1</p>
-                    </div>
-                    <div class="icon text-indigo">
-                        <i class="ion ion-home"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4">
-                <!-- small box -->
-                <div class="small-box bg-light">
-                    <div class="inner">
-                        <h3>
-                            <?php
-                            $sql_dusun2 = $mysqli->query("SELECT * FROM tabel_kependudukan WHERE DSN=2");
-                            echo mysqli_num_rows($sql_dusun2);
-                            ?>
-                        </h3>
-                        <p>Dusun 2</p>
-                    </div>
-                    <div class="icon text-indigo">
-                        <i class="ion ion-home"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4">
-                <!-- small box -->
-                <div class="small-box bg-light">
-                    <div class="inner">
-                        <h3>
-                            <?php
-                            $sql_dusun3 = $mysqli->query("SELECT * FROM tabel_kependudukan WHERE DSN=3");
-                            echo mysqli_num_rows($sql_dusun3);
-                            ?>
-                        </h3>
-                        <p>Dusun 3</p>
-                    </div>
-                    <div class="icon text-indigo">
-                        <i class="ion ion-home"></i>
-                    </div>
-                </div>
-            </div>
+            <?php
+                $query_dusun = $mysqli->query("SELECT * FROM tabel_dusun");
+                while($rows_dusun = $query_dusun->fetch_assoc()) {
+                    ?>
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <!-- small box -->
+                            <div class="small-box bg-light">
+                                <div class="inner">
+                                    <h3>
+                                        <?php
+                                        $tot_dusun = $mysqli->query("SELECT * FROM tabel_kependudukan WHERE DSN='$rows_dusun[id]'");
+                                        echo mysqli_num_rows($tot_dusun);
+                                        ?>
+                                    </h3>
+                                    <p><?= $rows_dusun['dusun'] ?></p>
+                                </div>
+                                <div class="icon text-indigo">
+                                    <i class="ion ion-home"></i>
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+                }
+            ?>
         </div>
         <!-- end info boxes -->
 
