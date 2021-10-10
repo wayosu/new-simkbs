@@ -182,27 +182,45 @@
 // $rekom_bpnt3 = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_konsumsi ON tabel_kependudukan.NIK = tabel_konsumsi.NIK JOIN tabel_pekerjaan ON tabel_pekerjaan.NIK = tabel_kependudukan.NIK JOIN tabel_pendidikan ON tabel_pendidikan.NIK = tabel_kependudukan.NIK JOIN tabel_rumah ON tabel_rumah.NIK = tabel_kependudukan.NIK JOIN tabel_tabungan ON tabel_tabungan.NIK = tabel_kependudukan.NIK WHERE tabel_kependudukan.HBKEL = '1' AND bantuan='0' AND LUAS_LANTAI = '1' AND (JENIS_LANTAI ='Bambu' OR JENIS_LANTAI ='Kayu/Papan') AND (JENIS_DINDING ='Bambu' OR JENIS_DINDING ='Rumbia' OR JENIS_DINDING ='Tembok Tanpa Di Plester') AND FASILITAS_BAB = '0' AND SUMBER_PENERANGAN ='0' AND (SUMBER_AIR_MINUM = 'Sungai' OR SUMBER_AIR_MINUM = 'Mata Air Tidak Terlindung' OR SUMBER_AIR_MINUM = 'Air Hujan') AND (BAHAN_BAKAR_MEMASAK = 'Kayu Bakar' OR BAHAN_BAKAR_MEMASAK = 'Minyak Tanah') AND FREKUENSI_PER_MINGGU <= 1 AND PAKAIAN_PER_TAHUN <= 1 AND MAKAN_PER_HARI <= 2 AND BIAYA_PENGOBATAN = '0' AND PENGHASILAN_PER_BULAN < 600000 AND (PENDIDIKAN_TERAKHIR ='Tidak Tamat SD' OR PENDIDIKAN_TERAKHIR ='Tidak Sekolah' OR PENDIDIKAN_TERAKHIR ='SD dan Sederajat') AND KEPEMILIKAN_TABUNGAN = '0' AND DSN=3");
 // $rows_rekom_bpnt3 = mysqli_num_rows($rekom_bpnt3);
 
-$penerima_bpnt1 = $mysqli->query("SELECT * FROM tabel_kependudukan WHERE bantuan=1 AND jenis_bantuan='BPNT' AND DSN=1");
-$rows_penerima_bpnt1 = mysqli_num_rows($penerima_bpnt1);
-$penerima_bpnt2 = $mysqli->query("SELECT * FROM tabel_kependudukan WHERE bantuan=1 AND jenis_bantuan='BPNT' AND DSN=2");
-$rows_penerima_bpnt2 = mysqli_num_rows($penerima_bpnt2);
-$penerima_bpnt3 = $mysqli->query("SELECT * FROM tabel_kependudukan WHERE bantuan=1 AND jenis_bantuan='BPNT' AND DSN=3");
-$rows_penerima_bpnt3 = mysqli_num_rows($penerima_bpnt3);
+// $penerima_bpnt1 = $mysqli->query("SELECT * FROM tabel_kependudukan WHERE bantuan=1 AND jenis_bantuan='BPNT' AND DSN=1");
+// $rows_penerima_bpnt1 = mysqli_num_rows($penerima_bpnt1);
+// $penerima_bpnt2 = $mysqli->query("SELECT * FROM tabel_kependudukan WHERE bantuan=1 AND jenis_bantuan='BPNT' AND DSN=2");
+// $rows_penerima_bpnt2 = mysqli_num_rows($penerima_bpnt2);
+// $penerima_bpnt3 = $mysqli->query("SELECT * FROM tabel_kependudukan WHERE bantuan=1 AND jenis_bantuan='BPNT' AND DSN=3");
+// $rows_penerima_bpnt3 = mysqli_num_rows($penerima_bpnt3);
+
+$sql_penerima_bpnt = $mysqli->query("SELECT * FROM tabel_dusun");
+while($rows_penerima_bpnt = $sql_penerima_bpnt->fetch_assoc()) {
+    $output_penerima_bpnt[] = $rows_penerima_bpnt['dusun'];
+
+    $penerima_bpnt = $mysqli->query("SELECT * FROM tabel_kependudukan WHERE bantuan=1 AND jenis_bantuan='BPNT' AND DSN='$rows_penerima_bpnt[id]'");
+    // $rows_total_penerima_bpnt = $penerima_bpnt->fetch_assoc();
+    $output_total_penerima_bpnt[] = mysqli_num_rows($penerima_bpnt);
+    $color_penerima_bpnt[] = '#6610f2';
+    
+
+}
+// var_dump($output_penerima_bpnt);
+
+$op_bpnt = $output_penerima_bpnt;
+$result_op_bpnt = "'" . implode ( "', '", $op_bpnt ) . "'";
+
+$top_bpnt = $output_total_penerima_bpnt;
+$result_top_bpnt = "'" . implode ( "', '", $top_bpnt ) . "'";
+
+$c_bpnt = $color_penerima_bpnt;
+$result_c_bpnt = "'" . implode ( "', '", $c_bpnt ) . "'";
 ?>
 <script>
     var bpnt = document.getElementById('Bpnt');
     var Bpnt = new Chart(bpnt, {
         type: 'bar',
         data: {
-            labels: ['Dusun 1', 'Dusun 2', 'Dusun 3'],
+            labels: [<?= $result_op_bpnt; ?>],
             datasets: [{
                 label: 'Penerima Bantuan',
-                data: [<?= $rows_penerima_bpnt1; ?>, <?= $rows_penerima_bpnt2; ?>, <?= $rows_penerima_bpnt3; ?>],
-                backgroundColor: [
-                    '#6610f2',
-                    '#6610f2',
-                    '#6610f2'
-                ]
+                data: [<?= $result_top_bpnt; ?>],
+                backgroundColor: [<?= $result_c_bpnt; ?>]
             }]
         },
         options: {
