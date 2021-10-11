@@ -1,4 +1,10 @@
-<?php require_once '../koneksi.php'; ?>
+<?php 
+    require_once '../koneksi.php';
+    $url= "http://$_SERVER[HTTP_HOST]/simkbs/";
+    $sql_profil = "SELECT * FROM tabel_control WHERE id=1";
+    $result_profil = $mysqli->query($sql_profil);
+    $row_profil = $result_profil->fetch_object();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,12 +47,12 @@
     <table width="100%" class="display-header">
         <tr>
             <td>
-                <img src="../../kabgor.png" alt="logo-kab" width="50">
+                <img src="<?= $url; ?>dist/img/<?= $row_profil->logo_desa; ?>" alt="logo-kab" width="50">
             </td>
         </tr>
         <tr>
             <td>
-                <h3>Kantor Desa Bumela</h3>
+                <h3>Kantor <?= $row_profil->nama_desa; ?></h3>
             </td>
         </tr>
         <tr>

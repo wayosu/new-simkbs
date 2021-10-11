@@ -2,6 +2,11 @@
 if (isset($_GET['nik'])) {
     $base_url = 'http://localhost/simkbs/';
     include 'app/koneksi.php';
+
+    $sql_profil = "SELECT * FROM tabel_control WHERE id=1";
+    $result_profil = $mysqli->query($sql_profil);
+    $row_profil = $result_profil->fetch_object();
+
     include 'views/layout/user/header.php';
     include 'views/layout/user/navbar.php';
 
@@ -34,6 +39,8 @@ if (isset($_GET['nik'])) {
 
     if (mysqli_num_rows($query) > 0) {
         $row = $query->fetch_assoc();
+        $sql_dusun1 = $mysqli->query("SELECT * FROM tabel_dusun WHERE id='{$row['DSN']}'");
+        $row_dusun1 = $sql_dusun1->fetch_assoc();
 ?>
         <main id="main">
             <div class="pt-3" style="min-height: 629px;">
@@ -81,7 +88,7 @@ if (isset($_GET['nik'])) {
                                                     <td><?= tgl_indo($row['TGL_LHR']) ?></td>
                                                     <td><?= $row['JK'] == '1' ? 'Laki Laki' : 'Perempuan'; ?></td>
                                                     <td><?= $row['jenis_bantuan'] ?></td>
-                                                    <td><?= $row['DSN'] ?></td>
+                                                    <td><?= $row_dusun1['dusun'] ?></td>
                                                 </tr>
                                             </tbody>
                                         </table>

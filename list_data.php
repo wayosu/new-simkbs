@@ -2,6 +2,11 @@
 if (isset($_GET['terapkan'])) {
     $base_url = 'http://localhost/simkbs/';
     include 'app/koneksi.php';
+
+    $sql_profil = "SELECT * FROM tabel_control WHERE id=1";
+    $result_profil = $mysqli->query($sql_profil);
+    $row_profil = $result_profil->fetch_object();
+
     include 'views/layout/user/header.php';
     include 'views/layout/user/navbar.php';
 
@@ -41,7 +46,11 @@ if (isset($_GET['terapkan'])) {
                         <div class="text-center">
                             <img src="<?= $base_url; ?>asset_user/img/logo-campur.png" alt="logo" width="5%">
                             <h4>Informasi Rekomendasi Penerima Bantuan</h4>
-                            <small>Dusun <?= $_GET['dusun']; ?></small>
+                            <?php
+                                $sql_dusun1 = $mysqli->query("SELECT * FROM tabel_dusun WHERE id='{$_GET['dusun']}'");
+                                $row_dusun1 = $sql_dusun1->fetch_assoc();
+                            ?>
+                            <small>Dusun <?= $row_dusun1['dusun']; ?></small>
                             <!-- pencarian -->
                         </div>
                     </div>
@@ -77,6 +86,8 @@ if (isset($_GET['terapkan'])) {
                                                 $nomor = 1;
                                                 $query = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_konsumsi ON tabel_kependudukan.NIK = tabel_konsumsi.NIK JOIN tabel_pekerjaan ON tabel_pekerjaan.NIK = tabel_kependudukan.NIK JOIN tabel_pendidikan ON tabel_pendidikan.NIK = tabel_kependudukan.NIK JOIN tabel_rumah ON tabel_rumah.NIK = tabel_kependudukan.NIK JOIN tabel_tabungan ON tabel_tabungan.NIK = tabel_kependudukan.NIK WHERE tabel_kependudukan.HBKEL = '1' AND bantuan='0' AND LUAS_LANTAI = '1' AND (JENIS_LANTAI ='Bambu' OR JENIS_LANTAI ='Kayu/Papan') AND (JENIS_DINDING ='Bambu' OR JENIS_DINDING ='Rumbia' OR JENIS_DINDING ='Tembok Tanpa Di Plester') AND FASILITAS_BAB = '0' AND SUMBER_PENERANGAN ='0' AND (SUMBER_AIR_MINUM = 'Sungai' OR SUMBER_AIR_MINUM = 'Mata Air Tidak Terlindung' OR SUMBER_AIR_MINUM = 'Air Hujan') AND (BAHAN_BAKAR_MEMASAK = 'Kayu Bakar' OR BAHAN_BAKAR_MEMASAK = 'Minyak Tanah') AND FREKUENSI_PER_MINGGU <= 1 AND PAKAIAN_PER_TAHUN <= 1 AND MAKAN_PER_HARI <= 2 AND BIAYA_PENGOBATAN = '0' AND PENGHASILAN_PER_BULAN < 600000 AND (PENDIDIKAN_TERAKHIR ='Tidak Tamat SD' OR PENDIDIKAN_TERAKHIR ='Tidak Sekolah' OR PENDIDIKAN_TERAKHIR ='SD dan Sederajat') AND KEPEMILIKAN_TABUNGAN = '0' AND DSN='{$_GET['dusun']}'");
                                                 while ($row = $query->fetch_assoc()) {
+                                                    $sql_dusun = $mysqli->query("SELECT * FROM tabel_dusun WHERE id='$row[DSN]'");
+                                                    $row_dusun = $sql_dusun->fetch_assoc();
                                                 ?>
                                                     <tr>
                                                         <td><?= $nomor++ ?></td>
@@ -86,7 +97,7 @@ if (isset($_GET['terapkan'])) {
                                                         <td><?= tgl_indo($row['TGL_LHR']) ?></td>
                                                         <td><?= $row['JK'] == '1' ? 'Laki Laki' : 'Perempuan'; ?></td>
                                                         <td>Rp. <?= number_format($row['PENGHASILAN_PER_BULAN']); ?></td>
-                                                        <td><?= $row['DSN'] ?></td>
+                                                        <td><?= $row_dusun['dusun'] ?></td>
                                                     </tr>
                                                 <?php
                                                 }
@@ -117,7 +128,11 @@ if (isset($_GET['terapkan'])) {
                             <img src="<?= $base_url; ?>asset_user/img/logo-campur.png" alt="logo" width="5%">
                             <h4>Informasi Rekomendasi Penerima Bantuan</h4>
                             <small>Jenis Bantuan : <?= $_GET['jenis_bantuan']; ?></small><br>
-                            <small>Dusun <?= $_GET['dusun']; ?></small>
+                            <?php
+                                $sql_dusun1 = $mysqli->query("SELECT * FROM tabel_dusun WHERE id='{$_GET['dusun']}'");
+                                $row_dusun1 = $sql_dusun1->fetch_assoc();
+                            ?>
+                            <small>Dusun <?= $row_dusun1['dusun']; ?></small>
                             <!-- pencarian -->
                         </div>
                     </div>
@@ -161,6 +176,8 @@ if (isset($_GET['terapkan'])) {
                                                                             WHERE tabel_kependudukan.HBKEL = '1' AND bantuan='1' 
                                                                             AND DSN='{$_GET['dusun']}' AND jenis_bantuan='{$_GET['jenis_bantuan']}'");
                                                 while ($row = $query->fetch_assoc()) {
+                                                    $sql_dusun = $mysqli->query("SELECT * FROM tabel_dusun WHERE id='$row[DSN]'");
+                                                    $row_dusun = $sql_dusun->fetch_assoc();
                                                 ?>
                                                     <tr>
                                                         <td><?= $nomor++ ?></td>
@@ -171,7 +188,7 @@ if (isset($_GET['terapkan'])) {
                                                         <td><?= $row['JK'] == '1' ? 'Laki Laki' : 'Perempuan'; ?></td>
                                                         <td>Rp. <?= number_format($row['PENGHASILAN_PER_BULAN']); ?></td>
                                                         <td><?= $row['jenis_bantuan']; ?></td>
-                                                        <td><?= $row['DSN'] ?></td>
+                                                        <td><?= $row_dusun['dusun'] ?></td>
                                                     </tr>
                                                 <?php
                                                 }
