@@ -1,5 +1,5 @@
 <?php
-$url= "http://$_SERVER[HTTP_HOST]/simkbs/";
+$url = "http://$_SERVER[HTTP_HOST]/simkbs/";
 include 'app/post/post_control_panel.php';
 ?>
 
@@ -30,10 +30,23 @@ include 'app/post/post_control_panel.php';
                         </div>
 
                         <h3 class="profile-username text-center"><?= $row_profil->nama_desa; ?></h3>
+                        <p class="text-muted text-center"><?= $row_profil->alamat; ?></p>
+
 
                         <button type="button" class="btn btn-sm btn-default btn-block" data-toggle="modal" data-target="#modal-edit-profil">
                             <i class="fas fa-edit"></i> Edit Profil
                         </button>
+
+                        <ul class="list-group list-group-unbordered mt-3">
+                            <li class="list-group-item">
+                                <b>Email</b> <a class="float-right"><?= $row_profil->email; ?></a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Maps</b>
+                                <iframe src="<?= $row_profil->maps; ?>" class="mt-3" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </li>
+                        </ul>
+
                     </div>
                     <!-- /.card-body -->
                 </div>
@@ -96,7 +109,7 @@ include 'app/post/post_control_panel.php';
 <!-- /.modal -->
 
 <div class="modal fade" id="modal-edit-profil">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-large modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Form Edit Profil</h4>
@@ -111,6 +124,18 @@ include 'app/post/post_control_panel.php';
                     <div class="form-group">
                         <label for="nama_desa">Nama Desa</label>
                         <input type="text" name="nama_desa" id="nama_desa" class="form-control" value="<?= $row_profil->nama_desa; ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" id="email" class="form-control" value="<?= $row_profil->email; ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="alamat">Alamat</label>
+                        <textarea name="alamat" id="alamat" rows="2" class="form-control"><?= $row_profil->alamat; ?></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="maps">Maps</label>
+                        <textarea name="maps" id="maps" rows="3" class="form-control"><?= $row_profil->maps; ?></textarea>
                     </div>
                     <div class="form-group">
                         <label for="logo">Logo Desa</label>
@@ -134,12 +159,12 @@ include 'app/post/post_control_panel.php';
 <!-- /.modal -->
 
 <script>
-  var loadFile = function(event) {
-    var reader = new FileReader();
-    reader.onload = function(){
-      var output = document.getElementById('img-preview');
-      output.src = reader.result;
+    var loadFile = function(event) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            var output = document.getElementById('img-preview');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
     };
-    reader.readAsDataURL(event.target.files[0]);
-  };
 </script>

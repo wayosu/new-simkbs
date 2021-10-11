@@ -57,7 +57,7 @@
         </tr>
         <tr>
             <td>
-                <small>Bumela, Bilato, Kabupaten Gorontalo, Gorontalo</small>
+                <small><?= $row_profil->alamat; ?></small>
             </td>
         </tr>
     </table>

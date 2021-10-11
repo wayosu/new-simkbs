@@ -51,6 +51,9 @@ if (isset($_POST['hapus_dusun'])) {
 if (isset($_POST['edit_profil'])) {
     $id = $_POST['id_profil'];
     $nama_desa = $_POST['nama_desa'];
+    $email = $_POST['email'];
+    $alamat = $_POST['alamat'];
+    $maps = $_POST['maps'];
     $logoLama = $_POST['logo_sebelumnya'];
 
     // cek apakah user pilih gambar baru atau tidak
@@ -60,7 +63,7 @@ if (isset($_POST['edit_profil'])) {
         $logo = upload_img($url);
     }
 
-    $sql = $mysqli->query("UPDATE tabel_control SET nama_desa='$nama_desa',logo_desa='$logo' WHERE id='$id'");
+    $sql = $mysqli->query("UPDATE tabel_control SET nama_desa='$nama_desa',logo_desa='$logo',alamat='$alamat',maps='$maps',email='$email' WHERE id='$id'");
 
     if ($sql) {
 ?>
