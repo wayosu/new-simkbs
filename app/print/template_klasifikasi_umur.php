@@ -1,4 +1,10 @@
-<?php require_once '../koneksi.php'; ?>
+<?php
+require_once '../koneksi.php';
+$url = "http://$_SERVER[HTTP_HOST]/simkbs/";
+$sql_profil = "SELECT * FROM tabel_control WHERE id=1";
+$result_profil = $mysqli->query($sql_profil);
+$row_profil = $result_profil->fetch_object();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,20 +47,20 @@
     <table width="100%" class="display-header">
         <tr>
             <td>
-                <img src="../../kabgor.png" alt="logo-kab" width="50">
+                <img src="<?= $url; ?>dist/img/<?= $row_profil->logo_desa; ?>" alt="logo-kab" width="50">
             </td>
         </tr>
         <tr>
             <td>
-                <h3>Kantor Desa Bumela</h3>
+                <h3>Kantor <?= $row_profil->nama_desa; ?></h3>
             </td>
         </tr>
         <tr>
             <td>
-                <small>Bumela, Bilato, Kabupaten Gorontalo, Gorontalo</small>
+                <small><?= $row_profil->alamat; ?></small>
             </td>
         </tr>
-    </table>    
+    </table>
 
     <h4>Klasifikasi Data Kependudukan Berdasarkan Umur</h4>
 
@@ -113,17 +119,17 @@
         <tbody>
             <?php
             $nomor = 1;
-            $query = $mysqli->query("SELECT * FROM tabel_kependudukan GROUP BY DSN");
+            $query = $mysqli->query("SELECT * FROM tabel_dusun GROUP BY dusun");
             while ($row = $query->fetch_assoc()) {
             ?>
                 <tr align="center">
                     <td><?= $nomor++; ?></td>
-                    <td>Dusun <?= $row['DSN']; ?></td>
+                    <td><?= $row['dusun']; ?></td>
                     <!-- umur 0-5 -->
                     <?php
-                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN BETWEEN 0 and 5");
+                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN BETWEEN 0 and 5");
                     $row_laki = $querylaki->fetch_assoc();
-                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN BETWEEN 0 and 5");
+                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN BETWEEN 0 and 5");
                     $row_perempuan = $queryperempuan->fetch_assoc();
                     ?>
                     <td><?= isset($row_laki['ttl']) ? $laki05 = $row_laki['ttl'] : $laki05 = '0'; ?></td>
@@ -132,9 +138,9 @@
 
                     <!-- umur 6-10 -->
                     <?php
-                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN BETWEEN 6 and 10");
+                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN BETWEEN 6 and 10");
                     $row_laki = $querylaki->fetch_assoc();
-                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN BETWEEN 6 and 10");
+                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN BETWEEN 6 and 10");
                     $row_perempuan = $queryperempuan->fetch_assoc();
                     ?>
                     <td><?= isset($row_laki['ttl']) ? $laki610 = $row_laki['ttl'] : $laki610 = '0'; ?></td>
@@ -143,9 +149,9 @@
 
                     <!-- umur 11-15 -->
                     <?php
-                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN BETWEEN 11 and 15");
+                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN BETWEEN 11 and 15");
                     $row_laki = $querylaki->fetch_assoc();
-                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN BETWEEN 11 and 15");
+                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN BETWEEN 11 and 15");
                     $row_perempuan = $queryperempuan->fetch_assoc();
                     ?>
                     <td><?= isset($row_laki['ttl']) ? $laki1115 = $row_laki['ttl'] : $laki1115 = '0'; ?></td>
@@ -154,9 +160,9 @@
 
                     <!-- umur 16-20 -->
                     <?php
-                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN BETWEEN 16 and 20");
+                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN BETWEEN 16 and 20");
                     $row_laki = $querylaki->fetch_assoc();
-                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN BETWEEN 16 and 20");
+                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN BETWEEN 16 and 20");
                     $row_perempuan = $queryperempuan->fetch_assoc();
                     ?>
                     <td><?= isset($row_laki['ttl']) ? $laki1620 = $row_laki['ttl'] : $laki1620 = '0'; ?></td>
@@ -165,9 +171,9 @@
 
                     <!-- umur 21-25 -->
                     <?php
-                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN BETWEEN 21 and 25");
+                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN BETWEEN 21 and 25");
                     $row_laki = $querylaki->fetch_assoc();
-                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN BETWEEN 21 and 25");
+                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN BETWEEN 21 and 25");
                     $row_perempuan = $queryperempuan->fetch_assoc();
                     ?>
                     <td><?= isset($row_laki['ttl']) ? $laki2125 = $row_laki['ttl'] : $laki2125 = '0'; ?></td>
@@ -176,9 +182,9 @@
 
                     <!-- umur 26-30 -->
                     <?php
-                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN BETWEEN 26 and 30");
+                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN BETWEEN 26 and 30");
                     $row_laki = $querylaki->fetch_assoc();
-                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN BETWEEN 26 and 30");
+                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN BETWEEN 26 and 30");
                     $row_perempuan = $queryperempuan->fetch_assoc();
                     ?>
                     <td><?= isset($row_laki['ttl']) ? $laki2630 =  $row_laki['ttl'] : $laki2630 = '0'; ?></td>
@@ -187,9 +193,9 @@
 
                     <!-- umur 31-35 -->
                     <?php
-                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN BETWEEN 31 and 35");
+                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN BETWEEN 31 and 35");
                     $row_laki = $querylaki->fetch_assoc();
-                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN BETWEEN 31 and 35");
+                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN BETWEEN 31 and 35");
                     $row_perempuan = $queryperempuan->fetch_assoc();
                     ?>
                     <td><?= isset($row_laki['ttl']) ? $laki3135 = $row_laki['ttl'] : $laki3135 = '0'; ?></td>
@@ -198,9 +204,9 @@
 
                     <!-- umur 36-40 -->
                     <?php
-                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN BETWEEN 36 and 40");
+                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN BETWEEN 36 and 40");
                     $row_laki = $querylaki->fetch_assoc();
-                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN BETWEEN 36 and 40");
+                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN BETWEEN 36 and 40");
                     $row_perempuan = $queryperempuan->fetch_assoc();
                     ?>
                     <td><?= isset($row_laki['ttl']) ? $laki3640 = $row_laki['ttl'] : $laki3640 = '0'; ?></td>
@@ -209,9 +215,9 @@
 
                     <!-- umur 41-45 -->
                     <?php
-                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN BETWEEN 41 and 45");
+                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN BETWEEN 41 and 45");
                     $row_laki = $querylaki->fetch_assoc();
-                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN BETWEEN 41 and 45");
+                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN BETWEEN 41 and 45");
                     $row_perempuan = $queryperempuan->fetch_assoc();
                     ?>
                     <td><?= isset($row_laki['ttl']) ? $laki4145 = $row_laki['ttl'] : $laki4145 = '0'; ?></td>
@@ -220,9 +226,9 @@
 
                     <!-- umur 46-50 -->
                     <?php
-                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN BETWEEN 46 and 50");
+                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN BETWEEN 46 and 50");
                     $row_laki = $querylaki->fetch_assoc();
-                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN BETWEEN 46 and 50");
+                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN BETWEEN 46 and 50");
                     $row_perempuan = $queryperempuan->fetch_assoc();
                     ?>
                     <td><?= isset($row_laki['ttl']) ? $laki4650 = $row_laki['ttl'] : $laki4650 = '0'; ?></td>
@@ -231,9 +237,9 @@
 
                     <!-- umur 51-55 -->
                     <?php
-                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN BETWEEN 51 and 55");
+                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN BETWEEN 51 and 55");
                     $row_laki = $querylaki->fetch_assoc();
-                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN BETWEEN 51 and 55");
+                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN BETWEEN 51 and 55");
                     $row_perempuan = $queryperempuan->fetch_assoc();
                     ?>
                     <td><?= isset($row_laki['ttl']) ? $laki5155 = $row_laki['ttl'] : $laki5155 = '0'; ?></td>
@@ -242,9 +248,9 @@
 
                     <!-- umur 56-60 -->
                     <?php
-                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN BETWEEN 56 and 60");
+                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN BETWEEN 56 and 60");
                     $row_laki = $querylaki->fetch_assoc();
-                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN BETWEEN 56 and 60");
+                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN BETWEEN 56 and 60");
                     $row_perempuan = $queryperempuan->fetch_assoc();
                     ?>
                     <td><?= isset($row_laki['ttl']) ? $laki5660 = $row_laki['ttl'] : $laki5660 = '0'; ?></td>
@@ -253,9 +259,9 @@
 
                     <!-- umur 61++ -->
                     <?php
-                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN >= 61");
+                    $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN >= 61");
                     $row_laki = $querylaki->fetch_assoc();
-                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN >= 61");
+                    $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN >= 61");
                     $row_perempuan = $queryperempuan->fetch_assoc();
                     ?>
                     <td><?= isset($row_laki['ttl']) ? $laki61 = $row_laki['ttl'] : $laki61 = '0'; ?></td>
@@ -265,7 +271,7 @@
                     <th>
                         <?php
                         // echo $laki05 + $perempuan05 + $laki610 + $perempuan610 + $laki1115 + $perempuan1115 + $laki1620 + $perempuan1620 + $laki2125 + $perempuan2125 + $laki2630 + $perempuan2630 + $laki3135 + $perempuan3135 + $laki3640 + $perempuan3640 + $laki4145 + $perempuan4145 + $laki4650 + $perempuan4650 + $laki5155 + $perempuan5155 + $laki5660 + $perempuan5660 + $laki61 + $perempuan61;  
-                        $query_jumlahkanan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN = '$row[DSN]'");
+                        $query_jumlahkanan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN = '$row[id]'");
                         $row_jumlahkanan = $query_jumlahkanan->fetch_assoc();
                         echo $n[] = $row_jumlahkanan['ttl'];
                         ?>

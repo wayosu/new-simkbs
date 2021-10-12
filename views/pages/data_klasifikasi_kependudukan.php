@@ -84,17 +84,17 @@
                                 <tbody>
                                     <?php
                                     $nomor = 1;
-                                    $query = $mysqli->query("SELECT * FROM tabel_kependudukan GROUP BY DSN");
+                                    $query = $mysqli->query("SELECT * FROM tabel_dusun GROUP BY dusun");
                                     while ($row = $query->fetch_assoc()) {
                                     ?>
                                         <tr align="center">
                                             <td><?= $nomor++; ?></td>
-                                            <td>Dusun <?= $row['DSN']; ?></td>
+                                            <td><?= $row['dusun']; ?></td>
                                             <!-- umur 0-5 -->
                                             <?php
-                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN BETWEEN 0 and 5");
+                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN BETWEEN 0 and 5");
                                             $row_laki = $querylaki->fetch_assoc();
-                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN BETWEEN 0 and 5");
+                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN BETWEEN 0 and 5");
                                             $row_perempuan = $queryperempuan->fetch_assoc();
                                             ?>
                                             <td><?= isset($row_laki['ttl']) ? $laki05 = $row_laki['ttl'] : $laki05 = '0'; ?></td>
@@ -103,9 +103,9 @@
 
                                             <!-- umur 6-10 -->
                                             <?php
-                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN BETWEEN 6 and 10");
+                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN BETWEEN 6 and 10");
                                             $row_laki = $querylaki->fetch_assoc();
-                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN BETWEEN 6 and 10");
+                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN BETWEEN 6 and 10");
                                             $row_perempuan = $queryperempuan->fetch_assoc();
                                             ?>
                                             <td><?= isset($row_laki['ttl']) ? $laki610 = $row_laki['ttl'] : $laki610 = '0'; ?></td>
@@ -114,9 +114,9 @@
 
                                             <!-- umur 11-15 -->
                                             <?php
-                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN BETWEEN 11 and 15");
+                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN BETWEEN 11 and 15");
                                             $row_laki = $querylaki->fetch_assoc();
-                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN BETWEEN 11 and 15");
+                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN BETWEEN 11 and 15");
                                             $row_perempuan = $queryperempuan->fetch_assoc();
                                             ?>
                                             <td><?= isset($row_laki['ttl']) ? $laki1115 = $row_laki['ttl'] : $laki1115 = '0'; ?></td>
@@ -125,9 +125,9 @@
 
                                             <!-- umur 16-20 -->
                                             <?php
-                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN BETWEEN 16 and 20");
+                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN BETWEEN 16 and 20");
                                             $row_laki = $querylaki->fetch_assoc();
-                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN BETWEEN 16 and 20");
+                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN BETWEEN 16 and 20");
                                             $row_perempuan = $queryperempuan->fetch_assoc();
                                             ?>
                                             <td><?= isset($row_laki['ttl']) ? $laki1620 = $row_laki['ttl'] : $laki1620 = '0'; ?></td>
@@ -136,9 +136,9 @@
 
                                             <!-- umur 21-25 -->
                                             <?php
-                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN BETWEEN 21 and 25");
+                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN BETWEEN 21 and 25");
                                             $row_laki = $querylaki->fetch_assoc();
-                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN BETWEEN 21 and 25");
+                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN BETWEEN 21 and 25");
                                             $row_perempuan = $queryperempuan->fetch_assoc();
                                             ?>
                                             <td><?= isset($row_laki['ttl']) ? $laki2125 = $row_laki['ttl'] : $laki2125 = '0'; ?></td>
@@ -147,9 +147,9 @@
 
                                             <!-- umur 26-30 -->
                                             <?php
-                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN BETWEEN 26 and 30");
+                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN BETWEEN 26 and 30");
                                             $row_laki = $querylaki->fetch_assoc();
-                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN BETWEEN 26 and 30");
+                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN BETWEEN 26 and 30");
                                             $row_perempuan = $queryperempuan->fetch_assoc();
                                             ?>
                                             <td><?= isset($row_laki['ttl']) ? $laki2630 =  $row_laki['ttl'] : $laki2630 = '0'; ?></td>
@@ -158,9 +158,9 @@
 
                                             <!-- umur 31-35 -->
                                             <?php
-                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN BETWEEN 31 and 35");
+                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN BETWEEN 31 and 35");
                                             $row_laki = $querylaki->fetch_assoc();
-                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN BETWEEN 31 and 35");
+                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN BETWEEN 31 and 35");
                                             $row_perempuan = $queryperempuan->fetch_assoc();
                                             ?>
                                             <td><?= isset($row_laki['ttl']) ? $laki3135 = $row_laki['ttl'] : $laki3135 = '0'; ?></td>
@@ -169,9 +169,9 @@
 
                                             <!-- umur 36-40 -->
                                             <?php
-                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN BETWEEN 36 and 40");
+                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN BETWEEN 36 and 40");
                                             $row_laki = $querylaki->fetch_assoc();
-                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN BETWEEN 36 and 40");
+                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN BETWEEN 36 and 40");
                                             $row_perempuan = $queryperempuan->fetch_assoc();
                                             ?>
                                             <td><?= isset($row_laki['ttl']) ? $laki3640 = $row_laki['ttl'] : $laki3640 = '0'; ?></td>
@@ -180,9 +180,9 @@
 
                                             <!-- umur 41-45 -->
                                             <?php
-                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN BETWEEN 41 and 45");
+                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN BETWEEN 41 and 45");
                                             $row_laki = $querylaki->fetch_assoc();
-                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN BETWEEN 41 and 45");
+                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN BETWEEN 41 and 45");
                                             $row_perempuan = $queryperempuan->fetch_assoc();
                                             ?>
                                             <td><?= isset($row_laki['ttl']) ? $laki4145 = $row_laki['ttl'] : $laki4145 = '0'; ?></td>
@@ -191,9 +191,9 @@
 
                                             <!-- umur 46-50 -->
                                             <?php
-                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN BETWEEN 46 and 50");
+                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN BETWEEN 46 and 50");
                                             $row_laki = $querylaki->fetch_assoc();
-                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN BETWEEN 46 and 50");
+                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN BETWEEN 46 and 50");
                                             $row_perempuan = $queryperempuan->fetch_assoc();
                                             ?>
                                             <td><?= isset($row_laki['ttl']) ? $laki4650 = $row_laki['ttl'] : $laki4650 = '0'; ?></td>
@@ -202,9 +202,9 @@
 
                                             <!-- umur 51-55 -->
                                             <?php
-                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN BETWEEN 51 and 55");
+                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN BETWEEN 51 and 55");
                                             $row_laki = $querylaki->fetch_assoc();
-                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN BETWEEN 51 and 55");
+                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN BETWEEN 51 and 55");
                                             $row_perempuan = $queryperempuan->fetch_assoc();
                                             ?>
                                             <td><?= isset($row_laki['ttl']) ? $laki5155 = $row_laki['ttl'] : $laki5155 = '0'; ?></td>
@@ -213,9 +213,9 @@
 
                                             <!-- umur 56-60 -->
                                             <?php
-                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN BETWEEN 56 and 60");
+                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN BETWEEN 56 and 60");
                                             $row_laki = $querylaki->fetch_assoc();
-                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN BETWEEN 56 and 60");
+                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN BETWEEN 56 and 60");
                                             $row_perempuan = $queryperempuan->fetch_assoc();
                                             ?>
                                             <td><?= isset($row_laki['ttl']) ? $laki5660 = $row_laki['ttl'] : $laki5660 = '0'; ?></td>
@@ -224,9 +224,9 @@
 
                                             <!-- umur 61++ -->
                                             <?php
-                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='1' AND TAHUN >= 61");
+                                            $querylaki = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='1' AND TAHUN >= 61");
                                             $row_laki = $querylaki->fetch_assoc();
-                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[DSN]' AND JK='2' AND TAHUN >= 61");
+                                            $queryperempuan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN='$row[id]' AND JK='2' AND TAHUN >= 61");
                                             $row_perempuan = $queryperempuan->fetch_assoc();
                                             ?>
                                             <td><?= isset($row_laki['ttl']) ? $laki61 = $row_laki['ttl'] : $laki61 = '0'; ?></td>
@@ -236,7 +236,7 @@
                                             <th>
                                                 <?php
                                                 // echo $laki05 + $perempuan05 + $laki610 + $perempuan610 + $laki1115 + $perempuan1115 + $laki1620 + $perempuan1620 + $laki2125 + $perempuan2125 + $laki2630 + $perempuan2630 + $laki3135 + $perempuan3135 + $laki3640 + $perempuan3640 + $laki4145 + $perempuan4145 + $laki4650 + $perempuan4650 + $laki5155 + $perempuan5155 + $laki5660 + $perempuan5660 + $laki61 + $perempuan61;  
-                                                $query_jumlahkanan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN = '$row[DSN]'");
+                                                $query_jumlahkanan = $mysqli->query("SELECT count(NIK) AS ttl FROM tabel_kependudukan WHERE DSN = '$row[id]'");
                                                 $row_jumlahkanan = $query_jumlahkanan->fetch_assoc();
                                                 echo $n[] = $row_jumlahkanan['ttl'];
                                                 ?>
@@ -472,18 +472,18 @@
                                 <tbody>
                                     <?php
                                     $nomor = 1;
-                                    $query_pend = $mysqli->query("SELECT * FROM tabel_kependudukan GROUP BY DSN");
+                                    $query_pend = $mysqli->query("SELECT * FROM tabel_dusun GROUP BY dusun");
                                     while ($row_pend = $query_pend->fetch_assoc()) {
                                     ?>
                                         <tr align="center">
                                             <td><?= $nomor++; ?></td>
-                                            <td>Dusun <?= $row_pend['DSN']; ?></td>
+                                            <td><?= $row_pend['dusun']; ?></td>
 
                                             <!-- Tidak Sekolah -->
                                             <?php
-                                            $querylaki_ts = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[DSN]' AND tabel_kependudukan.JK='1' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='Tidak Sekolah'");
+                                            $querylaki_ts = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[id]' AND tabel_kependudukan.JK='1' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='Tidak Sekolah'");
                                             $row_laki_ts = $querylaki_ts->fetch_assoc();
-                                            $queryperempuan_ts = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[DSN]' AND tabel_kependudukan.JK='2' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='Tidak Sekolah'");
+                                            $queryperempuan_ts = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[id]' AND tabel_kependudukan.JK='2' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='Tidak Sekolah'");
                                             $row_perempuan_ts = $queryperempuan_ts->fetch_assoc();
                                             ?>
                                             <td><?= $row_laki_ts['ttl']; ?></td>
@@ -492,9 +492,9 @@
 
                                             <!-- Tidak Tamat SD -->
                                             <?php
-                                            $querylaki_td = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[DSN]' AND tabel_kependudukan.JK='1' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='Tidak Tamat SD'");
+                                            $querylaki_td = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[id]' AND tabel_kependudukan.JK='1' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='Tidak Tamat SD'");
                                             $row_laki_td = $querylaki_td->fetch_assoc();
-                                            $queryperempuan_td = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[DSN]' AND tabel_kependudukan.JK='2' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='Tidak Tamat SD'");
+                                            $queryperempuan_td = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[id]' AND tabel_kependudukan.JK='2' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='Tidak Tamat SD'");
                                             $row_perempuan_td = $queryperempuan_td->fetch_assoc();
                                             ?>
                                             <td><?= $row_laki_td['ttl']; ?></td>
@@ -503,9 +503,9 @@
 
                                             <!-- SD -->
                                             <?php
-                                            $querylaki_sd = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[DSN]' AND tabel_kependudukan.JK='1' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='SD dan Sederajat'");
+                                            $querylaki_sd = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[id]' AND tabel_kependudukan.JK='1' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='SD dan Sederajat'");
                                             $row_laki_sd = $querylaki_sd->fetch_assoc();
-                                            $queryperempuan_sd = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[DSN]' AND tabel_kependudukan.JK='2' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='SD dan Sederajat'");
+                                            $queryperempuan_sd = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[id]' AND tabel_kependudukan.JK='2' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='SD dan Sederajat'");
                                             $row_perempuan_sd = $queryperempuan_sd->fetch_assoc();
                                             ?>
                                             <td><?= $row_laki_sd['ttl']; ?></td>
@@ -514,9 +514,9 @@
 
                                             <!-- SMP -->
                                             <?php
-                                            $querylaki_smp = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[DSN]' AND tabel_kependudukan.JK='1' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='SMP dan Sederajat'");
+                                            $querylaki_smp = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[id]' AND tabel_kependudukan.JK='1' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='SMP dan Sederajat'");
                                             $row_laki_smp = $querylaki_smp->fetch_assoc();
-                                            $queryperempuan_smp = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[DSN]' AND tabel_kependudukan.JK='2' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='SMP dan Sederajat'");
+                                            $queryperempuan_smp = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[id]' AND tabel_kependudukan.JK='2' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='SMP dan Sederajat'");
                                             $row_perempuan_smp = $queryperempuan_smp->fetch_assoc();
                                             ?>
                                             <td><?= $row_laki_smp['ttl']; ?></td>
@@ -525,9 +525,9 @@
 
                                             <!-- SMA -->
                                             <?php
-                                            $querylaki_sma = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[DSN]' AND tabel_kependudukan.JK='1' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='SMA dan Sederajat'");
+                                            $querylaki_sma = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[id]' AND tabel_kependudukan.JK='1' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='SMA dan Sederajat'");
                                             $row_laki_sma = $querylaki_sma->fetch_assoc();
-                                            $queryperempuan_sma = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[DSN]' AND tabel_kependudukan.JK='2' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='SMA dan Sederajat'");
+                                            $queryperempuan_sma = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[id]' AND tabel_kependudukan.JK='2' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='SMA dan Sederajat'");
                                             $row_perempuan_sma = $queryperempuan_sma->fetch_assoc();
                                             ?>
                                             <td><?= $row_laki_sma['ttl']; ?></td>
@@ -536,9 +536,9 @@
 
                                             <!-- Diploma -->
                                             <?php
-                                            $querylaki_dip = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[DSN]' AND tabel_kependudukan.JK='1' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='Diploma 1-3'");
+                                            $querylaki_dip = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[id]' AND tabel_kependudukan.JK='1' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='Diploma 1-3'");
                                             $row_laki_dip = $querylaki_dip->fetch_assoc();
-                                            $queryperempuan_dip = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[DSN]' AND tabel_kependudukan.JK='2' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='Diploma 1-3'");
+                                            $queryperempuan_dip = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[id]' AND tabel_kependudukan.JK='2' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='Diploma 1-3'");
                                             $row_perempuan_dip = $queryperempuan_dip->fetch_assoc();
                                             ?>
                                             <td><?= $row_laki_dip['ttl']; ?></td>
@@ -547,9 +547,9 @@
 
                                             <!-- S1 -->
                                             <?php
-                                            $querylaki_s1 = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[DSN]' AND tabel_kependudukan.JK='1' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='S1 dan Sederajat'");
+                                            $querylaki_s1 = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[id]' AND tabel_kependudukan.JK='1' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='S1 dan Sederajat'");
                                             $row_laki_s1 = $querylaki_s1->fetch_assoc();
-                                            $queryperempuan_s1 = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[DSN]' AND tabel_kependudukan.JK='2' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='S1 dan Sederajat'");
+                                            $queryperempuan_s1 = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[id]' AND tabel_kependudukan.JK='2' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='S1 dan Sederajat'");
                                             $row_perempuan_s1 = $queryperempuan_s1->fetch_assoc();
                                             ?>
                                             <td><?= $row_laki_s1['ttl']; ?></td>
@@ -558,9 +558,9 @@
 
                                             <!-- S2 -->
                                             <?php
-                                            $querylaki_s2 = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[DSN]' AND tabel_kependudukan.JK='1' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='S2 dan Sederajat'");
+                                            $querylaki_s2 = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[id]' AND tabel_kependudukan.JK='1' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='S2 dan Sederajat'");
                                             $row_laki_s2 = $querylaki_s2->fetch_assoc();
-                                            $queryperempuan_s2 = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[DSN]' AND tabel_kependudukan.JK='2' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='S2 dan Sederajat'");
+                                            $queryperempuan_s2 = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[id]' AND tabel_kependudukan.JK='2' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='S2 dan Sederajat'");
                                             $row_perempuan_s2 = $queryperempuan_s2->fetch_assoc();
                                             ?>
                                             <td><?= $row_laki_s2['ttl']; ?></td>
@@ -569,9 +569,9 @@
 
                                             <!-- S3 -->
                                             <?php
-                                            $querylaki_s3 = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[DSN]' AND tabel_kependudukan.JK='1' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='S3 dan Sederajat'");
+                                            $querylaki_s3 = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[id]' AND tabel_kependudukan.JK='1' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='S3 dan Sederajat'");
                                             $row_laki_s3 = $querylaki_s3->fetch_assoc();
-                                            $queryperempuan_s3 = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[DSN]' AND tabel_kependudukan.JK='2' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='S3 dan Sederajat'");
+                                            $queryperempuan_s3 = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[id]' AND tabel_kependudukan.JK='2' AND tabel_pendidikan.PENDIDIKAN_TERAKHIR='S3 dan Sederajat'");
                                             $row_perempuan_s3 = $queryperempuan_s3->fetch_assoc();
                                             ?>
                                             <td><?= $row_laki_s3['ttl']; ?></td>
@@ -580,7 +580,7 @@
 
                                             <!-- Total L-P -->
                                             <?php
-                                            $querytotal_lp = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[DSN]'");
+                                            $querytotal_lp = $mysqli->query("SELECT count(NO_KK) AS ttl FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK = tabel_pendidikan.NIK WHERE tabel_kependudukan.DSN='$row_pend[id]'");
                                             $row_total_lp = $querytotal_lp->fetch_assoc();
                                             ?>
                                             <th><?= $row_total_lp['ttl']; ?></th>
@@ -785,18 +785,18 @@
                                 <tbody>
                                     <?php
                                     $nomor = 1;
-                                    $querypu = $mysqli->query("SELECT * FROM tabel_kependudukan GROUP BY DSN");
+                                    $querypu = $mysqli->query("SELECT * FROM tabel_dusun GROUP BY dusun");
                                     while ($rowpu = $querypu->fetch_assoc()) {
                                     ?>
                                         <tr align="center">
                                             <td style="vertical-align: middle; text-align: center;"><?= $nomor++ ?></td>
-                                            <td style="vertical-align: middle; text-align: center;">Dusun <?= $rowpu['DSN'] ?></td>
+                                            <td style="vertical-align: middle; text-align: center;"><?= $rowpu['dusun'] ?></td>
 
                                             <!-- petani -->
                                             <?php
-                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Petani' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Petani' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanlaki = $query_pekerjaanlaki->fetch_assoc();
-                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Petani' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Petani' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanperempuan = $query_pekerjaanperempuan->fetch_assoc();
                                             ?>
                                             <td style="vertical-align: middle; text-align: center;"><?= $row_pekerjaanlaki['ttl'] ?></td>
@@ -805,9 +805,9 @@
 
                                             <!-- Buruh Tani -->
                                             <?php
-                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Buruh Tani' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Buruh Tani' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanlaki = $query_pekerjaanlaki->fetch_assoc();
-                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Buruh Tani' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Buruh Tani' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanperempuan = $query_pekerjaanperempuan->fetch_assoc();
                                             ?>
                                             <td style="vertical-align: middle; text-align: center;"><?= $row_pekerjaanlaki['ttl'] ?></td>
@@ -816,9 +816,9 @@
 
                                             <!-- Nelayan -->
                                             <?php
-                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Nelayan' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Nelayan' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanlaki = $query_pekerjaanlaki->fetch_assoc();
-                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Nelayan' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Nelayan' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanperempuan = $query_pekerjaanperempuan->fetch_assoc();
                                             ?>
                                             <td style="vertical-align: middle; text-align: center;"><?= $row_pekerjaanlaki['ttl'] ?></td>
@@ -827,9 +827,9 @@
 
                                             <!-- Buruh Bangunan -->
                                             <?php
-                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Buruh Bangunan' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Buruh Bangunan' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanlaki = $query_pekerjaanlaki->fetch_assoc();
-                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Buruh Bangunan' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Buruh Bangunan' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanperempuan = $query_pekerjaanperempuan->fetch_assoc();
                                             ?>
                                             <td style="vertical-align: middle; text-align: center;"><?= $row_pekerjaanlaki['ttl'] ?></td>
@@ -838,9 +838,9 @@
 
                                             <!-- Buruh Perkebunan -->
                                             <?php
-                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Buruh Perkebunan' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Buruh Perkebunan' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanlaki = $query_pekerjaanlaki->fetch_assoc();
-                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Buruh Perkebunan' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Buruh Perkebunan' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanperempuan = $query_pekerjaanperempuan->fetch_assoc();
                                             ?>
                                             <td style="vertical-align: middle; text-align: center;"><?= $row_pekerjaanlaki['ttl'] ?></td>
@@ -849,9 +849,9 @@
 
                                             <!-- Pedagang -->
                                             <?php
-                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Pedagang' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Pedagang' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanlaki = $query_pekerjaanlaki->fetch_assoc();
-                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Pedagang' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Pedagang' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanperempuan = $query_pekerjaanperempuan->fetch_assoc();
                                             ?>
                                             <td style="vertical-align: middle; text-align: center;"><?= $row_pekerjaanlaki['ttl'] ?></td>
@@ -860,9 +860,9 @@
 
                                             <!-- Pengolahan/Industri -->
                                             <?php
-                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Pengolahan/Industri' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Pengolahan/Industri' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanlaki = $query_pekerjaanlaki->fetch_assoc();
-                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Pengolahan/Industri' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Pengolahan/Industri' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanperempuan = $query_pekerjaanperempuan->fetch_assoc();
                                             ?>
                                             <td style="vertical-align: middle; text-align: center;"><?= $row_pekerjaanlaki['ttl'] ?></td>
@@ -871,9 +871,9 @@
 
                                             <!-- Guru -->
                                             <?php
-                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Guru' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Guru' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanlaki = $query_pekerjaanlaki->fetch_assoc();
-                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Guru' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Guru' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanperempuan = $query_pekerjaanperempuan->fetch_assoc();
                                             ?>
                                             <td style="vertical-align: middle; text-align: center;"><?= $row_pekerjaanlaki['ttl'] ?></td>
@@ -882,9 +882,9 @@
 
                                             <!-- PNS -->
                                             <?php
-                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'PNS' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'PNS' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanlaki = $query_pekerjaanlaki->fetch_assoc();
-                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'PNS' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'PNS' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanperempuan = $query_pekerjaanperempuan->fetch_assoc();
                                             ?>
                                             <td style="vertical-align: middle; text-align: center;"><?= $row_pekerjaanlaki['ttl'] ?></td>
@@ -893,9 +893,9 @@
 
                                             <!-- Pensiunan -->
                                             <?php
-                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Pensiunan' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Pensiunan' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanlaki = $query_pekerjaanlaki->fetch_assoc();
-                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Pensiunan' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Pensiunan' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanperempuan = $query_pekerjaanperempuan->fetch_assoc();
                                             ?>
                                             <td style="vertical-align: middle; text-align: center;"><?= $row_pekerjaanlaki['ttl'] ?></td>
@@ -904,9 +904,9 @@
 
                                             <!-- Perangkat Desa -->
                                             <?php
-                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Perangkat Desa' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Perangkat Desa' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanlaki = $query_pekerjaanlaki->fetch_assoc();
-                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Perangkat Desa' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Perangkat Desa' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanperempuan = $query_pekerjaanperempuan->fetch_assoc();
                                             ?>
                                             <td style="vertical-align: middle; text-align: center;"><?= $row_pekerjaanlaki['ttl'] ?></td>
@@ -915,9 +915,9 @@
 
                                             <!-- TKI -->
                                             <?php
-                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'TKI' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'TKI' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanlaki = $query_pekerjaanlaki->fetch_assoc();
-                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'TKI' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'TKI' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanperempuan = $query_pekerjaanperempuan->fetch_assoc();
                                             ?>
                                             <td style="vertical-align: middle; text-align: center;"><?= $row_pekerjaanlaki['ttl'] ?></td>
@@ -926,16 +926,16 @@
 
                                             <!-- Lainnya -->
                                             <?php
-                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Lainnya' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanlaki = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Lainnya' AND tabel_kependudukan.JK = '1' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanlaki = $query_pekerjaanlaki->fetch_assoc();
-                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Lainnya' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_pekerjaanperempuan = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_pekerjaan.PEKERJAAN = 'Lainnya' AND tabel_kependudukan.JK = '2' AND tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_pekerjaanperempuan = $query_pekerjaanperempuan->fetch_assoc();
                                             ?>
                                             <td style="vertical-align: middle; text-align: center;"><?= $row_pekerjaanlaki['ttl'] ?></td>
                                             <td style="vertical-align: middle; text-align: center;"><?= $row_pekerjaanperempuan['ttl'] ?></td>
                                             <!-- // -->
                                             <?php
-                                            $query_total = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_kependudukan.DSN = '$rowpu[DSN]'");
+                                            $query_total = $mysqli->query("SELECT count(tabel_kependudukan.NIK) AS ttl FROM tabel_kependudukan JOIN tabel_pekerjaan ON tabel_kependudukan.NIK = tabel_pekerjaan.NIK WHERE tabel_kependudukan.DSN = '$rowpu[id]'");
                                             $row_total = $query_total->fetch_assoc();
                                             ?>
                                             <th style="vertical-align: middle; text-align: center;"><?= $x[] = $row_total['ttl'] ?></th>

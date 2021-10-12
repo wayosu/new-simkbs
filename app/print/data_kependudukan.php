@@ -1,3 +1,10 @@
+<?php
+    include '../koneksi.php';
+    $url= "http://$_SERVER[HTTP_HOST]/simkbs/";
+    $sql_profil = "SELECT * FROM tabel_control WHERE id=1";
+    $result_profil = $mysqli->query($sql_profil);
+    $row_profil = $result_profil->fetch_object();
+?>
 <html>
 
 <head>
@@ -54,13 +61,13 @@
     <table width="100%" class="display-header">
         <tr>
             <td>
-                <img src="../../kabgor.png" alt="logo-kab" width="50">
+                <img src="<?= $url; ?>dist/img/<?= $row_profil->logo_desa; ?>" alt="logo-kab" width="50">
             </td>
         </tr>
         <tr>
             <td>
-                <span class="title-header">Kantor Desa Bumela</span><br>
-                <small>Bumela, Bilato, Kabupaten Gorontalo, Gorontalo</small>
+                <span class="title-header">Kantor <?= $row_profil->nama_desa; ?></span><br>
+                <small><?= $row_profil->alamat; ?></small>
             </td>
         </tr>
     </table>
@@ -86,9 +93,10 @@
         </thead>
         <tbody>
             <?php
-            include '../koneksi.php';
             $sql = $mysqli->query("SELECT * FROM tabel_kependudukan JOIN tabel_pendidikan ON tabel_kependudukan.NIK=tabel_pendidikan.NIK JOIN tabel_pekerjaan ON tabel_kependudukan.NIK=tabel_pekerjaan.NIK ORDER BY NO_KK DESC");
             while ($row = $sql->fetch_assoc()) {
+                $sql_dusun = $mysqli->query("SELECT * FROM tabel_dusun WHERE id='$row[DSN]'");
+                $row_dusun = $sql_dusun->fetch_assoc();
             ?>
                 <?php if ($row['HBKEL'] == 1) : ?>
                     <tr align="center" class="background-tr">
@@ -124,7 +132,7 @@
                     <td><?= $row['PENDIDIKAN_TERAKHIR']; ?></td>
                     <td><?= $row['PEKERJAAN']; ?></td>
                     <td><?= $row['PENGHASILAN_PER_BULAN']; ?></td>
-                    <td><?= $row['DSN']; ?></td>
+                    <td><?= $row_dusun['dusun']; ?></td>
                     </tr>
                 <?php
             }
