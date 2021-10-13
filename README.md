@@ -3,7 +3,7 @@ Sistem Informasi Manajemen Kependudukan Dan Bantuan Sosial menggunakan PHP dan M
 
 
 ## Beranda
-![]([preview1.png)
+![]([preview1.png])
 
 ## Dashboard
-![]([preview2.png)
+![]([preview2.png])
